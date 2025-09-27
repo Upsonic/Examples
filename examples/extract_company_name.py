@@ -1,22 +1,24 @@
-from upsonic import Task, Direct
+from upsonic import Task, Agent
 from pydantic import BaseModel
 
 # Define response format
 class CompanyResponse(BaseModel):
     company_name: str
 
-# Initialize Upsonic Direct client
-client = Direct()
+# Create an Agent
+doc_agent = Agent(
+    name="document_reader"
+)
 
-# Create a task with the document as image
+# Create a task
 task = Task(
     description="Extract the company name from the provided document.",
     images=["examples/assets/vergi_levhasi.png"],
     response_format=CompanyResponse
 )
 
-# Run task
-result = client.do(task)
+# Run the task through the agent
+result = doc_agent.do(task)
 
-# Print
+# Print result
 print("Extracted Company Name:", result.company_name)
