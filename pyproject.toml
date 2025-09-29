@@ -1,0 +1,28 @@
+[project]
+name = "examples"
+version = "0.1.0"
+description = "Upsonic example tasks"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "upsonic==0.61.1a1758720414",
+    "pydantic==2.10.5",
+    "asyncpg>=0.30.0",
+    "aiosqlite>=0.21.0",
+    "numpy<2",
+    "pandas",
+    "rich",
+    "pydantic-ai==0.3.2",
+    "httpx",
+    "typer",
+    "transformers",
+    "aiofiles>=24.1.0",
+    "aiohttp>=3.12.15",
+    "pypdf>=6.0.0",
+    "python-docx>=1.2.0",
+    "python-frontmatter>=1.1.0",
+    "psutil==6.1.1",
+    "pillow",
+    "openpyxl",
+    "jq>=1.10.0"
+]
