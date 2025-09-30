@@ -1,7 +1,7 @@
 # task_examples/find_company_website/find_company_website.py
 
 from pydantic import BaseModel, HttpUrl
-from task_examples.find_company_website.serper_client import search_company
+from serper_client import search_company
 
 class WebsiteResponse(BaseModel):
     company_name: str

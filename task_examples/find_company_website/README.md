@@ -17,11 +17,11 @@ This example demonstrates how to use the **Upsonic** framework together with the
    export SERPER_API_KEY="your_api_key_here"
    ```
 
-## 🚀 Run the Example
-From the repo root:
+## Run the Example
+From the repo root, run directly with `uv`:
 
 ```bash
-python -m task_examples.find_company_website.find_company_website
+uv run task_examples/find_company_website/find_company_website.py
 ```
 
 ## Example Output
