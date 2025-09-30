@@ -26,3 +26,8 @@ dependencies = [
     "openpyxl",
     "jq>=1.10.0"
 ]
+
+[tool.uv]
+override-dependencies = [
+    "torch==2.7.0",
+]
