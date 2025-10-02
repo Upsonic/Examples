@@ -1,74 +1,90 @@
-# Find Company Website
+# Find Company Website (Upsonic Agent Example)
 
-Find and validate official company websites using Serper API and intelligent validation.
+This example shows how to build **Upsonic LLM agents** that can:
 
-## Quick Start
+1. **Find** the official website of a company using the Serper API.  
+2. **Validate** whether a given website belongs to that company.
 
-1. **Get API Key**: Sign up at [serper.dev](https://serper.dev/) (free)
-2. **Set Environment Variable**:
-   ```bash
-   export SERPER_API_KEY="your_api_key_here"
-   ```
-3. **Run**:
-   ```bash
-   # Basic search
-   uv run task_examples/find_company_website/find_company_website.py "Apple Inc"
-   
-   # Advanced validation
-   uv run task_examples/find_company_website/validate_company_website.py --company "Apple Inc"
-   ```
+---
 
-## What It Does
+## Setup
 
-- **Finds** company websites using Google search via Serper API
-- **Filters** out social media, news sites, and non-official pages
-- **Validates** ownership by analyzing page content (title, headers, structured data)
-- **Supports** international companies with proper character handling
+1. Install dependencies:
 
-## Files
-
-- `find_company_website.py` - Basic website finder
-- `validate_company_website.py` - Advanced validator with retry logic
-- `html_utils.py` - HTML parsing and validation helpers
-- `serper_client.py` - Serper API client
-
-## Usage Examples
-
-### Basic Search
 ```bash
-uv run task_examples/find_company_website/find_company_website.py "Google LLC"
+uv sync
 ```
 
-**Output:**
-```
-Searching for: Google LLC
-Found: Google LLC
-Website: https://www.google.com/
-```
+2. Copy `.env.example` to `.env` and add your Serper API key:
 
-### Advanced Validation
 ```bash
-uv run task_examples/find_company_website/validate_company_website.py --company "Apple Inc"
+cp .env.example .env
 ```
 
-**Output:**
-```
-[1/3] Validating https://www.apple.com ...
-Valid: Apple Inc → https://www.apple.com
-----
-Company: Apple Inc
-Validated: True
-Website: https://www.apple.com
-Checked: 1
+3. Edit `.env` and replace the placeholder with your real key:
+
+```ini
+SERPER_API_KEY=your_api_key_here
 ```
 
-## Company Examples
+You can get a free API key at https://serper.dev.
 
-**International:**
-- `Apple Inc` → https://www.apple.com/
-- `Google LLC` → https://www.google.com/
-- `Microsoft Corporation` → https://www.microsoft.com/
+## 🔎 Find a Company Website
 
-**Turkish:**
-- `Upsonic Teknoloji A.Ş` → https://upsonic.ai/
-- `Trendyol Teknoloji A.Ş` → https://www.trendyol.com/
+Run the finder agent with a company name:
+
+```bash
+uv run python task_examples/find_company_website/find_company_website.py --company "Amazon Inc"
+```
+
+**Example output:**
+
+```json
+{
+  "company": "Amazon Inc",
+  "website": "https://www.amazon.com/",
+  "validated": true,
+  "score": 0.9,
+  "reason": "Brand in domain"
+}
+```
+
+## Validate a Company Website
+
+Run the validator agent with a company name and a URL:
+
+```bash
+uv run python task_examples/find_company_website/validate_company_website.py --company "Amazon Inc" --url "https://www.amazon.com/"
+```
+
+**Example output:**
+
+```json
+{
+  "company": "Amazon Inc",
+  "website": "https://www.amazon.com/",
+  "validated": true,
+  "score": 0.9,
+  "reason": "Brand in domain"
+}
+```
+
+## File Structure
+
+```bash
+task_examples/find_company_website/
+├── find_company_website.py      # Agent: find websites
+├── validate_company_website.py  # Agent: validate websites
+├── serper_client.py             # Serper API client
+├── html_utils.py                # HTML fetch + signals
+└── README.md
+
+# Root directory
+.env.example                     # Example env file for API keys (in root)
+```
+
+## Notes
+
+- **Finder**: takes a company name, searches with Serper, validates candidates, and returns the best match.
+- **Validator**: checks if a given URL belongs to a company.
+- Both use Upsonic agents. 
