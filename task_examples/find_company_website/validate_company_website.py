@@ -6,7 +6,10 @@ from pydantic import BaseModel, HttpUrl
 from typing import Optional
 from urllib.parse import urlparse
 
-from html_utils import fetch, extract_text_signals
+try:
+    from html_utils import fetch, extract_text_signals
+except ImportError:
+    from task_examples.find_company_website.html_utils import fetch, extract_text_signals
 from bs4 import BeautifulSoup
 
 

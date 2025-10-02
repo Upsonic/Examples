@@ -1,12 +1,21 @@
 # task_examples/find_company_website/find_company_website.py
 
+import sys
+import os
 import argparse
+
+# Add the project root to the path for absolute imports
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
 from upsonic import Agent, Task
 from pydantic import BaseModel, HttpUrl
 from typing import Optional
 
-from serper_client import find_company_candidates
-from validate_company_website import validate_candidate, ValidationResult
+try:
+    from serper_client import find_company_candidates
+except ImportError:
+    from task_examples.find_company_website.serper_client import find_company_candidates
+from task_examples.find_company_website.validate_company_website import validate_candidate, ValidationResult
 
 
 class WebsiteResponse(BaseModel):
