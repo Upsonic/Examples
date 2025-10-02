@@ -1,4 +1,4 @@
-# Find Company Website (Upsonic Agent Example)
+# Find Company Website
 
 This example shows how to build **Upsonic LLM agents** that can:
 
@@ -29,7 +29,7 @@ SERPER_API_KEY=your_api_key_here
 
 You can get a free API key at https://serper.dev.
 
-## 🔎 Find a Company Website
+## Find a Company Website
 
 Run the finder agent with a company name:
 
