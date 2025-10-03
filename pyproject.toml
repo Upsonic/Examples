@@ -24,5 +24,11 @@ dependencies = [
     "psutil==6.1.1",
     "pillow",
     "openpyxl",
-    "jq>=1.10.0"
+    "jq>=1.10.0",
+    "python-dotenv"
+]
+
+[tool.uv]
+override-dependencies = [
+    "torch==2.7.0",
 ]
