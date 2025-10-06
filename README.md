@@ -13,5 +13,8 @@ This repository contains examples demonstrating how to use the **Upsonic** frame
   Search and return the official website of a company using Serper API.
 
 - [Find Sales Categories](task_examples/find_sales_categories)  
-  Resolve an e-commerce company name to its official website using the Serper API. 
+  Resolve an e-commerce company name to its official website using the Serper API.
+
+- [Find Example Product](task_examples/find_example_product)  
+  Discover and extract product information from a company's ecommerce website. 
   
