@@ -1,41 +1,51 @@
 # Find Example Product
 
-This example shows how to build **Upsonic LLM agents** that can:
+This example demonstrates how to build **Upsonic LLM agents** that can autonomously explore ecommerce websites and extract structured product data — powered by the Serper API for web scraping and LLM-driven reasoning for navigation.
 
-1. **Find** the official website of a company using the Serper API.
-2. **Discover** product pages on that website by analyzing site structure.
-3. **Extract** structured product information including name, price, brand, and availability.
+## Overview
+
+In this task, the agent:
+
+1. **Finds** the official website of a company using the `find_company_website` agent.
+2. **Explores** the site intelligently using a `website_scraping` tool (Serper API).
+3. **Extracts** structured product information — including name, price, brand, availability, and URL — from one of the product pages.
+
+Unlike static scrapers, this agent uses **LLM reasoning** to decide which pages to explore and when to retry.
 
 ---
 
 ## Setup
 
-1. Install dependencies:
+### 1. Install dependencies
 
 ```bash
 uv sync
 ```
 
-2. Copy `.env.example` to `.env` and add your Serper API key:
+### 2. Add your Serper API key
+
+Copy `.env.example` to `.env`:
 
 ```bash
 cp .env.example .env
 ```
 
-3. Edit `.env` and replace the placeholder with your real key:
+Edit `.env` and add your Serper API key:
 
 ```ini
-SERPER_API_KEY=your_api_key_here
+SERPER_API_KEY=your_serper_api_key_here
 ```
 
-You can get a free API key at https://serper.dev.
+You can get a free API key at [https://serper.dev](https://serper.dev).
 
-## Find an Example Product
+---
 
-Run the finder agent with a company name:
+## Run the Agent
+
+Run the agent with any company name:
 
 ```bash
-uv run python task_examples/find_example_product/find_example_product.py --company "Mavi"
+uv run task_examples/find_example_product/find_example_product.py --company "Mavi"
 ```
 
 **Example output:**
@@ -43,52 +53,64 @@ uv run python task_examples/find_example_product/find_example_product.py --compa
 ```json
 {
   "product_name": "STEVE ATHLETIC FIT JEANS IN DARK INK SUPERMOVE",
-  "product_price": "USD 128.0",
+  "product_price": "$128.00",
   "product_brand": "Mavi",
-  "availability": "In Stock"
+  "availability": "In Stock",
+  "url": "https://us.mavi.com/products/steve-dark-ink-supermove"
 }
 ```
 
-Try with other companies:
+Try it with other companies:
 
 ```bash
-uv run python task_examples/find_example_product/find_example_product.py --company "Nike"
-uv run python task_examples/find_example_product/find_example_product.py --company "Adidas"
+uv run task_examples/find_example_product/find_example_product.py --company "Nike"
+uv run task_examples/find_example_product/find_example_product.py --company "Adidas"
+uv run task_examples/find_example_product/find_example_product.py --company "Apple"
 ```
+
+---
 
 ## How It Works
 
-The flow is split into reusable components:
+### 1. Website Discovery
 
-### Website Finder
-- Uses the `find_company_website` agent to locate the official website.
-- Validates candidate websites and returns the best match.
+- Uses the existing `find_company_website` agent to find and validate the company's homepage.
 
-### Product Discovery
-- Scrapes the homepage to find product-like links.
-- Tries common ecommerce paths (`/products`, `/collections`, etc.).
-- Ranks candidates by relevance and depth.
+### 2. Intelligent Exploration
 
-### Product Extraction
-- Scrapes the product page HTML.
-- Extracts structured data using JSON-LD, meta tags, and CSS selectors.
-- Handles multiple fallback strategies for robust extraction.
+- Uses the `website_scraping` tool (Serper API) to fetch website content.
+- The LLM agent reads the scraped text, identifies relevant sublinks, and autonomously decides which pages to follow.
+- It may retry multiple times until it finds a valid product page.
+
+### 3. Product Extraction
+
+The agent extracts:
+- `product_name`
+- `product_price`
+- `product_brand`
+- `availability`
+- `url`
+
+Returns structured output in the Pydantic `ProductInfo` format.
+
+---
 
 ## File Structure
 
 ```bash
 task_examples/find_example_product/
-├── find_example_product.py    # Main agent script
-├── config.py                  # Configuration (unused)
-└── README.md                  # This file
+├── find_example_product.py      # Main LLM agent
+└── README.md                    # This file
 
-# Root directory
-.env.example                   # Example env file for API keys (in root)
+.env.example                     # Example environment file (root)
 ```
+
+---
 
 ## Notes
 
-- **Robust extraction**: Uses multiple fallback strategies (JSON-LD, meta tags, CSS selectors) for reliable product data extraction.
-- **Direct scraping**: Uses direct HTTP requests with proper browser headers instead of external scraping services.
-- **Graceful degradation**: If specific fields cannot be extracted, they will be `null` in the output.
-- **Dependencies**: Requires the `find_company_website` example for website discovery.
+- **Serper-based scraping**: Uses Serper's scraping API to fetch rendered web content.
+- **No path restrictions** — the LLM decides where to explore.
+- **Single Task architecture**: Website discovery → exploration → extraction all occur in one task.
+- **Type-safe results**: Structured `ProductInfo` output validated by Pydantic.
+- Requires the `find_company_website` example to work properly.
