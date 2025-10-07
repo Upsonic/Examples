@@ -45,37 +45,12 @@ def website_scraping(url: str) -> dict:
         data = resp.json()
         return {"url": url, "content": data.get("text", "")}
     except Exception as e:
-        print(f"⚠️ Serper scraping failed for {url}: {e}")
+        print(f"Serper scraping failed for {url}: {e}")
         return {"url": url, "content": ""}
 
 
 # --- Agent Setup ---
 example_product_agent = Agent(name="example_product_agent")
-
-def find_example_product_tool(company_name: str) -> ProductInfo:
-    """
-    Tool wrapper for Upsonic Task.
-    The LLM will handle exploration using website_scraping.
-    """
-    site = find_company_website(company_name)
-    website_url = str(site.website) if site and site.website else None
-    if not website_url:
-        return ProductInfo(
-            product_name="Website not found",
-            product_price=None,
-            product_brand=company_name,
-            availability=None,
-            url=None,
-        )
-
-    print(f"🌍 Found website: {website_url}")
-    return ProductInfo(
-        product_name="LLM Exploration Needed",
-        product_price=None,
-        product_brand=company_name,
-        availability=None,
-        url=website_url,
-    )
 
 
 # --- CLI + Task definition ---
@@ -91,7 +66,7 @@ if __name__ == "__main__":
 You are an intelligent agent tasked with finding an example product from {args.company}'s website.
 
 Steps:
-1. Use the `find_example_product_tool` to get the official company website.
+1. Use the `find_company_website` tool to get the official company website.
 2. Then use `website_scraping` to read the website content.
 3. Identify relevant sublinks or sections that likely contain product information (e.g., products, shop, catalog, collections, items).
 4. Use `website_scraping` again to fetch those subpages as needed.
@@ -107,7 +82,7 @@ If you cannot find a product, retry with different relevant sublinks before givi
 
     task = Task(
         description=task_prompt.strip(),
-        tools=[website_scraping, find_example_product_tool],
+        tools=[website_scraping, find_company_website],
         response_format=ProductInfo,
     )
 
