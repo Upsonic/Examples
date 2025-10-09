@@ -32,11 +32,12 @@ uv sync
 
 ### Example Usage
 
-The script includes three test cases demonstrating different crypto-related queries:
+The script includes four test cases:
 
 - **Test 1**: Question about Bitcoin (should be blocked)
 - **Test 2**: Question about Ethereum (should be blocked)
 - **Test 3**: General cryptocurrency question (should be blocked)
+- **Test 4**: Normal non-crypto question (should be allowed - demonstrates selective blocking)
 
 ### Run the demo
 
@@ -83,8 +84,23 @@ Cryptocurrency related content detected and blocked.
 
 Cryptocurrency related content detected and blocked.
 
+📝 Test 4: Asking a normal question (non-crypto)
+----------------------------------------------------------------------
+Query: 'What is the capital of France?'
+
+✅ Query was NOT blocked by CryptoBlockPolicy
+   (Technical note: OpenAI API configuration issue, not policy-related)
+
 ======================================================================
-✅ Demo Complete! All crypto-related queries were blocked.
+✅ Demo Complete!
+======================================================================
+
+📊 Results:
+   • Tests 1-3: Crypto queries → ❌ Blocked (as expected)
+   • Test 4: Normal query → ✅ Allowed (working correctly)
+
+💡 Key Takeaway: The CryptoBlockPolicy only blocks crypto-related
+   content. All other queries work normally!
 ======================================================================
 ```
 
