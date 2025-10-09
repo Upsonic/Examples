@@ -29,4 +29,3 @@ This repository contains examples demonstrating how to use the **Upsonic** frame
 
 - [Extract People](task_examples/extract_people)  
   Extract all person names mentioned in a given text using structured output. 
-  
