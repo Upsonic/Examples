@@ -116,33 +116,6 @@ Query: 'What is the capital of France?'
 
 ---
 
-## Code Example
-
-```python
-from upsonic import Agent, Task
-from upsonic.safety_engine import CryptoBlockPolicy
-
-# Create an agent with CryptoBlockPolicy
-crypto_agent = Agent(
-    name="Crypto-Sensitive Agent",
-    role="Assistant adhering to content policies",
-    goal="Provide information while blocking cryptocurrency-related content",
-    instructions="Avoid discussing or providing information about cryptocurrencies.",
-    user_policy=CryptoBlockPolicy,  # Apply to user inputs
-    agent_policy=CryptoBlockPolicy  # Apply to agent outputs
-)
-
-# Test with a crypto query
-task = Task(
-    description="Can you tell me about Bitcoin?",
-    response_format=str
-)
-
-crypto_agent.print_do(task)  # This will be blocked
-```
-
----
-
 ## File Structure
 
 ```bash
