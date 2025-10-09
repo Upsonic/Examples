@@ -22,5 +22,8 @@ This repository contains examples demonstrating how to use the **Upsonic** frame
   Autonomously find and verify agreement or policy pages on company websites.
 
 - [Classify Emails](task_examples/classify_emails)  
-  Classify fintech operation emails into categories using LLM reasoning. 
+  Classify fintech operation emails into categories using LLM reasoning.
+
+- [Extract People](task_examples/extract_people)  
+  Extract all person names mentioned in a given text using structured output. 
   
