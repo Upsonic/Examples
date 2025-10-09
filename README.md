@@ -24,6 +24,9 @@ This repository contains examples demonstrating how to use the **Upsonic** frame
 - [Classify Emails](task_examples/classify_emails)  
   Classify fintech operation emails into categories using LLM reasoning.
 
+- [Crypto Block Policy](task_examples/crypto_block_policy)  
+  Demonstrate Upsonic's Safety Engine with prebuilt CryptoBlockPolicy to automatically block cryptocurrency-related content.
+
 - [Extract People](task_examples/extract_people)  
   Extract all person names mentioned in a given text using structured output. 
   
