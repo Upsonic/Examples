@@ -1,126 +1,201 @@
 import os
 import sys
 import requests
-from typing import List, Optional
+from typing import List
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
-# Ensure repo root path for Upsonic imports
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-
-from upsonic import Agent, Task
-from task_examples.find_company_website.find_company_website import find_company_website
-
 # --- Config ---
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 load_dotenv()
 SERPER_API_KEY = os.getenv("SERPER_API_KEY")
-
 if not SERPER_API_KEY:
     raise ValueError("SERPER_API_KEY missing in .env file.")
 
+SERPER_SCRAPE = "https://google.serper.dev/scrape"
+HEADERS = {"X-API-KEY": SERPER_API_KEY, "Content-Type": "application/json"}
 
-# --- Response Models ---
+
+# --- Pydantic Models ---
 class AgreementLink(BaseModel):
     url: str
-    is_available: Optional[bool] = None
-    is_agreement_page: Optional[bool] = None
+    is_available: bool
+    is_agreement_page: bool
 
 
 class AgreementLinksResponse(BaseModel):
     company_name: str
-    website: Optional[str]
+    website: str
     agreements: List[AgreementLink]
 
 
-# --- Website Scraping Tool (Serper API) ---
+# --- Single Tool: Website Scraping ---
 def website_scraping(url: str) -> dict:
     """
-    Use Serper API to fetch website content.
-    Returns a dict with {url, content, links}.
-    """
-    endpoint = "https://google.serper.dev/scrape"
-    headers = {"X-API-KEY": SERPER_API_KEY, "Content-Type": "application/json"}
-    payload = {"url": url}
+    Scrape a webpage via Serper /scrape endpoint.
 
+    Args:
+        url: The URL to scrape (can be a Google search page or any website)
+
+    Returns:
+        A dictionary with:
+        - url: The scraped URL
+        - content: The text content of the page
+        - links: A list of links found on the page
+    """
     try:
-        resp = requests.post(endpoint, headers=headers, json=payload, timeout=30)
+        resp = requests.post(
+            SERPER_SCRAPE,
+            headers=HEADERS,
+            json={"url": url},
+            timeout=40
+        )
         resp.raise_for_status()
         data = resp.json()
-        return {"url": url, "content": data.get("text", ""), "links": data.get("links", [])}
+        return {
+            "url": url,
+            "content": data.get("text", ""),
+            "links": data.get("links", [])
+        }
     except Exception as e:
-        print(f"⚠️ Serper scraping failed for {url}: {e}")
-        return {"url": url, "content": "", "links": []}
+        return {
+            "url": url,
+            "content": f"Error scraping: {str(e)}",
+            "links": []
+        }
 
 
-# --- Agent Setup ---
-agreement_agent = Agent(name="agreement_agent")
-
-
-# --- CLI + Task Definition ---
+# --- Main Execution ---
 if __name__ == "__main__":
     import argparse
+    from upsonic import Agent, Task
 
-    parser = argparse.ArgumentParser(description="Find agreement or policy links from a company's website.")
-    parser.add_argument("--company", required=True, help="Company name, e.g. 'Nike', 'Adidas', 'Mavi'")
+    parser = argparse.ArgumentParser(
+        description="Find agreement/policy links for a company using only LLM reasoning."
+    )
+    parser.add_argument(
+        "--website",
+        required=True,
+        help="Company website URL (e.g., 'https://www.nike.com')"
+    )
     args = parser.parse_args()
 
-    # Define Task prompt — LLM handles all logic
+    website = args.website.strip().rstrip("/")
+    # Extract company name from domain for display
+    from urllib.parse import urlparse
+    domain = urlparse(website).netloc.replace("www.", "")
+    company_name = domain.split(".")[0].title()
+
+    print(f"\n🚀 Running Agreement Links Finder for: {website}\n")
+
+    # --- Task Prompt: All logic is handled by the LLM ---
     task_prompt = f"""
-You are an intelligent autonomous LLM agent tasked with discovering and verifying all *agreement or policy* pages on {args.company}'s website.
+You are a web exploration agent. Your task is to find agreement/policy pages on {website}.
 
-### Your Mission
-Find and confirm links to pages that define company agreements, policies, or legal terms such as:
-- Privacy Policy
-- Terms of Service / Terms & Conditions
-- Cookie Policy
-- Return or Refund Policy
-- Legal Notice / GDPR / Data Policy / User Agreement
+TOOL AVAILABLE:
+- website_scraping(url) → returns {{"url": str, "content": str, "links": [str, ...]}}
 
-### Instructions
-1. Use the `find_company_website` tool to get the company's official website.
-2. Use `website_scraping` to fetch and read the homepage content.
-   - If the homepage doesn’t include relevant links, explore subpages like `/help`, `/support`, `/legal`, `/info`, `/about`, or `/footer`.
-3. Identify links or sections that are likely related to agreements or policies.
-   - Look for keywords: privacy, terms, policy, refund, cookie, gdpr, legal, agreement, compliance, data, protection, conditions.
-4. For each candidate link:
-   - Use `website_scraping` again to fetch the subpage content.
-   - Determine if the page is reachable (status 200) and if its text contextually describes an agreement/policy.
-   - Confirm based on patterns like:
-     * mentions of "personal data", "user consent", "terms of use", "cookies", "privacy", "legal rights", "disclaimer", "data processing".
-5. Prioritize pages that explicitly appear to be legal, policy, or terms documents.
-6. If no valid pages are found, retry by exploring deeper navigation pages or help sections.
-7. Return your final structured JSON result using this format:
+YOUR WORKFLOW (MANDATORY STEPS):
+
+STEP 1: Scrape the homepage
+→ Call website_scraping("{website}")
+→ You'll receive a dictionary with "links" array
+
+STEP 2: Search through the links array
+→ Look for URLs containing: "privacy", "terms", "policy", "legal", "cookie", "return", "shipping"
+→ Identify at least 3-5 candidate URLs
+
+STEP 3: Verify EACH candidate URL
+→ For EACH promising URL, call website_scraping(candidate_url)
+→ Check if the content contains policy/legal text
+→ Keep a list of verified policy pages
+
+STEP 4: If you find fewer than 2 policies
+→ Look for additional links (e.g., "/legal", "/policies", "/help")
+→ Try common policy URLs like: "{website}/privacy-policy" or "{website}/terms"
+→ Scrape and verify those too
+
+STEP 5: Return your findings
+→ Only include URLs you actually scraped and confirmed contain policy content
+
+---
+
+EXAMPLE WORKFLOW:
+
+Call 1: website_scraping("{website}")
+→ Response shows links array with 50+ links
+→ You spot: "/privacy-policy", "/terms-of-use", "/cookie-policy"
+
+Call 2: website_scraping("{website}/privacy-policy")
+→ Content contains "Privacy Policy... we collect data..."
+→ VERIFIED ✓ Add to results
+
+Call 3: website_scraping("{website}/terms-of-use")  
+→ Content contains "Terms of Service... by using..."
+→ VERIFIED ✓ Add to results
+
+Call 4: website_scraping("{website}/cookie-policy")
+→ Content contains "Cookie Policy... we use cookies..."
+→ VERIFIED ✓ Add to results
+
+Return: 3 verified policy URLs
+
+---
+
+CRITICAL RULES:
+
+🚨 You MUST make at least 5-8 tool calls (explore multiple links)
+🚨 Do NOT return a result until you've verified at least 2-3 policy pages
+🚨 Do NOT skip verification - always scrape each candidate URL
+🚨 Do NOT make up URLs - only use discovered links or standard patterns
+🚨 If first attempt fails, try alternative approaches (search footer links, try common paths)
+
+---
+
+EXPECTED OUTPUT JSON:
 
 {{
-  "company_name": "{args.company}",
-  "website": "<official website>",
+  "company_name": "{company_name}",
+  "website": "{website}",
   "agreements": [
-    {{
-      "url": "<page_url>",
-      "is_available": true,
-      "is_agreement_page": true
-    }}
+    {{"url": "verified_url_1", "is_available": true, "is_agreement_page": true}},
+    {{"url": "verified_url_2", "is_available": true, "is_agreement_page": true}}
   ]
 }}
 
-### Rules
-- Be persistent. Explore multiple subpages if necessary.
-- Never return an empty list unless you have verified there are truly no agreement or policy pages.
-- Only use the provided tools (`find_company_website` and `website_scraping`) to explore.
-- Keep responses factual, structured, and concise.
+---
+
+BEGIN EXPLORATION:
+Start by calling website_scraping("{website}") and begin your multi-step exploration process.
+Do not stop until you've found and verified at least 2 policy pages.
 """
 
-
-
+    # --- Create Agent and Task ---
+    agent = Agent(name="agreement_finder_agent")
     task = Task(
         description=task_prompt.strip(),
-        tools=[website_scraping, find_company_website],
+        tools=[website_scraping],
         response_format=AgreementLinksResponse,
     )
 
-    result = agreement_agent.do(task)
-    print("\n" + "=" * 60)
-    print("📄 AGREEMENT LINKS RESULT")
-    print("=" * 60)
-    print(result.model_dump_json(indent=2))
-    print("=" * 60)
+    # --- Execute: Let the LLM handle all reasoning ---
+    print("🤖 Agent is working...\n")
+    result = agent.do(task)
+
+    # --- Display Results ---
+    print("\n" + "=" * 70)
+    print("📋 AGREEMENT LINKS RESULT")
+    print("=" * 70)
+    print(f"\nCompany:  {result.company_name}")
+    print(f"Website:  {result.website}")
+    print(f"\nAgreements found: {len(result.agreements)}\n")
+
+    if result.agreements:
+        for i, link in enumerate(result.agreements, 1):
+            print(f"{i}. {link.url}")
+            print(f"   ✓ Available: {link.is_available}")
+            print(f"   ✓ Is Agreement Page: {link.is_agreement_page}\n")
+    else:
+        print("No agreement/policy links found.\n")
+
+    print("=" * 70)
