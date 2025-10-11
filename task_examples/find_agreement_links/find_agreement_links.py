@@ -1,19 +1,11 @@
 import os
 import sys
-import requests
 from typing import List
 from pydantic import BaseModel
-from dotenv import load_dotenv
+from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 # --- Config ---
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-load_dotenv()
-SERPER_API_KEY = os.getenv("SERPER_API_KEY")
-if not SERPER_API_KEY:
-    raise ValueError("SERPER_API_KEY missing in .env file.")
-
-SERPER_SCRAPE = "https://google.serper.dev/scrape"
-HEADERS = {"X-API-KEY": SERPER_API_KEY, "Content-Type": "application/json"}
 
 
 # --- Pydantic Models ---
@@ -29,13 +21,13 @@ class AgreementLinksResponse(BaseModel):
     agreements: List[AgreementLink]
 
 
-# --- Single Tool: Website Scraping ---
+# --- Single Tool: Website Scraping with Playwright ---
 def website_scraping(url: str) -> dict:
     """
-    Scrape a webpage via Serper /scrape endpoint.
+    Scrape a webpage using Playwright headless browser.
 
     Args:
-        url: The URL to scrape (can be a Google search page or any website)
+        url: The URL to scrape
 
     Returns:
         A dictionary with:
@@ -44,18 +36,48 @@ def website_scraping(url: str) -> dict:
         - links: A list of links found on the page
     """
     try:
-        resp = requests.post(
-            SERPER_SCRAPE,
-            headers=HEADERS,
-            json={"url": url},
-            timeout=40
-        )
-        resp.raise_for_status()
-        data = resp.json()
+        with sync_playwright() as p:
+            # Launch browser in headless mode
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+            
+            # Navigate to URL with timeout
+            page.goto(url, wait_until="domcontentloaded", timeout=30000)
+            
+            # Wait a bit for dynamic content
+            page.wait_for_timeout(1000)
+            
+            # Extract text content
+            content = page.inner_text("body")
+            
+            # Extract all links
+            links = []
+            link_elements = page.query_selector_all("a[href]")
+            for element in link_elements:
+                href = element.get_attribute("href")
+                if href:
+                    # Convert relative URLs to absolute
+                    if href.startswith("/"):
+                        from urllib.parse import urlparse
+                        parsed = urlparse(url)
+                        absolute_url = f"{parsed.scheme}://{parsed.netloc}{href}"
+                        links.append(absolute_url)
+                    elif href.startswith("http"):
+                        links.append(href)
+            
+            browser.close()
+            
+            return {
+                "url": url,
+                "content": content[:10000],  # Limit content size
+                "links": list(set(links))[:100]  # Deduplicate and limit links
+            }
+            
+    except PlaywrightTimeoutError:
         return {
             "url": url,
-            "content": data.get("text", ""),
-            "links": data.get("links", [])
+            "content": "Error: Page load timeout",
+            "links": []
         }
     except Exception as e:
         return {
@@ -144,11 +166,11 @@ Return: 3 verified policy URLs
 
 CRITICAL RULES:
 
-🚨 You MUST make at least 5-8 tool calls (explore multiple links)
-🚨 Do NOT return a result until you've verified at least 2-3 policy pages
-🚨 Do NOT skip verification - always scrape each candidate URL
-🚨 Do NOT make up URLs - only use discovered links or standard patterns
-🚨 If first attempt fails, try alternative approaches (search footer links, try common paths)
+You MUST make at least 5-8 tool calls (explore multiple links)
+Do NOT return a result until you've verified at least 2-3 policy pages
+Do NOT skip verification - always scrape each candidate URL
+Do NOT make up URLs - only use discovered links or standard patterns
+If first attempt fails, try alternative approaches (search footer links, try common paths)
 
 ---
 
