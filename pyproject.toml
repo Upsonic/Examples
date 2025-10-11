@@ -25,7 +25,8 @@ dependencies = [
     "pillow",
     "openpyxl",
     "jq>=1.10.0",
-    "python-dotenv"
+    "python-dotenv",
+    "playwright>=1.49.0"
 ]
 
 [tool.uv]
