@@ -2,7 +2,9 @@ import os
 import sys
 from typing import List
 from pydantic import BaseModel
-from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
+from markitdown import MarkItDown
+from urllib.parse import urljoin, urlparse
+import re
 
 # --- Config ---
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
@@ -21,10 +23,10 @@ class AgreementLinksResponse(BaseModel):
     agreements: List[AgreementLink]
 
 
-# --- Single Tool: Website Scraping with Playwright ---
+# --- Single Tool: Website Scraping with MarkItDown ---
 def website_scraping(url: str) -> dict:
     """
-    Scrape a webpage using Playwright headless browser.
+    Scrape a webpage using MarkItDown and convert to markdown.
 
     Args:
         url: The URL to scrape
@@ -32,54 +34,37 @@ def website_scraping(url: str) -> dict:
     Returns:
         A dictionary with:
         - url: The scraped URL
-        - content: The text content of the page
+        - content: The markdown content of the page
         - links: A list of links found on the page
     """
     try:
-        with sync_playwright() as p:
-            # Launch browser in headless mode
-            browser = p.chromium.launch(headless=True)
-            page = browser.new_page()
-            
-            # Navigate to URL with timeout
-            page.goto(url, wait_until="domcontentloaded", timeout=30000)
-            
-            # Wait a bit for dynamic content
-            page.wait_for_timeout(1000)
-            
-            # Extract text content
-            content = page.inner_text("body")
-            
-            # Extract all links
-            links = []
-            link_elements = page.query_selector_all("a[href]")
-            for element in link_elements:
-                href = element.get_attribute("href")
-                if href:
-                    # Convert relative URLs to absolute
-                    if href.startswith("/"):
-                        from urllib.parse import urlparse
-                        parsed = urlparse(url)
-                        absolute_url = f"{parsed.scheme}://{parsed.netloc}{href}"
-                        links.append(absolute_url)
-                    elif href.startswith("http"):
-                        links.append(href)
-            
-            browser.close()
-            
-            return {
-                "url": url,
-                "content": content[:10000],  # Limit content size
-                "links": list(set(links))[:100]  # Deduplicate and limit links
-            }
-            
-    except PlaywrightTimeoutError:
+        # Use MarkItDown to fetch and convert the page
+        md = MarkItDown()
+        result = md.convert(url)
+        markdown_content = result.text_content
+
+        # Extract links from the markdown content using regex
+        # Look for markdown links [text](url) and HTML links
+        links = []
+
+        # Find markdown-style links
+        markdown_links = re.findall(r'\[([^\]]+)\]\(([^)]+)\)', markdown_content)
+        for _, link_url in markdown_links:
+            # Convert relative URLs to absolute
+            absolute_url = urljoin(url, link_url)
+            # Only include http/https links
+            if absolute_url.startswith(('http://', 'https://')):
+                links.append(absolute_url)
+
+
         return {
             "url": url,
-            "content": "Error: Page load timeout",
-            "links": []
+            "content": markdown_content,
+            "links": list(set(links))  # Deduplicate links
         }
+
     except Exception as e:
+        print(f"Error scraping {url}: {str(e)}")
         return {
             "url": url,
             "content": f"Error scraping: {str(e)}",
