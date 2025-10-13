@@ -5,7 +5,7 @@ description = "Upsonic example tasks"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "upsonic==0.61.1a1758720414",
+    "upsonic==0.63.0",
     "pydantic==2.10.5",
     "asyncpg>=0.30.0",
     "aiosqlite>=0.21.0",
@@ -25,7 +25,9 @@ dependencies = [
     "pillow",
     "openpyxl",
     "jq>=1.10.0",
-    "python-dotenv"
+    "python-dotenv",
+    "playwright>=1.49.0",
+    "markitdown>=0.0.2",
 ]
 
 [tool.uv]
