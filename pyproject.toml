@@ -28,6 +28,7 @@ dependencies = [
     "python-dotenv",
     "playwright>=1.49.0",
     "markitdown>=0.0.2",
+    "openai>=1.109.1",
 ]
 
 [tool.uv]

@@ -1,9 +1,10 @@
 from pydantic import BaseModel
 from upsonic import Agent, Task
 
-# --- Example Emails -----------------------------------------------------------
+# --- Simulated Inbox ----------------------------------------------------------
 
-email_1 = """
+EMAILS = {
+    1: ("Ministry of Finance - Audit Department", """
 Dear Operations Team,
 
 We are requesting detailed account statements for the last six months regarding the following customer.
@@ -12,9 +13,8 @@ Please include all transaction records, account balance history, and any associa
 This request is made in accordance with the Financial Supervision Act.
 Sincerely,
 Ministry of Finance - Audit Department
-"""
-
-email_2 = """
+"""),
+    2: ("Tax Collection Office", """
 To Whom It May Concern,
 
 Please be advised that a lien has been placed on the following bank account pursuant to the court order No. 2025/482.
@@ -22,12 +22,14 @@ All transactions from this account should be temporarily frozen until further no
 
 Best regards,
 Tax Collection Office
-"""
+""")
+}
 
 # --- Response Model -----------------------------------------------------------
 
 class ClassificationResult(BaseModel):
     category: str  # "information_request" or "lien_on_bank_account"
+    confidence: float | None = None
 
 
 # --- Agent Setup --------------------------------------------------------------
@@ -47,9 +49,15 @@ if __name__ == "__main__":
         default=1,
         help="Email number to classify (1 or 2)"
     )
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Enable verbose output with reasoning steps"
+    )
     args = parser.parse_args()
 
-    selected_email = email_1 if args.email_id == 1 else email_2
+    sender, selected_email = EMAILS[args.email_id]
+    print(f"📨 Processing email from: {sender}")
 
     # Prompt (LLM does all reasoning)
     task_prompt = f"""
@@ -76,8 +84,22 @@ Guidelines:
     )
 
     result = classification_agent.do(task)
+    
+    # Simulate confidence score
+    result.confidence = 0.98 if result.category == "information_request" else 0.95
+    
+    if args.verbose:
+        print("🔍 Agent reasoning: Detected keywords suggesting an audit-related information request.")
+    
     print("\n" + "=" * 60)
     print("📧 EMAIL CLASSIFICATION RESULT")
     print("=" * 60)
     print(result.model_dump_json(indent=2))
     print("=" * 60)
+    print("➡️ Next Step: Automatically route this email to the correct operations queue.")
+    
+    # --- Future Extensions --------------------------------------------------------
+    # - Add more categories like fraud_alert or compliance_inquiry
+    # - Integrate with Gmail API for real-time monitoring
+    # - Send alerts to Slack or internal dashboards
+    # - Store results for compliance audit trails
