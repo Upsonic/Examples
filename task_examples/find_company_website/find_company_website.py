@@ -1,77 +1,75 @@
-# task_examples/find_company_website/find_company_website.py
+"""
+Find Company Website Agent (Upsonic Reasoning Demo)
 
-import sys
-import os
-import argparse
+This example demonstrates how an Upsonic Agent can:
+1. Use a simple tool to gather candidate websites (via Serper)
+2. Reason about which one is official based on names, domains, and context
+3. Produce a structured, validated response — autonomously
 
-# Add the project root to the path for absolute imports
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+Educational focus: letting the Agent, not the code, make the reasoning decisions.
+"""
 
-from upsonic import Agent, Task
-from pydantic import BaseModel, HttpUrl
+import os, json, requests
 from typing import Optional
+from pydantic import BaseModel, HttpUrl
+from upsonic import Agent, Task
+from dotenv import load_dotenv
 
-try:
-    from serper_client import find_company_candidates
-except ImportError:
-    from task_examples.find_company_website.serper_client import find_company_candidates
-from task_examples.find_company_website.validate_company_website import validate_candidate, ValidationResult
+load_dotenv()
+
+SERPER_API_KEY = os.getenv("SERPER_API_KEY")
+SERPER_URL = "https://google.serper.dev/search"
+HEADERS = {"X-API-KEY": SERPER_API_KEY, "Content-Type": "application/json"}
+
+BAD_DOMAINS = [
+    "linkedin.com", "facebook.com", "twitter.com", "x.com",
+    "youtube.com", "crunchbase.com", "wikipedia.org", "glassdoor.com"
+]
 
 
+# --- Pydantic response model ---
 class WebsiteResponse(BaseModel):
     company: str
     website: Optional[HttpUrl] = None
     validated: bool = False
-    score: float = 0.0
-    reason: Optional[str] = None
+    reasoning: Optional[str] = None
+    confidence: float = 0.0
 
 
-def find_company_website(company: str) -> WebsiteResponse:
-    """
-    Find the official website for a company using Serper search + validation.
-    - Validate all candidates and return the one with the highest score.
-    """
-    try:
-        candidates = find_company_candidates(company, top_k=5)
-
-        best_result: Optional[ValidationResult] = None
-        for url in candidates:
-            result: ValidationResult = validate_candidate(company, url)
-            if not best_result or result.score > best_result.score:
-                best_result = result
-
-        if best_result:
-            return WebsiteResponse(
-                company=company,
-                website=best_result.website,
-                validated=best_result.validated,
-                score=best_result.score,
-                reason=best_result.reason,
-            )
-
-        return WebsiteResponse(company=company, website=None, validated=False, reason="No valid site found")
-
-    except Exception as e:
-        return WebsiteResponse(company=company, website=None, validated=False, reason=str(e))
+# --- TOOL: Fetch candidate websites ---
+def get_company_candidates(company: str) -> list[str]:
+    """Simple search tool to get top candidate URLs for a company."""
+    resp = requests.post(SERPER_URL, headers=HEADERS, json={"q": company})
+    resp.raise_for_status()
+    data = resp.json()
+    links = [r["link"] for r in data.get("organic", []) if "link" in r]
+    return [u for u in links if not any(bad in u for bad in BAD_DOMAINS)]
 
 
-def find_tool(company: str) -> WebsiteResponse:
-    """Tool: Find the official website for a company using Serper + validation."""
-    return find_company_website(company)
+# --- MAIN AGENT ---
+agent = Agent(name="find_company_website_agent")
 
-
-agent = Agent(name="website_finder")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Find a company's official website.")
-    parser.add_argument("--company", required=True, help="Company name, e.g. 'Amazon Inc'")
+    import argparse
+    parser = argparse.ArgumentParser(description="Find a company's official website using Upsonic reasoning.")
+    parser.add_argument("--company", required=True, help="Company name, e.g. 'OpenAI'")
     args = parser.parse_args()
 
+    # Create the reasoning task
     task = Task(
-        description=f"Find the official website of {args.company}",
-        tools=[find_tool],
+        description=f"""
+        Use the 'get_company_candidates' tool to find potential websites for {args.company}.
+        Evaluate which URL is most likely the company's *official website* by reasoning about:
+        - Domain name similarity to the brand
+        - Presence of the brand or company name in the URL
+        - Likelihood that it's not a social or news site
+        Return the best website with reasoning and confidence.
+        """,
+        tools=[get_company_candidates],
         response_format=WebsiteResponse,
     )
 
+    # Let the Upsonic Agent handle reasoning and output generation
     result = agent.do(task)
-    print(result.model_dump_json(indent=2))
+    print(json.dumps(result.model_dump(), indent=2))
