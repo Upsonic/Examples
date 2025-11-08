@@ -1,90 +1,86 @@
 # Find Sales Categories
 
-This task example shows how to build an Upsonic LLM agent that:
+This example demonstrates how to build an Upsonic agent that discovers a company's official ecommerce site and summarises its top-level shopping categories (e.g. Men, Women, Electronics, Sale). It reuses the `find_company_website` agent, scrapes navigation menus, and lets an LLM refine the final category list.
 
-- Reuses the `find_company_website` agent to find and validate the official website of a company (via Serper API).
-- Chains the result into the `extract_categories` tool to scrape ecommerce sales categories from that website.
+## What the example does
 
-## Setup
+- Finds the company's official website with Upsonic tools.
+- Scrapes navigation menus for potential sales labels.
+- Asks an LLM to keep only the genuine shopping departments and returns a clean JSON list.
+
+---
+
+## Prerequisites
 
 1. Install dependencies:
+   ```bash
+   uv sync
+   ```
+2. Add your Serper API key (the website finder relies on it):
+   ```bash
+   cp .env.example .env
+   ```
 
-```bash
-uv sync
-```
+   Edit `.env` and set `SERPER_API_KEY` (see [Serper.dev](https://serper.dev/)).
 
-2. Copy the example environment file and add your Serper API key:
+---
 
-```bash
-cp .env.example .env
-```
+## Running the agent
 
-3. Edit `.env` and replace the placeholder with your key:
-
-```ini
-SERPER_API_KEY=your_api_key_here
-```
-
-You can get a free API key from [Serper.dev](https://serper.dev/).
-
-## Run
-
-Run the sales categories agent with any company name:
+Single company:
 
 ```bash
 uv run task_examples/find_sales_categories/find_sales_categories.py --company "Nike"
 ```
 
-**Example output:**
-
-```
-Result for Nike: The official website for Nike is [https://www.nike.com/](https://www.nike.com/).
-
-The sales categories on Nike's website include:
-
-- Men: Shoes, Clothing, Accessories
-- Women: Bras, Leggings, Skirts & Dresses, Tops
-- Kids: Big Kids, Little Kids, Baby & Toddler
-- Sports: Basketball, Soccer, Running, Training, Golf
-- Collections: Nike Air, Nike FlyEase, Nike React
-- Sale: Discounted Shoes, Clothing, Accessories
-```
-
-You can replace "Nike" with any other company, e.g.:
+Batch of companies (comma-separated):
 
 ```bash
-uv run task_examples/find_sales_categories/find_sales_categories.py --company "Mavi"
-uv run task_examples/find_sales_categories/find_sales_categories.py --company "Adidas"
+uv run task_examples/find_sales_categories/find_sales_categories.py --companies "Nike, Lululemon, Apple"
 ```
 
-## How It Works
+Batch runs save a combined JSON report to `outputs/sales_categories.json`.
 
-The flow is split into two reusable components:
+### Example result (single company)
 
-### Website Finder
-- Uses Serper to search for the company.
-- Validates candidate websites.
-- Returns the best match as a structured `WebsiteResponse`.
+```json
+{
+  "company": "Nike",
+  "website": "https://www.nike.com/",
+  "categories": [
+    "Men",
+    "Women",
+    "Kids",
+    "Shoes",
+    "Clothing",
+    "Accessories",
+    "Training",
+    "Sale"
+  ],
+  "reason": "The domain 'nike.com' directly matches the brand name and is the official ecommerce presence."
+}
+```
 
-### Category Extractor
-- Fetches the website HTML.
-- Looks for navigation and menu elements.
-- Extracts category names, filtering out non-sales links.
+The `categories` field is always a plain JSON list (no Markdown code fences).
 
-### Sales Categories Agent
-- Orchestrates the two steps above.
-- **Input**: Company name.
-- **Output**: JSON containing website, validation info, and extracted categories.
+---
 
-## File Structure
+## How it works
+
+1. **Website finder wrapper** calls the existing `find_company_website` agent and returns a structured `WebsiteResponse`.
+2. **`extract_categories` tool** scrapes navigation/menu DOM nodes for candidate labels, filtering obvious non-product links.
+3. **LLM normalisation** instructs the agent to keep only the main departments and outputs a clean list.
+4. **Batch CLI** loops over companies and collects results (writing a report when multiple companies are provided).
+
+---
+
+## Files
 
 ```bash
 task_examples/find_sales_categories/
-├── find_sales_categories.py    # Agent: orchestrates website finder + category extractor
-├── category_extractor.py       # Tool: scrapes ecommerce categories
-└── README.md                   # This file
+├── find_sales_categories.py   # Orchestrates website finding, scraping, LLM refinement, CLI
+├── category_extractor.py      # Stand-alone scraping tool (legacy/minimal variant)
+└── README.md                  # This guide
 ```
 
-## Note
-
-This agent depends on the `find_company_website` example. Make sure you have its code and `.env` setup in place.
+> ℹ️ The example depends on the `find_company_website` task. Ensure its instructions and `.env` configuration are completed first.
