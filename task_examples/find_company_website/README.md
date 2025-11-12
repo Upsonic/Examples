@@ -1,90 +1,79 @@
-# Find Company Website
+# Find Company Website (Upsonic Agent Demo)
 
-This example shows how to build **Upsonic LLM agents** that can:
+This example demonstrates how to build an Upsonic LLM Agent that autonomously finds and validates a company's official website using reasoning and lightweight search tools.
 
-1. **Find** the official website of a company using the Serper API.  
-2. **Validate** whether a given website belongs to that company.
+The agent:
 
----
+- Searches for potential websites using the Serper API.
+- Reasons through results to identify the most credible domain.
+- Validates the site based on brand–domain matching and context.
+- Returns a structured, explainable JSON output.
 
 ## Setup
 
-1. Install dependencies:
+### Install dependencies
 
 ```bash
 uv sync
 ```
 
-2. Copy `.env.example` to `.env` and add your Serper API key:
+### Set your Serper API key
+
+Copy the example environment file and edit it:
 
 ```bash
 cp .env.example .env
 ```
 
-3. Edit `.env` and replace the placeholder with your real key:
+Then open `.env` and replace the placeholder with your real API key:
 
 ```ini
 SERPER_API_KEY=your_api_key_here
 ```
 
-You can get a free API key at https://serper.dev.
+You can get a free key at https://serper.dev.
 
-## Find a Company Website
+## Run the Finder Agent
 
-Run the finder agent with a company name:
+Run the reasoning-based agent to find a company's official website:
 
 ```bash
-uv run python task_examples/find_company_website/find_company_website.py --company "Amazon Inc"
+uv run task_examples/find_company_website/find_company_website_demo.py --company "OpenAI"
 ```
 
-**Example output:**
+**Example Output:**
 
 ```json
 {
-  "company": "Amazon Inc",
-  "website": "https://www.amazon.com/",
+  "company": "OpenAI",
+  "website": "https://openai.com/",
   "validated": true,
-  "score": 0.9,
-  "reason": "Brand in domain"
+  "reasoning": "The domain 'openai.com' directly matches the company name 'OpenAI', indicating a strong likelihood that it is the official website.",
+  "confidence": 0.95
 }
 ```
 
-## Validate a Company Website
+## How It Works
 
-Run the validator agent with a company name and a URL:
+- **Tool Layer** – A single function (`get_company_candidates`) queries Serper for candidate URLs.
+- **Agent Layer** – The Upsonic agent performs reasoning, filtering out irrelevant sites and selecting the most official one.
+- **Schema Layer** – Results are returned in a structured `WebsiteResponse` format (company, website, reasoning, confidence).
 
-```bash
-uv run python task_examples/find_company_website/validate_company_website.py --company "Amazon Inc" --url "https://www.amazon.com/"
-```
-
-**Example output:**
-
-```json
-{
-  "company": "Amazon Inc",
-  "website": "https://www.amazon.com/",
-  "validated": true,
-  "score": 0.9,
-  "reason": "Brand in domain"
-}
-```
+This structure demonstrates how Upsonic agents can mix retrieval, reasoning, and structured outputs in one clean workflow.
 
 ## File Structure
 
-```bash
+```
 task_examples/find_company_website/
-├── find_company_website.py      # Agent: find websites
-├── validate_company_website.py  # Agent: validate websites
-├── serper_client.py             # Serper API client
-├── html_utils.py                # HTML fetch + signals
-└── README.md
+├── find_company_website.py       # Legacy finder (modular version)
+└── README.md                     # This file
 
 # Root directory
-.env.example                     # Example env file for API keys (in root)
+.env.example                      # Example environment config
 ```
 
 ## Notes
 
-- **Finder**: takes a company name, searches with Serper, validates candidates, and returns the best match.
-- **Validator**: checks if a given URL belongs to a company.
-- Both use Upsonic agents. 
+- The demo emphasizes agent reasoning, not manual rule-based filtering.
+- You can easily extend the agent by adding tools (e.g., WHOIS checks, HTML analyzers).
+- Ideal for showing how LLMs can autonomously use tools and justify their decisions.

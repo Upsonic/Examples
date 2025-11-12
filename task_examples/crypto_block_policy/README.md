@@ -1,20 +1,19 @@
 # Crypto Block Policy
 
-This example demonstrates how to use **Upsonic's Safety Engine** with a prebuilt **CryptoBlockPolicy** to automatically block cryptocurrency-related content in both user inputs and agent outputs.
+This example demonstrates how to use **Upsonic's Safety Engine** with the prebuilt **CryptoBlockPolicy**. The repo contains a single Python script that:
+
+- blocks cryptocurrency-related content in both user inputs and agent outputs, and
+- contrasts that strict mode with a second agent that only filters user inputs.
 
 ## Overview
 
 The Safety Engine is a powerful feature in Upsonic that allows you to enforce content policies on your LLM agents. This example showcases:
 
-1. **User Policy** — Blocks cryptocurrency-related queries from users
-2. **Agent Policy** — Prevents the agent from discussing or providing crypto-related information
+1. **User Policy** — blocks cryptocurrency-related queries from users  
+2. **Agent Policy** — prevents the agent from responding with crypto-related information  
+3. **Variant configuration** — shows how to run with user-policy-only filtering
 
-The `CryptoBlockPolicy` is a prebuilt policy that detects and blocks content related to:
-- Bitcoin
-- Ethereum
-- Cryptocurrency
-- Blockchain
-- And other crypto-related terms
+The `CryptoBlockPolicy` detects a wide range of crypto terms (Bitcoin, Ethereum, alt coins, blockchain, wallet brands, etc.) and raises a policy violation when triggered.
 
 ---
 
@@ -30,15 +29,6 @@ uv sync
 
 ## Run the Agent
 
-### Example Usage
-
-The script includes four test cases:
-
-- **Test 1**: Question about Bitcoin (should be blocked)
-- **Test 2**: Question about Ethereum (should be blocked)
-- **Test 3**: General cryptocurrency question (should be blocked)
-- **Test 4**: Normal non-crypto question (should be allowed - demonstrates selective blocking)
-
 ### Run the demo
 
 ```bash
@@ -49,70 +39,58 @@ uv run task_examples/crypto_block_policy/crypto_block_policy.py
 
 ```
 ======================================================================
-🛡️  Crypto Block Policy Demo - Upsonic Safety Engine
+Upsonic Safety Engine — Crypto Block Policy Demo
+======================================================================
+Policy in use: CryptoBlockPolicy
+   - Blocks all cryptocurrency-related content.
+   - Can be applied to user inputs, agent outputs, or both.
+
+======================================================================
+Full Enforcement (Input + Output)
 ======================================================================
 
-This demo shows how the CryptoBlockPolicy automatically blocks
-cryptocurrency-related content in both user inputs and agent outputs.
-
-======================================================================
-
-📝 Test 1: Asking about Bitcoin
+[TEST] Test 1: Asking about Bitcoin
 ----------------------------------------------------------------------
-╭───────────────────────── 🤖 Agent Started ─────────────────────────╮
-│  Agent Status:           🚀 Started to work                        │
-│  Agent Name:             Crypto-Sensitive Agent                    │
-╰────────────────────────────────────────────────────────────────────╯
+Query: Can you tell me the current price of Bitcoin and the best wallet to use?
+Blocked by runtime policy check: Cryptocurrency related content detected and blocked.
 
-Cryptocurrency related content detected and blocked.
+...
 
-📝 Test 2: Asking about Ethereum
-----------------------------------------------------------------------
-╭───────────────────────── 🤖 Agent Started ─────────────────────────╮
-│  Agent Status:           🚀 Started to work                        │
-│  Agent Name:             Crypto-Sensitive Agent                    │
-╰────────────────────────────────────────────────────────────────────╯
+Suite Summary
+   • Allowed: 1
+   • Blocked: 3
 
-Cryptocurrency related content detected and blocked.
-
-📝 Test 3: Asking about cryptocurrency in general
-----------------------------------------------------------------------
-╭───────────────────────── 🤖 Agent Started ─────────────────────────╮
-│  Agent Status:           🚀 Started to work                        │
-│  Agent Name:             Crypto-Sensitive Agent                    │
-╰────────────────────────────────────────────────────────────────────╯
-
-Cryptocurrency related content detected and blocked.
-
-📝 Test 4: Asking a normal question (non-crypto)
-----------------------------------------------------------------------
-Query: 'What is the capital of France?'
-
-✅ Query was NOT blocked by CryptoBlockPolicy
-   (Technical note: OpenAI API configuration issue, not policy-related)
+Now testing input-only policy configuration...
 
 ======================================================================
-✅ Demo Complete!
+Input-Only Enforcement Variant
 ======================================================================
 
-📊 Results:
-   • Tests 1-3: Crypto queries → ❌ Blocked (as expected)
-   • Test 4: Normal query → ✅ Allowed (working correctly)
+[TEST] Variant 1: Crypto question still blocked
+----------------------------------------------------------------------
+Query: Should I invest in cryptocurrency right now?
+Blocked by runtime policy check: Cryptocurrency related content detected and blocked.
 
-💡 Key Takeaway: The CryptoBlockPolicy only blocks crypto-related
-   content. All other queries work normally!
-======================================================================
+[TEST] Variant 2: Non-crypto question flows normally
+----------------------------------------------------------------------
+Query: Give me three productivity tips for remote teams.
+Allowed response: Certainly! Here are three productivity tips for remote teams:
+...
+
+Suite Summary
+   • Allowed: 1
+   • Blocked: 1
 ```
 
 ---
 
 ## How It Works
 
-1. **Policy Definition**: The `CryptoBlockPolicy` is imported from Upsonic's safety engine as a prebuilt policy.
-2. **Policy Application**: The policy is applied to both:
-   - `user_policy` — Filters incoming user messages
-   - `agent_policy` — Filters outgoing agent responses
-3. **Automatic Blocking**: When crypto-related content is detected, the Safety Engine automatically blocks it and returns a policy violation message.
+1. **Policy Definition**: The `CryptoBlockPolicy` is imported from Upsonic's safety engine as a prebuilt rule set.  
+2. **Policy Application**: The script applies the policy in two configurations:
+   - `user_policy` and `agent_policy` together (full bidirectional filtering)
+   - `user_policy` only (filters the audience’s questions but not the answers)  
+3. **Automatic Blocking**: When crypto-related content is detected, the Safety Engine either raises an exception or returns a policy violation response. The helper function classifies the request as blocked, prints the matched terms when available, and keeps the suite totals accurate.
 
 ---
 

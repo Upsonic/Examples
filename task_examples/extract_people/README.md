@@ -1,22 +1,16 @@
-# Extract People
+# Extract People Intelligence Agent
 
-This example demonstrates how to build a simple **Upsonic LLM agent** that extracts all person names mentioned in a given text using structured output.
+This example shows how to build an Upsonic agent that reads a block of text, finds every person who is mentioned, and returns enriched, structured details for each mention. It is useful when you need people intelligence from meeting notes, news articles, transcripts, or any free-form document.
 
 ## Overview
-
-The agent takes a paragraph of text as input and returns a list of all people mentioned in it. This is useful for:
-
-- **Named Entity Recognition (NER)** — extracting people from articles, documents, or transcripts.
-- **Contact Discovery** — identifying key individuals mentioned in meeting notes or emails.
-- **Data Extraction** — parsing unstructured text for specific information.
-
-The agent uses a single LLM Task with a structured response format to ensure consistent output.
+- Single Upsonic `Agent` call per input text.
+- Structured response powered by two `pydantic` models (`Person` and `PeopleResponse`).
+- Captures richer context for each person: role, affiliation, mention summary, sentiment, and confidence.
 
 ---
 
-## Setup
-
-### 1. Install dependencies
+## Requirements
+Run the standard dependency install once per repository clone:
 
 ```bash
 uv sync
@@ -24,68 +18,65 @@ uv sync
 
 ---
 
-## Run the Agent
-
-### Example
-
-The script includes a sample paragraph mentioning multiple famous individuals from various fields (tech, entertainment, sports, politics, etc.).
+## Running the example
+Execute the script directly (it ships with a verbose demo paragraph):
 
 ```bash
 uv run task_examples/extract_people/extract_people.py
 ```
 
-### Example Output
+You can swap the sample paragraph for any text you want to analyse.
 
+---
+
+## What the agent returns
+The agent yields a `PeopleResponse` object containing a list of `Person` entries. Each entry may include:
+- `name`: full name of the person mentioned.
+- `role`: inferred title or occupation (e.g. "CEO", "athlete").
+- `affiliation`: organisation associated with the person.
+- `context`: short description of why the person was mentioned.
+- `sentiment`: positive / neutral / negative sentiment of the mention.
+- `confidence`: model-estimated confidence (0–1).
+
+---
+
+## Example output
 ```python
 PeopleResponse(
     people=[
-        'Elon Musk',
-        'Bill Gates',
-        'Jeff Bezos',
-        'Taylor Swift',
-        'Beyoncé',
-        'Oprah Winfrey',
-        'Barack Obama',
-        'Mark Zuckerberg',
-        'Sundar Pichai',
-        'Tim Cook',
-        'Serena Williams',
-        'LeBron James',
-        'Michelle Obama',
-        'Malala Yousafzai',
-        'Greta Thunberg',
-        'Pope Francis',
-        'Dalai Lama',
-        'Lionel Messi',
-        'Cristiano Ronaldo',
-        'Emma Watson',
-        'Leonardo DiCaprio',
-        'Natalie Portman',
-        'Ryan Reynolds',
-        'Warren Buffett',
-        'Charlie Munger',
-        'Melinda Gates',
-        'Mackenzie Scott'
+        Person(
+            name='Elon Musk',
+            role='Entrepreneur',
+            affiliation='SpaceX',
+            context='Met with Bill Gates and Jeff Bezos to discuss space exploration and AI safety.',
+            sentiment='neutral',
+            confidence=0.92
+        ),
+        Person(
+            name='Taylor Swift',
+            role='Singer',
+            affiliation=None,
+            context='Attended a charity event organised by Oprah Winfrey and Barack Obama.',
+            sentiment='positive',
+            confidence=0.87
+        ),
+        # ... additional people omitted for brevity ...
     ]
 )
 ```
 
 ---
 
-## How It Works
-
-1. **Input**: The agent receives a paragraph of text containing mentions of various people.
-2. **Processing**: The LLM analyzes the text and identifies all person names.
-3. **Output**: Returns a structured `PeopleResponse` object with a list of names in the `people` field.
+## How it works
+1. Define the response schema (`Person`, `PeopleResponse`) that captures the enriched attributes.
+2. Instantiate a single Upsonic `Agent` and create a `Task` instructing the model to extract each person with the required fields.
+3. Call `agent.do(task)` and render the structured response.
 
 ---
 
-## File Structure
-
+## File structure
 ```bash
 task_examples/extract_people/
-├── extract_people.py      # Main people extraction agent
-└── README.md              # This file
+├── extract_people.py   # Main example agent
+└── README.md           # This guide
 ```
-
----

@@ -1,105 +1,207 @@
 # task_examples/crypto_block_policy/crypto_block_policy.py
 
+"""
+Crypto Block Policy Agent Demo
+------------------------------
+Demonstrates how Upsonic's CryptoBlockPolicy enforces safety rules
+by blocking cryptocurrency-related content in both user inputs
+and agent outputs.
+
+This example also compares two configurations:
+1. Full bidirectional enforcement (input + output)
+2. Input-only enforcement (blocks user queries but allows free responses)
+
+Run:
+    uv run task_examples/crypto_block_policy/crypto_block_policy.py
+"""
+
+from collections import Counter
+from typing import Any
+
 from upsonic import Agent, Task
 from upsonic.safety_engine import CryptoBlockPolicy
 
-# --- Step 1: Create an agent with CryptoBlockPolicy ---
-# The CryptoBlockPolicy is a prebuilt policy from Upsonic that blocks cryptocurrency-related content
-crypto_agent = Agent(
-    name="Crypto-Sensitive Agent",
-    role="Assistant adhering to content policies",
-    goal="Provide information while blocking cryptocurrency-related content",
-    instructions="Avoid discussing or providing information about cryptocurrencies.",
-    user_policy=CryptoBlockPolicy,  # Apply policy to user inputs
-    agent_policy=CryptoBlockPolicy  # Apply policy to agent outputs
+RED = "\033[91m"
+GREEN = "\033[92m"
+CYAN = "\033[96m"
+RESET = "\033[0m"
+
+BLOCK_INDICATORS = (
+    "detected and blocked",
+    "blocked by policy",
+    "policy violation",
 )
 
-# --- Step 2: Example usage - Testing with crypto-related content ---
-if __name__ == "__main__":
-    print("=" * 70)
-    print("🛡️  Crypto Block Policy Demo - Upsonic Safety Engine")
-    print("=" * 70)
-    print()
-    print("This demo shows how the CryptoBlockPolicy automatically blocks")
-    print("cryptocurrency-related content in both user inputs and agent outputs.")
-    print()
-    print("=" * 70)
-    print()
-    
-    # Test 1: Direct crypto query (Bitcoin)
-    print("📝 Test 1: Asking about Bitcoin")
+# -------------------------------------------------------------------------
+# Test helpers
+# -------------------------------------------------------------------------
+def detect_policy_block(result: Any) -> tuple[bool, str]:
+    """Try to infer whether the policy blocked the request even without an exception."""
+    # Upsonic may return a structured object; handle common possibilities defensively.
+    message: str | None = None
+
+    if hasattr(result, "blocked") and getattr(result, "blocked"):  # type: ignore[attr-defined]
+        message = getattr(result, "message", None) or str(result)
+        return True, message
+
+    if isinstance(result, dict):
+        if result.get("blocked") is True:
+            return True, str(result.get("message") or result)
+        message = result.get("message")
+
+    if message is None:
+        message = str(result)
+
+    lower_message = message.lower()
+    if any(indicator in lower_message for indicator in BLOCK_INDICATORS):
+        return True, message
+
+    return False, message
+
+
+def run_test_case(title: str, description: str, agent: Agent, expect_blocked: bool) -> str:
+    """Execute a single query and show whether it was blocked or allowed."""
+    print(f"[TEST] {title}")
     print("-" * 70)
-    crypto_query_1 = Task(
-        description="Can you tell me the current price of Bitcoin and the best wallet to use?",
-        response_format=str
-    )
-    
+    print(f"{CYAN}Query:{RESET} {description}")
+    task = Task(description=description, response_format=str)
+
     try:
-        crypto_agent.print_do(crypto_query_1)
-    except Exception as e:
-        print(f"❌ Content blocked: {str(e)}")
-    print()
-    
-    # Test 2: Ethereum query
-    print("📝 Test 2: Asking about Ethereum")
-    print("-" * 70)
-    crypto_query_2 = Task(
-        description="What are the benefits of Ethereum smart contracts?",
-        response_format=str
-    )
-    
-    try:
-        crypto_agent.print_do(crypto_query_2)
-    except Exception as e:
-        print(f"❌ Content blocked: {str(e)}")
-    print()
-    
-    # Test 3: General crypto question
-    print("📝 Test 3: Asking about cryptocurrency in general")
-    print("-" * 70)
-    crypto_query_3 = Task(
-        description="Should I invest in cryptocurrency?",
-        response_format=str
-    )
-    
-    try:
-        crypto_agent.print_do(crypto_query_3)
-    except Exception as e:
-        print(f"❌ Content blocked: {str(e)}")
-    print()
-    
-    # Test 4: Normal question (should work fine - demonstrating selective blocking)
-    print("📝 Test 4: Asking a normal question (non-crypto)")
-    print("-" * 70)
-    print("Query: 'What is the capital of France?'")
-    print()
-    normal_query = Task(
-        description="What is the capital of France?",
-        response_format=str
-    )
-    
-    try:
-        result = crypto_agent.do(normal_query)
-        print("✅ SUCCESS: This query was allowed - no crypto content detected!")
-        print(f"Response: {result}")
-    except Exception as e:
-        # Note: In some configurations, you may need additional setup for non-blocked queries
-        # The key point is that crypto content was blocked in tests 1-3
-        if "parallel_tool_calls" in str(e):
-            print("✅ Query was NOT blocked by CryptoBlockPolicy")
-            print("   (Technical note: OpenAI API configuration issue, not policy-related)")
+        result = agent.do(task)
+    except Exception as exc:
+        policy_name = getattr(agent.user_policy, "__name__", "Policy") if agent.user_policy else "Policy"
+        matched = getattr(exc, "matched_terms", None)
+        print(f"{RED}Blocked by {policy_name}:{RESET} {exc}")
+        if matched:
+            print(f"   Matched terms: {', '.join(matched)}")
+        elif hasattr(exc, "policy_name"):
+            print(f"   Policy detail: {exc.policy_name}")
+        status = "blocked"
+    else:
+        blocked, message = detect_policy_block(result)
+        if blocked:
+            status = "blocked"
+            print(f"{RED}Blocked by runtime policy check:{RESET} {message}")
+            if not expect_blocked:
+                print(f"{RED}Unexpected block for a non-crypto query.{RESET}")
         else:
-            print(f"❌ Unexpected error: {str(e)}")
+            status = "allowed"
+            if expect_blocked:
+                print(f"{RED}Expected a block, but the request was allowed.{RESET}")
+            print(f"{GREEN}Allowed response:{RESET} {message}")
+
     print()
-    
+    return status
+
+
+def run_suite(title: str, cases: list[tuple[str, str, Agent, bool]]) -> Counter:
+    """Run a suite of test cases and print a result summary."""
     print("=" * 70)
-    print("✅ Demo Complete!")
+    print(title)
     print("=" * 70)
     print()
-    print("📊 Results:")
-    print("   • Tests 1-3: Crypto queries → ❌ Blocked (as expected)")
-    print("   • Test 4: Normal query → ✅ Allowed (working correctly)")
+
+    outcomes = Counter()
+    for case in cases:
+        outcomes[run_test_case(*case)] += 1
+
+    blocked = outcomes.get("blocked", 0)
+    allowed = outcomes.get("allowed", 0)
+
+    print("Suite Summary")
+    print(f"   • {GREEN}Allowed:{RESET} {allowed}")
+    print(f"   • {RED}Blocked:{RESET} {blocked}")
     print()
-    print("💡 Key Takeaway: The CryptoBlockPolicy only blocks crypto-related")
-    print("   content. All other queries work normally!")
+    return outcomes
+
+
+# -------------------------------------------------------------------------
+# Agent creation
+# -------------------------------------------------------------------------
+def build_agents() -> tuple[Agent, Agent]:
+    """Create two agents to demonstrate different enforcement configurations."""
+
+    # Full bidirectional enforcement: blocks input + output
+    crypto_agent = Agent(
+        name="Crypto-Sensitive Agent",
+        role="Policy-Compliant Assistant",
+        goal="Provide information while blocking cryptocurrency-related content.",
+        instructions="Avoid discussing or providing information about cryptocurrencies.",
+        user_policy=CryptoBlockPolicy,   # Filter incoming user text
+        agent_policy=CryptoBlockPolicy,  # Filter outgoing model text
+    )
+
+    # Input-only enforcement: blocks crypto questions, allows open answers
+    input_only_agent = Agent(
+        name="Input-Only Policy Agent",
+        role="Assistant that filters only user queries.",
+        goal="Block crypto-related questions but allow other discussions.",
+        instructions="Handle allowed questions normally; rely on user policy for filtering.",
+        user_policy=CryptoBlockPolicy,
+        agent_policy=None,
+    )
+
+    return crypto_agent, input_only_agent
+
+
+# -------------------------------------------------------------------------
+# Main execution
+# -------------------------------------------------------------------------
+if __name__ == "__main__":
+    print("\nUpsonic Safety Engine — Crypto Block Policy Demo")
     print("=" * 70)
+    print("Policy in use: CryptoBlockPolicy")
+    print("   - Blocks all cryptocurrency-related content.")
+    print("   - Can be applied to user inputs, agent outputs, or both.\n")
+
+    crypto_agent, input_only_agent = build_agents()
+
+    # Core tests for full policy enforcement
+    core_cases = [
+        (
+            "Test 1: Asking about Bitcoin",
+            "Can you tell me the current price of Bitcoin and the best wallet to use?",
+            crypto_agent,
+            True,
+        ),
+        (
+            "Test 2: Ethereum explainer",
+            "What are the benefits of Ethereum smart contracts?",
+            crypto_agent,
+            True,
+        ),
+        (
+            "Test 3: Soft crypto mention",
+            "Can you outline blockchain basics but skip cryptocurrencies or investing tips?",
+            crypto_agent,
+            True,
+        ),
+        (
+            "Test 4: Neutral trivia",
+            "What is the capital of France?",
+            crypto_agent,
+            False,
+        ),
+    ]
+
+    run_suite("Full Enforcement (Input + Output)", core_cases)
+
+    # Variant tests for input-only enforcement
+    print("Now testing input-only policy configuration...\n")
+
+    variant_cases = [
+        (
+            "Variant 1: Crypto question still blocked",
+            "Should I invest in cryptocurrency right now?",
+            input_only_agent,
+            True,
+        ),
+        (
+            "Variant 2: Non-crypto question flows normally",
+            "Give me three productivity tips for remote teams.",
+            input_only_agent,
+            False,
+        ),
+    ]
+
+    run_suite("Input-Only Enforcement Variant", variant_cases)

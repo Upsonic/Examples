@@ -22,6 +22,20 @@ There are no external integrations — just intelligent reasoning based on email
 uv sync
 ```
 
+### 2. Configure OpenAI API Key
+
+Set your OpenAI API key as an environment variable:
+
+```bash
+export OPENAI_API_KEY="your_openai_api_key_here"
+```
+
+Or create a `.env` file in the project root:
+
+```bash
+echo "OPENAI_API_KEY=your_openai_api_key_here" > .env
+```
+
 ---
 
 ## Run the Agent
@@ -41,24 +55,43 @@ uv run task_examples/classify_emails/classify_emails.py --email_id 1
 
 # Classify Email 2 (Lien on Bank Account)
 uv run task_examples/classify_emails/classify_emails.py --email_id 2
+
+# Run with verbose output (shows reasoning steps)
+uv run task_examples/classify_emails/classify_emails.py --email_id 1 --verbose
 ```
 
 ### Example Output
 
 **Email 1:**
 
-```json
+```
+📨 Processing email from: Ministry of Finance - Audit Department
+
+============================================================
+📧 EMAIL CLASSIFICATION RESULT
+============================================================
 {
-  "category": "information_request"
+  "category": "information_request",
+  "confidence": 0.98
 }
+============================================================
+➡️ Next Step: Automatically route this email to the correct operations queue.
 ```
 
 **Email 2:**
 
-```json
+```
+📨 Processing email from: Tax Collection Office
+
+============================================================
+📧 EMAIL CLASSIFICATION RESULT
+============================================================
 {
-  "category": "lien_on_bank_account"
+  "category": "lien_on_bank_account",
+  "confidence": 0.95
 }
+============================================================
+➡️ Next Step: Automatically route this email to the correct operations queue.
 ```
 
 ---
