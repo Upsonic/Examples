@@ -25,7 +25,15 @@ A Contract Analyzer Agent built with the **Upsonic AI Agent Framework**. This ex
 
 2. **Install dependencies**:
    ```bash
-   pip install -r requirements.txt
+   # Install all dependencies (API, Streamlit, and development)
+   upsonic install all
+   
+   # Or install specific sections:
+   upsonic install api          # API dependencies only (default)
+   upsonic install streamlit    # Streamlit dependencies only
+   upsonic install development  # Development dependencies only
+   ```
+
    ```
 
 3. **Set up environment variables**:
@@ -39,41 +47,29 @@ A Contract Analyzer Agent built with the **Upsonic AI Agent Framework**. This ex
 ### Run the Streamlit App
 
 ```bash
-streamlit run app.py
+streamlit run streamlit_app.py
 ```
 
 The app will open in your browser at `http://localhost:8501`.
 
-### Programmatic Usage
+### Run the API Server
 
-```python
-from contract_analyzer.agent import create_contract_analyzer_agent
-from upsonic import Task
+To run the agent as a FastAPI server:
 
-# Create the agent
-agent = create_contract_analyzer_agent()
-
-# Analyze a contract
-contract_text = """
-SERVICE AGREEMENT
-This Agreement is entered into between ABC Corp ("Provider") 
-and XYZ Inc ("Client") effective January 1, 2024...
-"""
-
-task = Task(
-    description=f"Analyze this contract and provide a comprehensive summary:\n\n{contract_text}"
-)
-
-result = agent.do(task)
-print(result)
+```bash
+upsonic run
 ```
+
+The API will be available at `http://localhost:8000` with automatic OpenAPI documentation at `http://localhost:8000/docs`.
+
 
 ## Project Structure
 
 ```
 contract_analyzer/
-├── app.py                       # Streamlit application
-├── requirements.txt             # Dependencies
+├── main.py                      # API agent workflow (FastAPI endpoint)
+├── streamlit_app.py             # Streamlit UI application
+├── upsonic_configs.json         # Upsonic configuration and dependencies
 ├── .env.example                 # Environment template
 ├── contract_analyzer/
 │   ├── __init__.py
@@ -105,7 +101,3 @@ contract_analyzer/
 - "Are there any potentially risky clauses I should be aware of?"
 - "What is the termination policy?"
 - "Summarize the financial terms"
-
-## License
-
-This example is part of the Upsonic framework and follows the same license.

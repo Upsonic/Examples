@@ -447,61 +447,6 @@ Provide a helpful, accurate answer based on the contract content."""
                     })
 
 
-def render_tools_tab():
-    """Render the quick extraction tools tab."""
-    st.markdown("### 🔧 Quick Extraction Tools")
-    
-    if not st.session_state.contract_text:
-        st.info("👈 Upload a contract first to use extraction tools")
-        return
-    
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        if st.button("👥 Extract Parties", use_container_width=True):
-            with st.spinner("Extracting parties..."):
-                from contract_analyzer.tools import ContractAnalyzerToolKit
-                toolkit = ContractAnalyzerToolKit()
-                result = toolkit.extract_parties(st.session_state.contract_text)
-                st.json(result)
-        
-        if st.button("📅 Extract Dates", use_container_width=True):
-            with st.spinner("Extracting dates..."):
-                from contract_analyzer.tools import ContractAnalyzerToolKit
-                toolkit = ContractAnalyzerToolKit()
-                result = toolkit.extract_key_dates(st.session_state.contract_text)
-                st.json(result)
-        
-        if st.button("💰 Extract Financial Terms", use_container_width=True):
-            with st.spinner("Extracting financial terms..."):
-                from contract_analyzer.tools import ContractAnalyzerToolKit
-                toolkit = ContractAnalyzerToolKit()
-                result = toolkit.extract_financial_terms(st.session_state.contract_text)
-                st.json(result)
-    
-    with col2:
-        if st.button("📋 Extract Obligations", use_container_width=True):
-            with st.spinner("Extracting obligations..."):
-                from contract_analyzer.tools import ContractAnalyzerToolKit
-                toolkit = ContractAnalyzerToolKit()
-                result = toolkit.identify_obligations(st.session_state.contract_text)
-                st.json(result)
-        
-        if st.button("⚠️ Detect Risks", use_container_width=True):
-            with st.spinner("Detecting risks..."):
-                from contract_analyzer.tools import ContractAnalyzerToolKit
-                toolkit = ContractAnalyzerToolKit()
-                result = toolkit.detect_risk_clauses(st.session_state.contract_text)
-                st.json(result)
-        
-        if st.button("📝 Generate Summary", use_container_width=True):
-            with st.spinner("Generating summary..."):
-                from contract_analyzer.tools import ContractAnalyzerToolKit
-                toolkit = ContractAnalyzerToolKit()
-                result = toolkit.summarize_contract(st.session_state.contract_text)
-                st.code(result, language=None)
-
-
 def get_sample_contract() -> str:
     """Return a sample contract for testing."""
     return """SERVICE AGREEMENT
@@ -596,10 +541,9 @@ def main():
     
     analysis_type = render_sidebar()
     
-    tab1, tab2, tab3 = st.tabs([
+    tab1, tab2 = st.tabs([
         "📊 Analysis",
-        "💬 Chat",
-        "🔧 Tools"
+        "💬 Chat"
     ])
     
     with tab1:
@@ -607,9 +551,6 @@ def main():
     
     with tab2:
         render_chat_tab()
-    
-    with tab3:
-        render_tools_tab()
     
     st.markdown("---")
     st.markdown(

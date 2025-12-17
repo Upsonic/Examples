@@ -1,0 +1,75 @@
+{
+    "environment_variables": {
+        "UPSONIC_WORKERS_AMOUNT": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "API_WORKERS": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "RUNNER_CONCURRENCY": {
+            "type": "number",
+            "description": "The number of runners for the Upsonic API",
+            "default": 1
+        },
+        "NEW_FEATURE_FLAG": {
+            "type": "string",
+            "description": "New feature flag added in version 2.0",
+            "default": "enabled"
+        }
+    },
+    "machine_spec": {
+        "cpu": 2,
+        "memory": 4096,
+        "storage": 1024
+    },
+    "agent_name": "NVIDIA Agent",
+    "description": "NVIDIA-powered AI Agent using Upsonic framework with NvidiaModel",
+    "icon": "book",
+    "language": "book",
+    "streamlit": false,
+    "proxy_agent": false,
+    "dependencies": {
+        "api": [
+            "fastapi>=0.115.12",
+            "uvicorn>=0.34.2",
+            "upsonic",
+            "pip"
+        ],
+        "streamlit": [
+            "streamlit==1.32.2",
+            "pandas==2.2.1",
+            "numpy==1.26.4"
+        ],
+        "development": [
+            "watchdog",
+            "python-dotenv",
+            "ipdb",
+            "pytest",
+            "streamlit-autorefresh"
+        ]
+    },
+    "entrypoints": {
+        "api_file": "main.py",
+        "streamlit_file": "streamlit_app.py"
+    },
+    "input_schema": {
+        "inputs": {
+            "user_query": {
+                "type": "string",
+                "description": "User's question or query for the NVIDIA agent to answer",
+                "required": true,
+                "default": null
+            }
+        }
+    },
+    "output_schema": {
+        "bot_response": {
+            "type": "string",
+            "description": "NVIDIA agent's generated response to the user query"
+        }
+    }
+}
