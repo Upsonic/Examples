@@ -1,7 +1,8 @@
 from typing import Optional, List, Any
 
 from upsonic import Agent, Task
-from upsonic.storage import Memory, InMemoryStorage
+from upsonic.storage.memory import Memory
+from upsonic.storage.providers.in_memory import InMemoryStorage
 
 from contract_analyzer.config import ContractAnalyzerConfig, default_config
 from contract_analyzer.tools import ContractAnalyzerToolKit
