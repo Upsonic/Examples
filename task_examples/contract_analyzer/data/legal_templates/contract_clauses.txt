@@ -1,0 +1,226 @@
+# Legal Contract Reference Guide
+
+## Common Contract Clauses
+
+### 1. Indemnification Clause
+An indemnification clause requires one party to compensate the other for certain damages or losses. 
+
+**Key Considerations:**
+- Scope of indemnification (what events trigger it)
+- Cap on liability
+- Whether indemnification is mutual or one-sided
+- Carve-outs and exceptions
+
+**Red Flag:** One-sided indemnification that places all risk on one party.
+
+---
+
+### 2. Limitation of Liability
+Limits the amount of damages a party can recover.
+
+**Important Aspects:**
+- Types of damages excluded (consequential, punitive, incidental)
+- Cap amount (often tied to contract value or fees paid)
+- Carve-outs for gross negligence or willful misconduct
+- Super cap exceptions for IP infringement or data breaches
+
+**Red Flag:** One-sided limitations or unlimited liability for one party only.
+
+---
+
+### 3. Termination Provisions
+Defines how and when the contract can be ended.
+
+**Consider:**
+- Termination for cause vs. convenience
+- Notice requirements (30 days, 60 days, 90 days)
+- Cure periods for breach (time to fix issues)
+- Effect of termination (survival clauses, wind-down)
+- Termination fees or penalties
+
+**Red Flag:** Termination at will with no notice period, or excessive termination fees.
+
+---
+
+### 4. Confidentiality/Non-Disclosure (NDA)
+Protects sensitive information shared between parties.
+
+**Key Elements:**
+- Definition of confidential information
+- Permitted disclosures (employees, advisors, legal requirements)
+- Duration of confidentiality obligation (2-5 years typical)
+- Return or destruction of information upon termination
+- Exceptions (publicly known, independently developed)
+
+**Red Flag:** Perpetual confidentiality obligations or overly broad definitions.
+
+---
+
+### 5. Intellectual Property Rights
+Addresses ownership and licensing of IP.
+
+**Important Provisions:**
+- Work product ownership (work for hire vs. license)
+- Pre-existing IP remains with original owner
+- License grants (exclusive, non-exclusive, perpetual)
+- Assignment rights and restrictions
+- IP indemnification
+
+**Red Flag:** Vague ownership terms or unintended IP transfers.
+
+---
+
+### 6. Warranties and Representations
+Statements of fact or commitments about the subject matter.
+
+**Types:**
+- Express warranties (specifically stated)
+- Implied warranties (merchantability, fitness for purpose)
+- Disclaimers (AS-IS, limitation of warranties)
+- Warranty period and remedies
+
+**Red Flag:** Excessive disclaimers or very short warranty periods.
+
+---
+
+### 7. Force Majeure
+Addresses unforeseeable circumstances preventing contract fulfillment.
+
+**Typical Events:**
+- Natural disasters
+- War, terrorism, civil unrest
+- Government actions
+- Pandemics (increasingly included)
+- Labor strikes
+
+**Consider:** Notice requirements, duration limits, termination rights.
+
+---
+
+### 8. Non-Compete and Non-Solicitation
+Restricts competitive activities.
+
+**Key Limitations:**
+- Duration (1-2 years typical, depending on jurisdiction)
+- Geographic scope
+- Definition of competitive activities
+- Employee non-solicitation
+
+**Red Flag:** Overly broad restrictions that may be unenforceable.
+
+---
+
+## Red Flags in Contracts
+
+### High Risk Items (Require Immediate Attention)
+1. **Unlimited liability** - No cap on potential damages
+2. **One-sided indemnification** - Only one party bears all risk
+3. **Automatic renewal without notice** - Trapped in unfavorable terms
+4. **Broad non-compete clauses** - Excessive business restrictions
+5. **Waiver of jury trial** - Giving up important legal rights
+6. **Unfavorable governing law** - Distant or unfamiliar jurisdiction
+7. **Personal guarantees** - Individual liability for business obligations
+
+### Medium Risk Items (Require Review)
+1. **Short cure periods** - Limited time to fix breaches
+2. **Broad definition of confidential information**
+3. **Restrictive assignment clauses** - Cannot transfer rights
+4. **Mandatory arbitration** - May limit remedies and discovery
+5. **Most favored nation clauses** - Pricing commitments
+6. **Exclusive dealing** - Limits business flexibility
+7. **Change of control provisions** - Triggers on ownership changes
+
+### Items Requiring Attention
+1. **Insurance requirements** - Ensure compliance capability
+2. **Audit rights** - Consider operational impact
+3. **Service level agreements (SLAs)** - Achievable targets
+4. **Payment terms and late fees** - Cash flow impact
+5. **Delivery schedules** - Realistic timelines
+
+---
+
+## Contract Analysis Checklist
+
+### Initial Review
+- [ ] Identify all parties and verify legal names
+- [ ] Confirm signatory authority
+- [ ] Note effective date and term
+- [ ] Understand the subject matter and scope
+
+### Financial Terms
+- [ ] All payment amounts and schedules
+- [ ] Late payment penalties
+- [ ] Price adjustment mechanisms
+- [ ] Taxes and additional fees
+- [ ] Deposit or prepayment requirements
+
+### Obligations
+- [ ] Your obligations (what you must do)
+- [ ] Their obligations (what they must do)
+- [ ] Timelines and deadlines
+- [ ] Performance standards
+
+### Risk Allocation
+- [ ] Indemnification provisions
+- [ ] Limitation of liability
+- [ ] Insurance requirements
+- [ ] Warranty terms
+
+### Exit Strategy
+- [ ] Termination rights
+- [ ] Notice requirements
+- [ ] Wind-down obligations
+- [ ] Post-termination restrictions
+
+---
+
+## Common Legal Terms Glossary
+
+**Force Majeure**: Unforeseeable circumstances that prevent contract fulfillment.
+
+**Severability**: Invalid provisions don't void the entire contract.
+
+**Waiver**: Giving up a right, usually requires written agreement.
+
+**Assignment**: Transferring contract rights/obligations to another party.
+
+**Novation**: Replacing a party or obligation with all parties' consent.
+
+**Material Breach**: A significant violation that justifies termination.
+
+**Liquidated Damages**: Pre-determined penalty amount for specific breaches.
+
+**Good Faith**: Acting honestly, fairly, and without intent to defraud.
+
+**Time is of the Essence**: Deadlines are strictly enforced as material terms.
+
+**Entire Agreement/Integration Clause**: Contract supersedes all prior discussions.
+
+**Survival Clause**: Provisions that continue after contract termination.
+
+**Governing Law**: The jurisdiction whose laws will interpret the contract.
+
+**Venue**: The location where disputes will be resolved.
+
+**Arbitration**: Private dispute resolution instead of court litigation.
+
+**Mediation**: Non-binding dispute resolution facilitated by neutral third party.
+
+**Cure Period**: Time allowed to fix a breach before termination.
+
+**Notice Provisions**: Requirements for how official communications must be sent.
+
+---
+
+## Best Practices for Contract Review
+
+1. **Read the entire document** - Don't skim or skip sections
+2. **Identify definitions** - Terms may have specific contractual meanings
+3. **Cross-reference sections** - Provisions often reference each other
+4. **Consider practical implications** - Can you actually comply?
+5. **Document concerns** - Track issues for negotiation
+6. **Seek legal counsel** - For significant or complex contracts
+7. **Negotiate changes** - Don't accept unfavorable terms without discussion
+8. **Keep copies** - Maintain complete signed documents
+9. **Calendar key dates** - Track obligations and deadlines
+10. **Periodic review** - Revisit long-term contracts regularly

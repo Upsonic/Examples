@@ -1,0 +1,101 @@
+{
+    "envinroment_variables": {
+        "UPSONIC_WORKERS_AMOUNT": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "API_WORKERS": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "RUNNER_CONCURRENCY": {
+            "type": "number",
+            "description": "The number of runners for the Upsonic API",
+            "default": 1
+        },
+        "NEW_FEATURE_FLAG": {
+            "type": "string",
+            "description": "New feature flag added in version 2.0",
+            "default": "enabled"
+        }
+    },
+    "machine_spec": {
+        "cpu": 2,
+        "memory": 4096,
+        "storage": 1024
+    },
+    "agent_name": "Contract Analyzer Agent",
+    "description": "AI-powered contract analysis agent for legal and business insights",
+    "icon": "book",
+    "language": "book",
+    "streamlit": true,
+    "proxy_agent": false,
+    "dependencies": {
+        "api": [
+            "upsonic",
+            "fastapi",
+            "uvicorn>=0.34.2",
+            "aiofiles>=24.1.0",
+            "PyPDF2",
+            "python-docx",
+            "python-dotenv",
+            "chromadb",
+            "openai"
+        ],
+        "streamlit": [
+            "streamlit"
+        ],
+        "development": [
+            "pytest",
+            "ipdb"
+        ]
+    },
+    "entrypoints": {
+        "api_file": "main.py",
+        "streamlit_file": "streamlit_app.py"
+    },
+    "input_schema": {
+        "inputs": {
+            "contract_text": {
+                "type": "string",
+                "description": "The contract text to analyze",
+                "required": true,
+                "default": null
+            },
+            "analysis_type": {
+                "type": "string",
+                "description": "Type of analysis: 'full', 'summary', 'risk', or 'extraction'",
+                "required": false,
+                "default": "full"
+            },
+            "session_id": {
+                "type": "string",
+                "description": "Session ID for conversation continuity",
+                "required": false,
+                "default": null
+            },
+            "question": {
+                "type": "string",
+                "description": "Specific question to ask about the contract (for Q&A mode)",
+                "required": false,
+                "default": null
+            }
+        }
+    },
+    "output_schema": {
+        "analysis_result": {
+            "type": "string",
+            "description": "The contract analysis result"
+        },
+        "analysis_type": {
+            "type": "string",
+            "description": "The type of analysis performed"
+        },
+        "error": {
+            "type": "string",
+            "description": "Error message if analysis failed"
+        }
+    }
+}
