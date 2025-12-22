@@ -1,15 +1,5 @@
 {
-    "envinroment_variables": {
-        "OPENROUTER_API_KEY": {
-            "type": "string",
-            "description": "OpenRouter API key for accessing gpt-oss-safeguard models",
-            "required": true
-        },
-        "OPENAI_API_KEY": {
-            "type": "string",
-            "description": "OpenAI API key for gpt-4o (for main agent responses)",
-            "required": true
-        },
+    "environment_variables": {
         "UPSONIC_WORKERS_AMOUNT": {
             "type": "number",
             "description": "The number of workers for the Upsonic API",
@@ -36,33 +26,34 @@
         "memory": 4096,
         "storage": 1024
     },
-    "agent_name": "Safety Agent",
-    "description": "OpenRouter Safety Agent with PII Protection - Uses gpt-oss-safeguard-20b model with PIIBlockPolicy",
-    "icon": "book",
-    "language": "book",
+    "agent_name": "Sales Offer Generator",
+    "description": "DeepAgent-powered Sales Agent that researches products and writes offers.",
+    "icon": "mail",
+    "language": "python",
     "streamlit": false,
     "proxy_agent": false,
     "dependencies": {
         "api": [
             "fastapi>=0.115.12",
             "uvicorn>=0.34.2",
-            "upsonic"
+            "upsonic",
+            "pip",
+            "ddgs"
         ],
-        "streamlit": [],
         "development": [
+            "watchdog",
             "python-dotenv",
             "pytest"
         ]
     },
     "entrypoints": {
-        "api_file": "main.py",
-        "streamlit_file": "streamlit_app.py"
+        "api_file": "main.py"
     },
     "input_schema": {
         "inputs": {
             "user_query": {
                 "type": "string",
-                "description": "User's input question for the agent",
+                "description": "Customer requirements for the sales offer (e.g. 'Laptop for video editing under $3000')",
                 "required": true,
                 "default": null
             }
@@ -71,7 +62,7 @@
     "output_schema": {
         "bot_response": {
             "type": "string",
-            "description": "Agent's generated response"
+            "description": "The generated sales offer email."
         }
     }
 }

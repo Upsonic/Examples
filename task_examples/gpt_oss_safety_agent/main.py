@@ -2,19 +2,22 @@
 Openai Safety Agent Example with provider OpenRouter
 
 This example demonstrates how to use the OpenAI's gpt-oss-safeguard-20b model
-with Upsonic's safety policies (PIIBlockPolicy) to create a secure AI agent.
+with Upsonic's safety policies (PIIBlockPolicy_LLM) to create a secure AI agent.
 
 The agent:
-- Uses OpenRouter's gpt-oss-safeguard-20b (OpenAI's safety-focused model)
-- Applies PIIBlockPolicy to detect and block PII in user inputs
+- Uses OpenAI's gpt-4o for main agent responses
+- Uses OpenRouter's gpt-oss-safeguard-20b (OpenAI's safety-focused model) for policy enforcement
+- Applies PIIBlockPolicy_LLM to detect and block PII in user inputs
 - Provides helpful feedback when policy violations occur
 
 Requirements:
 - Set OPENROUTER_API_KEY environment variable
+- Set OPENAI_API_KEY environment variable (for gpt-4o)
 """
 
 from upsonic import Task, Agent
-from upsonic.safety_engine.policies.pii_policies import PIIBlockPolicy
+from upsonic.safety_engine.policies.pii_policies import PIIBlockPolicy_LLM
+from upsonic.safety_engine.llm.upsonic_llm import UpsonicLLMProvider
 
 
 async def main(inputs):
@@ -31,9 +34,16 @@ async def main(inputs):
     
     answering_task = Task(f"Answer the user question: {user_query}")
     
+    # Set the LLM for the policy to use gpt-oss-safeguard-20b via OpenRouter
+    policy_llm = UpsonicLLMProvider(
+        agent_name="PII Policy LLM",
+        model="openrouter/openai/gpt-oss-safeguard-20b"
+    )
+    PIIBlockPolicy_LLM.base_llm = policy_llm
+    
     agent = Agent(
-        model='openrouter/openai/gpt-oss-safeguard-20b',
-        user_policy=PIIBlockPolicy,
+        model='openai/gpt-4o',
+        user_policy=PIIBlockPolicy_LLM,
         user_policy_feedback=True,
         user_policy_feedback_loop=1,
         debug=True
@@ -61,8 +71,7 @@ if __name__ == "__main__":
             print('='*60)
             
             try:
-                result = await main(inputs)
-                print(f"\nResult: {result['bot_response']}")
+                _ = await main(inputs)
             except Exception as e:
                 print(f"\nError: {e}")
     
