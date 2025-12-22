@@ -7,6 +7,7 @@ A simple example demonstrating OpenAI's `gpt-oss-safeguard-20b` model via OpenRo
 Set your OpenRouter API key:
 ```bash
 export OPENROUTER_API_KEY="your-api-key"
+export OPENAI_API_KEY="your-api-key"
 ```
 
 ## Installation
