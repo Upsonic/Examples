@@ -1,0 +1,102 @@
+{
+    "envinroment_variables": {
+        "UPSONIC_WORKERS_AMOUNT": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "API_WORKERS": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "RUNNER_CONCURRENCY": {
+            "type": "number",
+            "description": "The number of runners for the Upsonic API",
+            "default": 1
+        },
+        "GROQ_API_KEY": {
+            "type": "string",
+            "description": "Groq API key for authentication",
+            "required": true
+        }
+    },
+    "machine_spec": {
+        "cpu": 1,
+        "memory": 2048,
+        "storage": 512
+    },
+    "agent_name": "Groq Code Review & Best Practices Agent",
+    "description": "Fast and comprehensive code review agent powered by Groq's ultra-fast inference. Analyzes code for security vulnerabilities, performance issues, best practices, and provides actionable improvement suggestions.",
+    "icon": "code",
+    "language": "python",
+    "streamlit": false,
+    "proxy_agent": false,
+    "dependencies": {
+        "api": [
+            "upsonic",
+            "upsonic[tools]"
+        ],
+        "development": [
+            "python-dotenv",
+            "pytest"
+        ]
+    },
+    "entrypoints": {
+        "api_file": "main.py",
+        "streamlit_file": "streamlit_app.py"
+    },
+    "input_schema": {
+        "inputs": {
+            "code": {
+                "type": "string",
+                "description": "The code snippet to review (required)",
+                "required": true,
+                "default": null
+            },
+            "language": {
+                "type": "string",
+                "description": "Programming language of the code (e.g., python, javascript, java)",
+                "required": true,
+                "default": null
+            },
+            "focus_areas": {
+                "type": "array",
+                "description": "Optional list of areas to focus on (security, performance, best_practices, style)",
+                "required": false,
+                "default": []
+            },
+            "context": {
+                "type": "string",
+                "description": "Optional context about the codebase or project",
+                "required": false,
+                "default": null
+            },
+            "model": {
+                "type": "string",
+                "description": "Groq model identifier (e.g., groq/llama-3.3-70b-versatile, groq/llama-3.1-8b-instant)",
+                "required": false,
+                "default": "groq/llama-3.3-70b-versatile"
+            }
+        }
+    },
+    "output_schema": {
+        "language": {
+            "type": "string",
+            "description": "The programming language of the reviewed code"
+        },
+        "focus_areas": {
+            "type": "array",
+            "description": "The focus areas that were analyzed"
+        },
+        "review_report": {
+            "type": "object",
+            "description": "Comprehensive code review report with issues, suggestions, and metrics"
+        },
+        "review_completed": {
+            "type": "boolean",
+            "description": "Whether the review was successfully completed"
+        }
+    }
+}
+
