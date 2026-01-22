@@ -27,14 +27,14 @@ def build_research_task(
     task_description = f"""Conduct comprehensive research and develop a sales strategy for {company_name}.
     
     Requirements:
-    1. **Company Research**: Use the 'company-researcher' subagent to gather comprehensive information about {company_name}:
+    1. **Company Research**: Gather comprehensive information about {company_name}:
        - Business model and core products/services
        - Target markets and customer segments
        - Competitive advantages and differentiators
        - Recent news and developments
        - Company website and headquarters information
     
-    2. **Industry Analysis**: Use the 'industry-analyst' subagent to analyze the industry:
+    2. **Industry Analysis**: Analyze the industry:
        - Market size and growth trends
        - Key players and competitive landscape
        - Emerging technologies and innovations
@@ -42,14 +42,14 @@ def build_research_task(
        - Market opportunities and threats
        {"- Focus on the " + industry + " industry" if industry else ""}
     
-    3. **Financial Analysis**: {"Use the 'financial-analyst' subagent to analyze financial data" if company_symbol else "Note: No stock symbol provided, skip detailed financial analysis"}:
+    3. **Financial Analysis**: {"Analyze financial data" if company_symbol else "Note: No stock symbol provided, skip detailed financial analysis"}:
        {"- Stock symbol: " + company_symbol if company_symbol else ""}
        - Current stock price and market cap
        - Financial fundamentals and ratios
        - Analyst recommendations and sentiment
        - Recent financial news
     
-    4. **Sales Strategy Development**: Use the 'sales-strategist' subagent to develop a tailored sales strategy:
+    4. **Sales Strategy Development**: Develop a tailored sales strategy:
        - Target customer segments
        - Value propositions
        - Recommended sales channels
@@ -64,9 +64,7 @@ def build_research_task(
        - Recommended next steps
        - Strategic recommendations
     
-    Use the planning tool to break down this complex task into manageable steps. Execute subagent tasks 
-    in parallel when possible to maximize efficiency. Ensure all findings are well-documented and 
-    actionable."""
+    Ensure all findings are well-documented and actionable."""
     
     return task_description
 

@@ -1,0 +1,824 @@
+---
+title: "Landing Page Generation Agent"
+description: "Use Upsonic's DeepAgent to generate high-quality landing page images by coordinating content creation, design recommendations, and SEO optimization"
+---
+
+This example demonstrates how to create and use an **Upsonic Agent** with **DeepAgent** architecture to generate comprehensive landing page images. The example showcases how to leverage Upsonic's coordination capabilities to manage multiple specialized agents working together to create conversion-optimized landing pages with professional content, design, and SEO elements.
+
+## Overview
+
+Upsonic framework provides seamless integration for multi-agent systems. This example showcases:
+
+1. **DeepAgent Integration** — Using DeepAgent to coordinate specialized sub-agents
+2. **Image Generation** — Creating actual landing page images (PNG format, 1536x1024) using OpenAI's image generation
+3. **Content Creation** — Expert copywriting for headlines, value propositions, CTAs, and feature highlights
+4. **Design Recommendations** — Color schemes, typography, layout structures, and visual element suggestions
+5. **SEO Optimization** — Meta tags, keywords, header structure, and technical SEO elements
+6. **Task Planning** — Automatic task decomposition using planning tools
+7. **Memory Persistence** — SQLite-based session memory for continuity
+8. **FastAPI Server** — Running the agent as a production-ready API server
+
+The agent uses three specialized sub-agents:
+- **Content Writer** — Creates compelling, conversion-focused copy
+- **Designer** — Provides design recommendations for visual elements
+- **SEO Specialist** — Optimizes landing pages for search engines
+
+## Project Structure
+
+```
+landing_page_generation/
+├── main.py                    # Entry point with main() and amain()
+├── orchestrator.py             # DeepAgent orchestrator creation
+├── subagents.py               # Specialized subagent factory functions
+├── schemas.py                 # Pydantic output schemas
+├── task_builder.py           # Task description builder
+├── upsonic_configs.json       # Upsonic CLI configuration
+└── README.md                  # Quick start guide
+```
+
+### Environment Variables
+
+You can configure the model using environment variables:
+
+```bash
+# Required: Set OpenAI API key
+export OPENAI_API_KEY="your-api-key"
+```
+
+## Installation
+
+```bash
+# Install dependencies from upsonic_configs.json
+upsonic install
+```
+
+### Managing Dependencies
+
+```bash
+# Add a package
+upsonic add <package> <section>
+upsonic add pandas api
+
+# Remove a package
+upsonic remove <package> <section>
+upsonic remove streamlit api
+```
+
+**Sections:** `api`, `streamlit`, `development`
+
+## Usage
+
+### Option 1: Run Directly
+
+```bash
+python3 main.py
+```
+
+Runs the agent with default test inputs (AI Writing Assistant landing page).
+
+### Option 2: Run as API Server
+
+```bash
+upsonic run
+```
+
+Server starts at `http://localhost:8000`. API documentation at `/docs`.
+
+**Example API call:**
+```bash
+curl -X POST http://localhost:8000/call \
+  -H "Content-Type: application/json" \
+  -d '{
+    "product_name": "AI Writing Assistant",
+    "target_audience": "Content creators and marketers",
+    "primary_goal": "sign up for free trial",
+    "key_features": ["AI-powered content", "Multiple templates", "Real-time collaboration"],
+    "brand_tone": "friendly and professional"
+  }'
+```
+
+## How It Works
+
+| Component | Description |
+|-----------|-------------|
+| DeepAgent | Orchestrator that plans and delegates tasks to subagents |
+| Planning Tool | Automatically breaks down landing page generation into manageable steps |
+| Content Writer | Creates compelling headlines, value propositions, CTAs, and feature highlights |
+| Designer | Recommends color schemes, typography, layout, and visual elements |
+| SEO Specialist | Optimizes for search engines with meta tags, keywords, and structure |
+| Image Generation Tool | Generates the final landing page image (1536x1024 PNG) |
+| Memory | SQLite-based persistence for session continuity |
+
+### Example Output
+
+**Query:**
+```json
+{
+  "product_name": "AI Writing Assistant",
+  "target_audience": "Content creators and marketers who need to produce high-quality content quickly",
+  "primary_goal": "sign up for free trial",
+  "key_features": [
+    "AI-powered content generation",
+    "Multiple writing templates",
+    "Real-time collaboration",
+    "SEO optimization suggestions"
+  ],
+  "brand_tone": "friendly and professional"
+}
+```
+
+**Response:**
+```json
+{
+  "product_name": "AI Writing Assistant",
+  "image_path": "/path/to/landing_page_images/AI_Writing_Assistant_landing_page.png",
+  "generation_completed": true
+}
+```
+
+## Complete Implementation
+
+### main.py
+
+```python
+"""
+Main entry point for Landing Page Generation Agent.
+
+This module provides the entry points (main and amain) that coordinate
+the comprehensive landing page generation process.
+"""
+
+from __future__ import annotations
+
+from typing import Dict, Any
+
+from upsonic import Task
+from upsonic.utils.image import save_image_to_folder, create_images_folder
+try:
+    from .orchestrator import create_orchestrator_agent
+    from .task_builder import build_landing_page_task
+except ImportError:
+    from orchestrator import create_orchestrator_agent
+    from task_builder import build_landing_page_task
+
+
+def main(inputs: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Main function for landing page generation.
+    
+    Args:
+        inputs: Dictionary containing:
+            - product_name: Name of the product or service (required)
+            - target_audience: Description of target audience (required)
+            - primary_goal: Primary conversion goal (required)
+            - key_features: Optional list of key features to highlight
+            - brand_tone: Optional brand tone (default: "professional")
+            - enable_memory: Whether to enable memory persistence (default: True)
+            - storage_path: Optional path for SQLite storage (default: "landing_page_generation.db")
+            - model: Optional model identifier (default: "openai/gpt-4o")
+    
+    Returns:
+        Dictionary containing comprehensive landing page specification
+    """
+    product_name = inputs.get("product_name")
+    if not product_name:
+        raise ValueError("product_name is required in inputs")
+    
+    target_audience = inputs.get("target_audience")
+    if not target_audience:
+        raise ValueError("target_audience is required in inputs")
+    
+    primary_goal = inputs.get("primary_goal")
+    if not primary_goal:
+        raise ValueError("primary_goal is required in inputs")
+    
+    key_features = inputs.get("key_features")
+    brand_tone = inputs.get("brand_tone", "professional")
+    enable_memory = inputs.get("enable_memory", True)
+    storage_path = inputs.get("storage_path")
+    model = inputs.get("model", "openai-responses/gpt-4o")
+    output_folder = inputs.get("output_folder", "landing_page_images")
+    
+    orchestrator = create_orchestrator_agent(
+        model=model,
+        storage_path=storage_path,
+        enable_memory=enable_memory,
+    )
+    
+    task_description = build_landing_page_task(
+        product_name=product_name,
+        target_audience=target_audience,
+        primary_goal=primary_goal,
+        key_features=key_features,
+        brand_tone=brand_tone,
+    )
+    
+    task = Task(task_description)
+    
+    result = orchestrator.do(task)
+    
+    if not isinstance(result, bytes):
+        raise ValueError(f"Expected image bytes, got {type(result)}")
+    
+    create_images_folder(output_folder)
+    safe_product_name = "".join(c for c in product_name if c.isalnum() or c in (' ', '-', '_')).strip().replace(' ', '_')
+    image_path = save_image_to_folder(
+        image_data=result,
+        folder_path=output_folder,
+        filename=f"{safe_product_name}_landing_page.png",
+        is_base64=False
+    )
+    
+    return {
+        "product_name": product_name,
+        "image_path": image_path,
+        "generation_completed": True,
+    }
+
+
+async def amain(inputs: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Async main function for landing page generation.
+    
+    Args:
+        inputs: Dictionary containing:
+            - product_name: Name of the product or service (required)
+            - target_audience: Description of target audience (required)
+            - primary_goal: Primary conversion goal (required)
+            - key_features: Optional list of key features to highlight
+            - brand_tone: Optional brand tone (default: "professional")
+            - enable_memory: Whether to enable memory persistence (default: True)
+            - storage_path: Optional path for SQLite storage (default: "landing_page_generation.db")
+            - model: Optional model identifier (default: "openai/gpt-4o")
+    
+    Returns:
+        Dictionary containing comprehensive landing page specification
+    """
+    product_name = inputs.get("product_name")
+    if not product_name:
+        raise ValueError("product_name is required in inputs")
+    
+    target_audience = inputs.get("target_audience")
+    if not target_audience:
+        raise ValueError("target_audience is required in inputs")
+    
+    primary_goal = inputs.get("primary_goal")
+    if not primary_goal:
+        raise ValueError("primary_goal is required in inputs")
+    
+    key_features = inputs.get("key_features")
+    brand_tone = inputs.get("brand_tone", "professional")
+    enable_memory = inputs.get("enable_memory", True)
+    storage_path = inputs.get("storage_path")
+    model = inputs.get("model", "openai-responses/gpt-4o")
+    output_folder = inputs.get("output_folder", "landing_page_images")
+    
+    orchestrator = create_orchestrator_agent(
+        model=model,
+        storage_path=storage_path,
+        enable_memory=enable_memory,
+    )
+    
+    task_description = build_landing_page_task(
+        product_name=product_name,
+        target_audience=target_audience,
+        primary_goal=primary_goal,
+        key_features=key_features,
+        brand_tone=brand_tone,
+    )
+    
+    task = Task(task_description)
+    
+    result = await orchestrator.do_async(task)
+    
+    if not isinstance(result, bytes):
+        raise ValueError(f"Expected image bytes, got {type(result)}")
+    
+    create_images_folder(output_folder)
+    safe_product_name = "".join(c for c in product_name if c.isalnum() or c in (' ', '-', '_')).strip().replace(' ', '_')
+    image_path = save_image_to_folder(
+        image_data=result,
+        folder_path=output_folder,
+        filename=f"{safe_product_name}_landing_page.png",
+        is_base64=False
+    )
+    
+    return {
+        "product_name": product_name,
+        "image_path": image_path,
+        "generation_completed": True,
+    }
+
+
+if __name__ == "__main__":
+    import json
+    import sys
+    
+    test_inputs = {
+        "product_name": "AI Writing Assistant",
+        "target_audience": "Content creators and marketers who need to produce high-quality content quickly",
+        "primary_goal": "sign up for free trial",
+        "key_features": [
+            "AI-powered content generation",
+            "Multiple writing templates",
+            "Real-time collaboration",
+            "SEO optimization suggestions"
+        ],
+        "brand_tone": "friendly and professional",
+        "enable_memory": False,
+        "storage_path": None,
+        "model": "openai-responses/gpt-4o",
+        "output_folder": "landing_page_images",
+    }
+    
+    if len(sys.argv) > 1:
+        try:
+            with open(sys.argv[1], "r") as f:
+                test_inputs = json.load(f)
+        except Exception as e:
+            print(f"Error loading JSON file: {e}")
+            print("Using default test inputs")
+    
+    try:
+        result = main(test_inputs)
+        
+        print("\n" + "=" * 80)
+        print("Landing Page Generation Completed Successfully!")
+        print("=" * 80)
+        print(f"\nProduct: {result.get('product_name')}")
+        print(f"Generation Status: {'Completed' if result.get('generation_completed') else 'Failed'}")
+        print(f"\nImage saved to: {result.get('image_path', 'N/A')}")
+        
+    except Exception as e:
+        print(f"\n❌ Error during execution: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+
+```
+
+### orchestrator.py
+
+```python
+"""
+Orchestrator agent creation and configuration.
+
+Creates the main DeepAgent orchestrator that coordinates all specialized
+subagents for comprehensive landing page generation.
+"""
+
+from __future__ import annotations
+
+from typing import Optional
+
+from upsonic.agent.deepagent import DeepAgent
+from upsonic.db.database import SqliteDatabase
+from upsonic.tools.builtin_tools import ImageGenerationTool
+
+try:
+    from .subagents import (
+        create_content_writer_subagent,
+        create_designer_subagent,
+        create_seo_specialist_subagent,
+    )
+except ImportError:
+    from subagents import (
+        create_content_writer_subagent,
+        create_designer_subagent,
+        create_seo_specialist_subagent,
+    )
+
+
+def create_orchestrator_agent(
+    model: str = "openai-responses/gpt-4o",
+    storage_path: Optional[str] = None,
+    enable_memory: bool = True,
+) -> DeepAgent:
+    """Create the main orchestrator DeepAgent with all subagents.
+    
+    Args:
+        model: Model identifier for the orchestrator agent
+        storage_path: Optional path for SQLite storage database
+        enable_memory: Whether to enable memory persistence
+        
+    Returns:
+        Configured DeepAgent instance with all subagents
+    """
+    db = None
+    
+    if enable_memory:
+        if storage_path is None:
+            storage_path = "landing_page_generation.db"
+        db = SqliteDatabase(
+            db_file=storage_path,
+            session_table="agent_sessions",
+            session_id="landing_page_session",
+            user_id="landing_page_user",
+            full_session_memory=True,
+            summary_memory=True,
+            model=model,
+        )
+    
+    subagents = [
+        create_content_writer_subagent(),
+        create_designer_subagent(),
+        create_seo_specialist_subagent(),
+    ]
+    
+    orchestrator = DeepAgent(
+        model=model,
+        name="Landing Page Generation Orchestrator",
+        role="Senior Landing Page Strategist",
+        goal="Plan and orchestrate landing page image generation by coordinating subagents and generating the final visual",
+        system_prompt="""You are a senior landing page strategist orchestrating a landing page image generation process. 
+        Your role is to plan the generation process, coordinate with specialized subagents to gather all necessary 
+        specifications, synthesize the information into a detailed visual description, and generate the final landing 
+        page image. Coordinate parallel execution when tasks are independent to maximize efficiency.""",
+        db=db,
+        subagents=subagents,
+        tools=[ImageGenerationTool(size="1536x1024", quality="high", output_format="png")],
+        enable_planning=True,
+        enable_filesystem=True,
+        tool_call_limit=25,
+        debug=False,
+    )
+    
+    return orchestrator
+
+```
+
+### subagents.py
+
+```python
+"""
+Specialized subagent creation functions.
+
+Each function creates a specialized agent for a specific domain:
+- Content writing
+- Design recommendations
+- SEO optimization
+"""
+
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from upsonic import Agent
+
+if TYPE_CHECKING:
+    pass
+
+
+def create_content_writer_subagent(model: str = "openai/gpt-4o-mini") -> Agent:
+    """Create specialized subagent for landing page content creation.
+    
+    Args:
+        model: Model identifier for the subagent
+        
+    Returns:
+        Configured Agent instance for content writing
+    """
+    return Agent(
+        model=model,
+        name="content-writer",
+        role="Landing Page Content Specialist",
+        goal="Create compelling, conversion-focused copy for landing pages including headlines, value propositions, CTAs, and feature highlights",
+        system_prompt="""You are an expert copywriter specializing in high-converting landing pages. Your role is to create 
+        compelling, clear, and persuasive copy that drives action. Focus on:
+        - Attention-grabbing headlines that communicate value immediately
+        - Clear value propositions that differentiate the offering
+        - Benefit-focused content that addresses customer pain points
+        - Strong, action-oriented call-to-action buttons
+        - Social proof and trust-building elements
+        - Concise, scannable content that works on mobile devices
+        
+        Write copy that is specific, benefit-driven, and speaks directly to the target audience. Keep it concise and 
+        conversion-focused.""",
+        tool_call_limit=10,
+    )
+
+
+def create_designer_subagent(model: str = "openai/gpt-4o-mini") -> Agent:
+    """Create specialized subagent for landing page design recommendations.
+    
+    Args:
+        model: Model identifier for the subagent
+        
+    Returns:
+        Configured Agent instance for design recommendations
+    """
+    return Agent(
+        model=model,
+        name="designer",
+        role="Landing Page Design Specialist",
+        goal="Provide design recommendations for landing pages including color schemes, typography, layout, and visual elements",
+        system_prompt="""You are a UI/UX designer specializing in high-converting landing pages. Your role is to recommend 
+        design elements that enhance user experience and conversion rates. Focus on:
+        - Color schemes that align with brand and psychology
+        - Typography that improves readability and hierarchy
+        - Layout structures that guide user attention
+        - Visual elements that support the message
+        - Spacing and whitespace for clarity
+        - Mobile-first responsive design principles
+        
+        Provide practical, implementable design recommendations that balance aesthetics with conversion optimization.""",
+        tool_call_limit=10,
+    )
+
+
+def create_seo_specialist_subagent(model: str = "openai/gpt-4o-mini") -> Agent:
+    """Create specialized subagent for SEO optimization.
+    
+    Args:
+        model: Model identifier for the subagent
+        
+    Returns:
+        Configured Agent instance for SEO optimization
+    """
+    return Agent(
+        model=model,
+        name="seo-specialist",
+        role="SEO Optimization Specialist",
+        goal="Optimize landing pages for search engines with proper meta tags, keywords, structure, and technical SEO elements",
+        system_prompt="""You are an SEO expert specializing in landing page optimization. Your role is to ensure landing pages 
+        are discoverable and rank well in search engines. Focus on:
+        - Compelling meta titles and descriptions
+        - Strategic keyword placement and density
+        - Proper header hierarchy (H1, H2, H3)
+        - Alt text for images
+        - Clean URL structures
+        - Schema markup for rich snippets
+        - Mobile-friendly optimization
+        
+        Balance SEO requirements with user experience and conversion goals. Avoid keyword stuffing.""",
+        tool_call_limit=10,
+    )
+
+```
+
+### schemas.py
+
+```python
+"""
+Output schemas for landing page generation agent.
+
+Defines structured Pydantic models for type-safe outputs from different
+landing page generation components.
+"""
+
+from __future__ import annotations
+
+from typing import List, Optional
+from pydantic import BaseModel
+
+
+class ContentOutput(BaseModel):
+    """Structured output for landing page content."""
+    headline: str
+    subheadline: str
+    value_proposition: str
+    key_benefits: List[str]
+    call_to_action_primary: str
+    call_to_action_secondary: Optional[str] = None
+    feature_highlights: List[str]
+    social_proof: Optional[str] = None
+    footer_text: Optional[str] = None
+
+
+class DesignOutput(BaseModel):
+    """Structured output for landing page design recommendations."""
+    color_scheme: str
+    primary_color: str
+    secondary_color: str
+    typography_style: str
+    layout_structure: str
+    visual_elements: List[str]
+    spacing_recommendations: str
+    mobile_responsiveness: str
+
+
+class SEOOutput(BaseModel):
+    """Structured output for SEO optimization."""
+    meta_title: str
+    meta_description: str
+    focus_keywords: List[str]
+    header_structure: List[str]
+    alt_text_suggestions: List[str]
+    url_structure: str
+    schema_markup: Optional[str] = None
+
+
+class LandingPageOutput(BaseModel):
+    """Final comprehensive landing page specification."""
+    content: ContentOutput
+    design: DesignOutput
+    seo: SEOOutput
+    implementation_notes: str
+    priority_features: List[str]
+
+```
+
+### task_builder.py
+
+```python
+"""
+Task description builder for landing page generation.
+
+Constructs comprehensive task descriptions based on input parameters.
+"""
+
+from __future__ import annotations
+
+from typing import Optional
+
+
+def build_landing_page_task(
+    product_name: str,
+    target_audience: str,
+    primary_goal: str,
+    key_features: Optional[list[str]] = None,
+    brand_tone: Optional[str] = None,
+) -> str:
+    """Build comprehensive task description for landing page generation.
+    
+    Args:
+        product_name: Name of the product or service
+        target_audience: Description of the target audience
+        primary_goal: Primary conversion goal (e.g., "sign up", "purchase", "download")
+        key_features: Optional list of key features to highlight
+        brand_tone: Optional brand tone (e.g., "professional", "friendly", "bold")
+        
+    Returns:
+        Comprehensive task description string
+    """
+    features_text = ""
+    if key_features:
+        features_list = "\n".join([f"       - {feature}" for feature in key_features])
+        features_text = f"\n    Key features to highlight:\n{features_list}"
+    
+    tone_text = f"\n    Brand tone: {brand_tone}" if brand_tone else ""
+    
+    task_description = f"""Generate a landing page image for {product_name} targeting {target_audience} with the goal of {primary_goal}.
+    
+    Coordinate with specialized subagents to gather content, design, and SEO specifications, then create a detailed visual description 
+    and generate the final landing page image. The image should incorporate all gathered specifications including headlines, 
+    value propositions, color schemes, layout structure, and visual elements.{features_text}{tone_text}"""
+    
+    return task_description
+
+```
+
+### upsonic_configs.json
+
+```json
+{
+    "envinroment_variables": {
+        "UPSONIC_WORKERS_AMOUNT": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "API_WORKERS": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "RUNNER_CONCURRENCY": {
+            "type": "number",
+            "description": "The number of runners for the Upsonic API",
+            "default": 1
+        }
+    },
+    "machine_spec": {
+        "cpu": 2,
+        "memory": 4096,
+        "storage": 1024
+    },
+    "agent_name": "Landing Page Generation Agent",
+    "description": "AI agent system that generates landing page images by coordinating specialized subagents for content, design, and SEO, then creating the final visual using DeepAgent",
+    "icon": "file-text",
+    "language": "python",
+    "streamlit": false,
+    "proxy_agent": false,
+    "dependencies": {
+        "api": [
+            "upsonic",
+            "upsonic[tools]",
+            "upsonic[storage]"
+        ],
+        "development": [
+            "python-dotenv",
+            "pytest"
+        ]
+    },
+    "entrypoints": {
+        "api_file": "main.py",
+        "streamlit_file": "streamlit_app.py"
+    },
+    "input_schema": {
+        "inputs": {
+            "product_name": {
+                "type": "string",
+                "description": "Name of the product or service to create a landing page for (required)",
+                "required": true,
+                "default": null
+            },
+            "target_audience": {
+                "type": "string",
+                "description": "Description of the target audience for the landing page (required)",
+                "required": true,
+                "default": null
+            },
+            "primary_goal": {
+                "type": "string",
+                "description": "Primary conversion goal (e.g., 'sign up', 'purchase', 'download') (required)",
+                "required": true,
+                "default": null
+            },
+            "key_features": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Optional list of key features to highlight on the landing page",
+                "required": false,
+                "default": null
+            },
+            "brand_tone": {
+                "type": "string",
+                "description": "Brand tone for the landing page (e.g., 'professional', 'friendly', 'bold')",
+                "required": false,
+                "default": "professional"
+            },
+            "enable_memory": {
+                "type": "boolean",
+                "description": "Whether to enable memory persistence for session history",
+                "required": false,
+                "default": true
+            },
+            "storage_path": {
+                "type": "string",
+                "description": "Optional path for SQLite storage database file",
+                "required": false,
+                "default": "landing_page_generation.db"
+            },
+            "model": {
+                "type": "string",
+                "description": "Optional model identifier (e.g., openai-responses/gpt-4o, openai-responses/gpt-4o-mini)",
+                "required": false,
+                "default": "openai-responses/gpt-4o"
+            },
+            "output_folder": {
+                "type": "string",
+                "description": "Optional folder path for saving generated image",
+                "required": false,
+                "default": "landing_page_images"
+            }
+        }
+    },
+    "output_schema": {
+        "product_name": {
+            "type": "string",
+            "description": "The product name for which the landing page was generated"
+        },
+        "image_path": {
+            "type": "string",
+            "description": "Path to the generated landing page image file"
+        },
+        "generation_completed": {
+            "type": "boolean",
+            "description": "Whether the landing page image generation was successfully completed"
+        }
+    }
+}
+
+```
+
+## Key Features
+
+### DeepAgent Orchestration
+
+The orchestrator uses DeepAgent's planning capabilities to automatically break down complex landing page generation tasks into manageable steps and delegate them to specialized subagents.
+
+### Specialized Subagents
+
+Each subagent is optimized for its specific domain:
+- **Content Writer**: Creates compelling headlines, value propositions, CTAs, and feature highlights
+- **Designer**: Recommends color schemes, typography, layout structures, and visual elements
+- **SEO Specialist**: Optimizes for search engines with meta tags, keywords, and structure
+
+### Image Generation
+
+Uses OpenAI's image generation capabilities to create high-quality landing page visuals (1536x1024 PNG format) based on all gathered specifications from content, design, and SEO subagents.
+
+### Memory Persistence
+
+Uses SQLite database for session persistence, allowing the agent to:
+- Maintain conversation history
+- Store generation specifications
+- Build upon previous sessions
+- Generate summaries for context
+
+## Repository
+
+View the complete example: [Landing Page Generation Agent](https://github.com/Upsonic/Examples/landing_page_generation)

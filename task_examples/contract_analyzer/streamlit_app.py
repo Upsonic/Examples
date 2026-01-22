@@ -330,7 +330,6 @@ def render_analysis_tab(analysis_type: str):
         with st.spinner("Analyzing contract... This may take a moment."):
             try:
                 from contract_analyzer.agent import create_analysis_task
-                from upsonic import Task
                 
                 agent = get_or_create_agent()
                 task = create_analysis_task(

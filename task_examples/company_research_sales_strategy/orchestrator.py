@@ -44,21 +44,19 @@ def create_orchestrator_agent(
         Configured DeepAgent instance with all subagents
     """
     db = None
-    memory = None
     
     if enable_memory:
         if storage_path is None:
             storage_path = "company_research.db"
         db = SqliteDatabase(
             db_file=storage_path,
-            agent_sessions_table_name="agent_sessions",
+            session_table="agent_sessions",
             session_id="company_research_session",
             user_id="research_user",
             full_session_memory=True,
             summary_memory=True,
             model=model,
         )
-        memory = db.memory
     
     subagents = [
         create_research_subagent(),
@@ -73,25 +71,11 @@ def create_orchestrator_agent(
         role="Senior Business Strategy Consultant",
         goal="Orchestrate comprehensive company research, industry analysis, financial evaluation, and sales strategy development",
         system_prompt="""You are a senior business strategy consultant orchestrating a comprehensive 
-        research and strategy development process. Your role is to:
-        
-        1. Coordinate specialized subagents to conduct deep research on target companies
-        2. Analyze industry trends and competitive landscape
-        3. Evaluate financial performance and market position
-        4. Synthesize findings into actionable sales strategies
-        
-        Use the planning tool (write_todos) to break down complex research tasks. Delegate specific 
-        research areas to specialized subagents. Synthesize all findings into a comprehensive report 
-        with actionable insights and recommendations.
-        
-        Always use subagents for specialized tasks:
-        - Use 'company-researcher' for company-specific research
-        - Use 'industry-analyst' for industry and market analysis
-        - Use 'financial-analyst' for financial data and stock analysis
-        - Use 'sales-strategist' for sales strategy development
-        
-        Coordinate parallel execution when tasks are independent to maximize efficiency.""",
-        memory=memory,
+        research and strategy development process. Your role is to plan the research process, coordinate 
+        with specialized subagents to gather all necessary information, and synthesize findings into 
+        actionable sales strategies and recommendations. Coordinate parallel execution when tasks are 
+        independent to maximize efficiency.""",
+        db=db,
         subagents=subagents,
         enable_planning=True,
         enable_filesystem=True,

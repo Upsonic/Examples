@@ -66,7 +66,7 @@ python3 main.py
 curl -X POST http://localhost:8000/call \
   -H "Content-Type: application/json" \
   -d '{
-    "company_name": "OpenAI",
+    "company_name": "Microsoft",
     "industry": "Artificial Intelligence",
     "company_symbol": null
   }'
@@ -120,10 +120,15 @@ company_research_sales_strategy/
 
 ## Output
 
-Returns a comprehensive report containing:
-- Company research findings
-- Industry analysis
-- Financial analysis (if symbol provided)
-- Tailored sales strategy
-- Executive summary with key insights and recommendations
+Returns a dictionary containing:
+- `company_name`: The researched company name
+- `comprehensive_report`: A structured dictionary containing:
+  - Company research findings
+  - Industry analysis
+  - Financial analysis (if symbol provided)
+  - Tailored sales strategy
+  - Executive summary with key insights and recommendations
+- `research_completed`: Boolean indicating successful completion
+
+The comprehensive report is returned as a JSON-serializable dictionary with all research findings structured according to the `ComprehensiveReportOutput` schema.
 

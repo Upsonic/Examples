@@ -1,0 +1,120 @@
+{
+    "envinroment_variables": {
+        "UPSONIC_WORKERS_AMOUNT": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "API_WORKERS": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "RUNNER_CONCURRENCY": {
+            "type": "number",
+            "description": "The number of runners for the Upsonic API",
+            "default": 1
+        }
+    },
+    "machine_spec": {
+        "cpu": 2,
+        "memory": 4096,
+        "storage": 1024
+    },
+    "agent_name": "Landing Page Generation Agent",
+    "description": "AI agent system that generates landing page images by coordinating specialized subagents for content, design, and SEO, then creating the final visual using DeepAgent",
+    "icon": "file-text",
+    "language": "python",
+    "streamlit": false,
+    "proxy_agent": false,
+    "dependencies": {
+        "api": [
+            "upsonic",
+            "upsonic[tools]",
+            "upsonic[storage]"
+        ],
+        "development": [
+            "python-dotenv",
+            "pytest"
+        ]
+    },
+    "entrypoints": {
+        "api_file": "main.py",
+        "streamlit_file": "streamlit_app.py"
+    },
+    "input_schema": {
+        "inputs": {
+            "product_name": {
+                "type": "string",
+                "description": "Name of the product or service to create a landing page for (required)",
+                "required": true,
+                "default": null
+            },
+            "target_audience": {
+                "type": "string",
+                "description": "Description of the target audience for the landing page (required)",
+                "required": true,
+                "default": null
+            },
+            "primary_goal": {
+                "type": "string",
+                "description": "Primary conversion goal (e.g., 'sign up', 'purchase', 'download') (required)",
+                "required": true,
+                "default": null
+            },
+            "key_features": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Optional list of key features to highlight on the landing page",
+                "required": false,
+                "default": null
+            },
+            "brand_tone": {
+                "type": "string",
+                "description": "Brand tone for the landing page (e.g., 'professional', 'friendly', 'bold')",
+                "required": false,
+                "default": "professional"
+            },
+            "enable_memory": {
+                "type": "boolean",
+                "description": "Whether to enable memory persistence for session history",
+                "required": false,
+                "default": true
+            },
+            "storage_path": {
+                "type": "string",
+                "description": "Optional path for SQLite storage database file",
+                "required": false,
+                "default": "landing_page_generation.db"
+            },
+            "model": {
+                "type": "string",
+                "description": "Optional model identifier (e.g., openai-responses/gpt-4o, openai-responses/gpt-4o-mini)",
+                "required": false,
+                "default": "openai-responses/gpt-4o"
+            },
+            "output_folder": {
+                "type": "string",
+                "description": "Optional folder path for saving generated image",
+                "required": false,
+                "default": "landing_page_images"
+            }
+        }
+    },
+    "output_schema": {
+        "product_name": {
+            "type": "string",
+            "description": "The product name for which the landing page was generated"
+        },
+        "image_path": {
+            "type": "string",
+            "description": "Path to the generated landing page image file"
+        },
+        "generation_completed": {
+            "type": "boolean",
+            "description": "Whether the landing page image generation was successfully completed"
+        }
+    }
+}
