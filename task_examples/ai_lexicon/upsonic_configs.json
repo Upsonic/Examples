@@ -1,0 +1,93 @@
+{
+    "envinroment_variables": {
+        "UPSONIC_WORKERS_AMOUNT": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "API_WORKERS": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "RUNNER_CONCURRENCY": {
+            "type": "number",
+            "description": "The number of runners for the Upsonic API",
+            "default": 1
+        }
+    },
+    "machine_spec": {
+        "cpu": 2,
+        "memory": 4096,
+        "storage": 1024
+    },
+    "agent_name": "AI Governance Lexicon Agent",
+    "description": "An educational AI agent that takes an AI governance term as input, researches it using web tools, and provides a detailed explanation along with frequently asked questions.",
+    "icon": "book-open",
+    "language": "python",
+    "streamlit": false,
+    "proxy_agent": false,
+    "dependencies": {
+        "api": [
+            "upsonic",
+            "upsonic[tools]"
+        ],
+        "development": [
+            "python-dotenv",
+            "pytest"
+        ]
+    },
+    "entrypoints": {
+        "api_file": "main.py",
+        "streamlit_file": "streamlit_app.py"
+    },
+    "input_schema": {
+        "inputs": {
+            "term": {
+                "type": "string",
+                "description": "The AI governance term to research and explain (e.g., 'Gap analysis for AI governance')",
+                "required": true,
+                "default": null
+            },
+            "model": {
+                "type": "string",
+                "description": "Optional model identifier",
+                "required": false,
+                "default": "openai/gpt-4o"
+            },
+            "max_search_results": {
+                "type": "number",
+                "description": "Maximum number of search results to use for research",
+                "required": false,
+                "default": 10
+            }
+        }
+    },
+    "output_schema": {
+        "term": {
+            "type": "string",
+            "description": "The AI governance term being explained"
+        },
+        "brief_explanation": {
+            "type": "string",
+            "description": "A detailed but concise explanation of the term"
+        },
+        "faqs": {
+            "type": "array",
+            "description": "List of frequently asked questions and their answers",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "question": {
+                        "type": "string",
+                        "description": "The question"
+                    },
+                    "answer": {
+                        "type": "string",
+                        "description": "The answer"
+                    }
+                }
+            }
+        }
+    }
+}
