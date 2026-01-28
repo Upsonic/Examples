@@ -1,0 +1,104 @@
+{
+    "envinroment_variables": {
+        "UPSONIC_WORKERS_AMOUNT": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "API_WORKERS": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "RUNNER_CONCURRENCY": {
+            "type": "number",
+            "description": "The number of runners for the Upsonic API",
+            "default": 1
+        },
+        "NEW_FEATURE_FLAG": {
+            "type": "string",
+            "description": "New feature flag added in version 2.0",
+            "default": "enabled"
+        }
+    },
+    "machine_spec": {
+        "cpu": 2,
+        "memory": 4096,
+        "storage": 1024
+    },
+    "agent_name": "Company Research & Sales Strategy Agent",
+    "description": "Comprehensive AI agent system that conducts deep company research, analyzes industry trends, performs financial analysis, and develops tailored sales strategies using DeepAgent with specialized subagents",
+    "icon": "briefcase",
+    "language": "python",
+    "streamlit": false,
+    "proxy_agent": false,
+    "dependencies": {
+        "api": [
+            "upsonic",
+            "upsonic[tools]",
+            "upsonic[storage]"
+        ],
+        "development": [
+            "python-dotenv",
+            "pytest"
+        ]
+    },
+    "entrypoints": {
+        "api_file": "main.py",
+        "streamlit_file": "streamlit_app.py"
+    },
+    "input_schema": {
+        "inputs": {
+            "company_name": {
+                "type": "string",
+                "description": "Name of the target company to research (required)",
+                "required": true,
+                "default": null
+            },
+            "company_symbol": {
+                "type": "string",
+                "description": "Optional stock symbol (e.g., AAPL, TSLA) for financial analysis",
+                "required": false,
+                "default": null
+            },
+            "industry": {
+                "type": "string",
+                "description": "Optional industry name for focused industry analysis",
+                "required": false,
+                "default": null
+            },
+            "enable_memory": {
+                "type": "boolean",
+                "description": "Whether to enable memory persistence for session history",
+                "required": false,
+                "default": true
+            },
+            "storage_path": {
+                "type": "string",
+                "description": "Optional path for SQLite storage database file",
+                "required": false,
+                "default": "company_research.db"
+            },
+            "model": {
+                "type": "string",
+                "description": "Optional model identifier (e.g., openai/gpt-4o, openai/gpt-4o-mini)",
+                "required": false,
+                "default": "openai/gpt-4o"
+            }
+        }
+    },
+    "output_schema": {
+        "company_name": {
+            "type": "string",
+            "description": "The researched company name"
+        },
+        "comprehensive_report": {
+            "type": "string",
+            "description": "Comprehensive research report containing company research, industry analysis, financial analysis, and sales strategy"
+        },
+        "research_completed": {
+            "type": "boolean",
+            "description": "Whether the research was successfully completed"
+        }
+    }
+}
