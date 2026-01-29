@@ -36,20 +36,13 @@ async def main(inputs: dict) -> dict:
 if __name__ == "__main__":
     import asyncio
     
-    async def run_direct():
-        print("🤖 Running Ollama Agent directly...")
-        
-        agent = Agent(model=model)
-        
-        task_text = "Hello, how are you?"
-        print(f"Task: {task_text}")
-        task = Task(task_text)
-        
-        result = await agent.do_async(task)
-        
-        print("-" * 50)
-        print("Result:")
-        print(result)
-        print("-" * 50)
+    print("🤖 Running Ollama Agent directly...")
+    inputs = {"user_query": "Hello, how are you?"}
+    print(f"Task: {inputs['user_query']}")
     
-    asyncio.run(run_direct())
+    result = asyncio.run(main(inputs))
+    
+    print("-" * 50)
+    print("Result:")
+    print(result["bot_response"])
+    print("-" * 50)
