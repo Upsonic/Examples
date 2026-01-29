@@ -21,7 +21,8 @@ import re
 import sys
 import requests
 from bs4 import BeautifulSoup
-from upsonic import Agent, Task, tool
+from upsonic import Agent, Task
+from upsonic.tools import tool
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 

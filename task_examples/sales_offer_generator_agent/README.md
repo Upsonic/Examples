@@ -54,7 +54,7 @@ OR
 You can run the agent directly:
 
 ```bash
-python3 main.py
+uv run main.py
 ```
 
 **Example API Call:**

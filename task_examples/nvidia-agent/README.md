@@ -81,7 +81,7 @@ curl -X POST "http://localhost:8000/call" \
 Run the example directly:
 
 ```bash
-python main.py
+uv run main.py
 ```
 
 ## Configuration

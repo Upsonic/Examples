@@ -34,17 +34,22 @@ async def main(inputs: dict) -> dict:
 
 
 if __name__ == "__main__":
-    print("🤖 Running Ollama Agent directly...")
+    import asyncio
     
-    agent = Agent(model=model)
+    async def run_direct():
+        print("🤖 Running Ollama Agent directly...")
+        
+        agent = Agent(model=model)
+        
+        task_text = "Hello, how are you?"
+        print(f"Task: {task_text}")
+        task = Task(task_text)
+        
+        result = await agent.do_async(task)
+        
+        print("-" * 50)
+        print("Result:")
+        print(result)
+        print("-" * 50)
     
-    task_text = "Hello, how are you?"
-    print(f"Task: {task_text}")
-    task = Task(task_text)
-    
-    result = agent.do(task)
-    
-    print("-" * 50)
-    print("Result:")
-    print(result)
-    print("-" * 50)
+    asyncio.run(run_direct())

@@ -58,7 +58,7 @@ OR
 You can run the agent directly:
 
 ```bash
-python3 main.py
+uv run main.py
 ```
 
 **Example API Call:**
@@ -76,7 +76,7 @@ curl -X POST http://localhost:8000/call \
 
 ```
 company_research_sales_strategy/
-├── main.py                    # Entry point with main() and amain() functions
+├── main.py                    # Entry point with async main() function
 ├── upsonic_configs.json       # Upsonic configuration and dependencies
 ├── orchestrator.py             # DeepAgent orchestrator creation
 ├── subagents.py               # Specialized subagent factory functions

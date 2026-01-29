@@ -64,6 +64,14 @@ def create_code_review_agent(
         - Specific code suggestions for fixes
         - References to relevant documentation or best practices
         
+        **CRITICAL JSON FORMATTING REQUIREMENTS**:
+        - NEVER include duplicate keys in your JSON response (each key must appear only once)
+        - Use plain text strings for suggestion, code_example, description, and title fields - DO NOT wrap them in JSON objects
+        - Escape quotes inside strings with backslash: \\" (e.g., "query = \\"SELECT * FROM users\\"")
+        - Ensure all strings are properly closed with quotes
+        - Validate your JSON is parseable before returning it
+        - Example: "suggestion": "Use parameterized queries" (plain string, NOT "{ \\"fix\\": ... }")
+        
         Be constructive and educational in your feedback. Help developers understand 
         not just what to fix, but why.""",
         tools=agent_tools,
