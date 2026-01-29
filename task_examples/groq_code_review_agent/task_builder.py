@@ -86,12 +86,30 @@ def build_review_task(
    - Suggest necessary documentation additions
    - Check for clear and helpful comments
 
-Provide your analysis in a structured format with:
-- Clear severity levels for each issue
-- Specific code examples for fixes
-- Actionable recommendations
-- Priority ordering for fixes
-- Educational explanations to help the developer learn"""
+**CRITICAL - JSON Formatting Requirements**:
+
+1. **NO DUPLICATE KEYS**: Each JSON key must appear only once. Do NOT repeat keys like "positive_aspects" or "priority_fixes".
+
+2. **Plain String Values**: The following fields must be plain text strings, NOT JSON objects:
+   - `suggestion`: Plain text string (e.g., "Use parameterized queries")
+   - `code_example`: Plain text string with escaped quotes
+   - `description`: Plain text string
+   - `title`: Plain text string
+
+3. **Proper Quote Escaping**: When a string contains quotes, escape them with backslash.
+   - Correct: code_example field should be: query = "SELECT * FROM users WHERE name = ?"
+     (In JSON, this becomes: "code_example": "query = \\"SELECT * FROM users WHERE name = ?\\"")
+   - Wrong: Do NOT wrap in JSON objects like: "code_example": "{{ \\"example\\": \\"SELECT...\\" }}"
+
+4. **Complete JSON**: Ensure all strings are properly closed with quotes and the entire JSON is valid.
+
+5. **Validation**: Before returning, verify:
+   - No duplicate keys exist
+   - All strings are plain text (not wrapped in JSON objects)
+   - All quotes inside strings are escaped with backslash
+   - The entire JSON structure is valid and parseable
+
+Provide your analysis with clear severity levels, specific code examples, actionable recommendations, and priority ordering."""
     
     return task_description
 

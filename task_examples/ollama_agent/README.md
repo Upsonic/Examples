@@ -41,7 +41,7 @@ An Ollama Agent built with the **Upsonic AI Agent Framework**. This example demo
 You can run the agent directly as a Python script to see it in action:
 
 ```bash
-python3 main.py
+uv run main.py
 ```
 
 ### Run the API Server

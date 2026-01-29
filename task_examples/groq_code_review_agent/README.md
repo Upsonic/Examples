@@ -56,7 +56,7 @@ OR
 You can run the agent directly:
 
 ```bash
-python3 main.py
+uv run main.py
 ```
 
 **Example API Call:**
@@ -74,7 +74,7 @@ curl -X POST http://localhost:8000/call \
 
 ```
 groq_code_review_agent/
-├── main.py                    # Entry point with main() and amain() functions
+├── main.py                    # Entry point with async main() function
 ├── agent.py                   # Agent creation with Groq model configuration
 ├── schemas.py                 # Pydantic output schemas for structured responses
 ├── task_builder.py            # Task description builder

@@ -40,7 +40,7 @@ upsonic remove requests api
 
 ### Option 1: Direct Script
 ```bash
-python3 main.py
+uv run main.py
 ```
 Runs built-in test cases (safe query + PII query).
 

@@ -54,7 +54,7 @@ OR
 You can run the agent directly:
 
 ```bash
-python3 main.py
+uv run main.py
 ```
 
 **Example API Call:**
@@ -72,7 +72,7 @@ curl -X POST http://localhost:8000/call \
 
 ```
 ai_lexicon/
-├── main.py                    # Entry point with main() and amain() functions
+├── main.py                    # Entry point with async main() function
 ├── upsonic_configs.json       # Upsonic configuration and dependencies
 ├── agent.py                   # Agent configuration and system prompts
 ├── tools.py                   # Search tool configuration

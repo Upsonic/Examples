@@ -31,11 +31,11 @@ class CodeIssue(BaseModel):
         description="Detailed description of the issue"
     )
     suggestion: str = Field(
-        description="Suggested fix or improvement"
+        description="Suggested fix or improvement as a plain text string. Do NOT wrap in JSON objects. Example: 'Use parameterized queries or prepared statements'"
     )
     code_example: Optional[str] = Field(
         default=None,
-        description="Example of correct/improved code"
+        description="Example of correct/improved code as a plain text string. Do NOT wrap in JSON objects. Escape quotes with backslash. Example: 'query = \\\"SELECT * FROM users WHERE name = ?\\\"'"
     )
 
 

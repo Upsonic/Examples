@@ -18,7 +18,7 @@ task = Task(
         "Do not invent, shorten, or replace words. "
         "Return only the full legal company name, nothing else."
     ),
-    attachements=["task_examples/document_analyzer/assets/vergi_levhasi.png"],
+    context=["task_examples/document_analyzer/assets/vergi_levhasi.png"],
     response_format=CompanyResponse
 )
 

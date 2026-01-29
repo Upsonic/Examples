@@ -47,7 +47,7 @@ Get a free API key at [https://serper.dev](https://serper.dev).
 Run the agent with any company name:
 
 ```bash
-uv run task_examples/find_agreement_links/find_agreement_links.py --company "Nike"
+uv run task_examples/find_agreement_links/find_agreement_links.py --website "https://www.nike.com"
 ```
 
 **Example output:**

@@ -73,4 +73,9 @@ async def main(inputs: Dict[str, Any]) -> Dict[str, Any]:
 
 if __name__ == "__main__":
     import asyncio
-    asyncio.run(main({"contract_text": "This is a contract text"}, analysis_type="full", session_id="test", question="What is the contract?"))
+    asyncio.run(main({
+        "contract_text": "This is a contract text",
+        "analysis_type": "full",
+        "session_id": "test",
+        "question": "What is the contract?"
+    }))

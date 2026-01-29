@@ -38,7 +38,7 @@ You can get a free key at https://serper.dev.
 Run the reasoning-based agent to find a company's official website:
 
 ```bash
-uv run task_examples/find_company_website/find_company_website_demo.py --company "OpenAI"
+uv run task_examples/find_company_website/find_company_website.py --company "OpenAI"
 ```
 
 **Example Output:**
