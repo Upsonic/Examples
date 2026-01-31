@@ -1,5 +1,10 @@
 import asyncio
 from upsonic import Agent, Chat
+from upsonic.run.events.events import (
+    TextDeltaEvent,
+    ToolCallDeltaEvent,
+    ToolResultEvent,
+)
 
 from moltbook_tools import MoltbookAutonomous
 
@@ -26,8 +31,19 @@ async def main():
             continue
 
         print(":robot_face: Assistant: ", end="", flush=True)
-        async for chunk in chat.stream(user_input):
-            print(chunk, end="", flush=True)
+        async for event in chat.stream(user_input, events=True):
+            if isinstance(event, ToolCallDeltaEvent):
+                if event.tool_name:
+                    print(f"\n   :wrench: {event.tool_name}", end="", flush=True)
+                if event.args_delta:
+                    print(event.args_delta, end="", flush=True)
+
+            elif isinstance(event, ToolResultEvent):
+                print(f"   :white_check_mark: Result: {event.result}")
+                print(":robot_face: Assistant: ", end="", flush=True)
+
+            elif isinstance(event, TextDeltaEvent):
+                print(event.content, end="", flush=True)
         print("\n")
 
 
