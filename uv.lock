@@ -1175,7 +1175,7 @@ requires-dist = [
     { name = "streamlit", specifier = ">=1.32.2" },
     { name = "transformers" },
     { name = "typer" },
-    { name = "upsonic", extras = ["storage", "tools"] },
+    { name = "upsonic", extras = ["storage", "tools"], specifier = "==0.71.3a1769867798" },
     { name = "uvicorn", specifier = ">=0.34.2" },
 ]
 
@@ -5755,7 +5755,7 @@ wheels = [
 
 [[package]]
 name = "upsonic"
-version = "0.71.2"
+version = "0.71.3a1769867798"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiohttp" },
@@ -5781,9 +5781,9 @@ dependencies = [
     { name = "uv" },
     { name = "uvicorn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/25/80/ea54003e66b44e3da93fd58c1570f2c2566d202cb52711a5153fe7b661c0/upsonic-0.71.2.tar.gz", hash = "sha256:775ec37c4a8c374d8ca34d5e930aed7219b6a8fbc2d876569aa0eb0dc563dc27", size = 2081516, upload-time = "2026-01-29T15:08:35.098Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/8c/9f/cb27cb21630854567275a283a3925cdaa62316eb6117c07775627aada22a/upsonic-0.71.3a1769867798.tar.gz", hash = "sha256:29b7243a1ce3e86fd370b76bda96b8377da91bf82206e1e1fa154def80a85dc1", size = 2089259, upload-time = "2026-01-31T13:56:56.725Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f0/92/8fe3c6d61dbc1667680e1bcf9699e5e6cdcb75c182906d6bccb3da9ad3ac/upsonic-0.71.2-py3-none-any.whl", hash = "sha256:6b164ddb76786037348f08c2b4af35e48d4e3f4360e3500f631cfa76ac656338", size = 1300026, upload-time = "2026-01-29T15:08:33.289Z" },
+    { url = "https://files.pythonhosted.org/packages/15/d9/0946167ab2336a01cda182bce3280d4fe5e19087af5501fd81f356e24b56/upsonic-0.71.3a1769867798-py3-none-any.whl", hash = "sha256:c09f5e1bb5880e78669e6b369c29f2f6a2e01de566d67cd84fd0fd2430c14f1c", size = 1301485, upload-time = "2026-01-31T13:56:55.132Z" },
 ]
 
 [package.optional-dependencies]
