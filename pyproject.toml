@@ -5,12 +5,11 @@ description = "Upsonic example tasks"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "upsonic[storage,tools]==0.71.3a1769872847",
-    "pydantic==2.10.5",
+    "upsonic[storage,tools]>=0.71.4",
+    "pydantic",
     "asyncpg>=0.30.0",
     "aiosqlite>=0.21.0",
     "rich",
-    "pydantic-ai==0.3.2",
     "httpx",
     "typer",
     "transformers",
