@@ -23,7 +23,7 @@ e5f6a7b fix: resolved race condition in real-time notifications
 
 # ── Agent A — The Tech Lead ──────────────────────────────────────────────
 tech_lead = Agent(
-    model="openai/gpt-4o",
+    model="openai/gpt-5-mini",
     name="Tech Lead",
     role="Technical Summarizer",
     goal="Distill raw commit messages into a clear, developer-friendly summary that highlights user-facing value.",
@@ -109,14 +109,16 @@ tasks = [
             f"Analyze the following raw git commit messages and produce "
             f"a concise technical summary of the meaningful, user-facing changes.\n\n"
             f"Raw commits:\n{RAW_COMMITS}"
-        )
+        ),
+        agent=tech_lead
     ),
     Task(
         description=(
             "Using the technical summary from the previous step, "
-            "create a Twitter/X thread (3 tweets) and a LinkedIn post "
+            "create a Twitter/X thread (3 tweets)"
             "that announce this week's product updates."
-        )
+        ),
+        agent=growth_hacker
     ),
 ]
 
