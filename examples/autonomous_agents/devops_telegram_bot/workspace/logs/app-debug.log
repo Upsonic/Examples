@@ -1,0 +1,1200 @@
+2026-02-12 08:00:00 [DEBUG] [cache.redis] JWT token validated for user_id=554
+2026-02-12 08:00:03 [DEBUG] [scheduler] GC pause: 151ms (heap: 320MB)
+2026-02-12 08:00:06 [INFO] [scheduler] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:00:09 [DEBUG] [http.router] Route matched: GET /api/v1/payments -> handler_30
+2026-02-12 08:00:12 [DEBUG] [middleware.cors] Worker processing job #30 (queue: default)
+2026-02-12 08:00:15 [DEBUG] [worker.queue] Route matched: POST /api/v1/users -> handler_17
+2026-02-12 08:00:18 [INFO] [scheduler] GC pause: 108ms (heap: 498MB)
+2026-02-12 08:00:21 [DEBUG] [auth.jwt] Query executed in 195ms: SELECT ...
+2026-02-12 08:00:24 [DEBUG] [cache.redis] GC pause: 58ms (heap: 303MB)
+2026-02-12 08:00:27 [DEBUG] [db.pool] Connection pool checkout: conn_id=10
+2026-02-12 08:00:30 [TRACE] [http.router] Worker processing job #469 (queue: default)
+2026-02-12 08:00:33 [TRACE] [auth.jwt] Cache lookup: key=session:4245 hit=true
+2026-02-12 08:00:36 [DEBUG] [auth.jwt] JWT token validated for user_id=8530
+2026-02-12 08:00:39 [DEBUG] [middleware.cors] Worker processing job #237 (queue: default)
+2026-02-12 08:00:42 [DEBUG] [worker.queue] Response sent: 201 in 24ms
+2026-02-12 08:00:45 [DEBUG] [db.pool] Route matched: PUT /api/v1/users -> handler_36
+2026-02-12 08:00:48 [INFO] [auth.jwt] JWT token validated for user_id=8852
+2026-02-12 08:00:51 [INFO] [scheduler] JWT token validated for user_id=9824
+2026-02-12 08:00:54 [DEBUG] [http.router] Query executed in 114ms: SELECT ...
+2026-02-12 08:00:57 [DEBUG] [auth.jwt] Response sent: 200 in 136ms
+2026-02-12 08:01:00 [TRACE] [scheduler] JWT token validated for user_id=3710
+2026-02-12 08:01:03 [DEBUG] [scheduler] Worker processing job #212 (queue: default)
+2026-02-12 08:01:06 [INFO] [middleware.cors] Cache lookup: key=session:5130 hit=false
+2026-02-12 08:01:09 [DEBUG] [cache.redis] Cache lookup: key=session:1354 hit=true
+2026-02-12 08:01:12 [DEBUG] [auth.jwt] Cache lookup: key=session:3245 hit=false
+2026-02-12 08:01:15 [DEBUG] [cache.redis] Cache lookup: key=session:7197 hit=false
+2026-02-12 08:01:18 [DEBUG] [auth.jwt] Query executed in 20ms: SELECT ...
+2026-02-12 08:01:21 [DEBUG] [auth.jwt] CORS preflight handled for origin=app.example.com
+2026-02-12 08:01:24 [INFO] [scheduler] Cache lookup: key=session:8307 hit=false
+2026-02-12 08:01:27 [DEBUG] [worker.queue] GC pause: 10ms (heap: 176MB)
+2026-02-12 08:01:30 [TRACE] [auth.jwt] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:01:33 [DEBUG] [db.pool] JWT token validated for user_id=2053
+2026-02-12 08:01:36 [TRACE] [cache.redis] JWT token validated for user_id=5123
+2026-02-12 08:01:39 [DEBUG] [scheduler] GC pause: 6ms (heap: 470MB)
+2026-02-12 08:01:42 [DEBUG] [db.pool] Scheduler tick: next run in 130s
+2026-02-12 08:01:45 [DEBUG] [scheduler] Route matched: PUT /api/v1/users -> handler_29
+2026-02-12 08:01:48 [DEBUG] [http.router] Query executed in 94ms: SELECT ...
+2026-02-12 08:01:51 [DEBUG] [worker.queue] Worker processing job #110 (queue: default)
+2026-02-12 08:01:54 [INFO] [auth.jwt] Response sent: 200 in 10ms
+2026-02-12 08:01:57 [DEBUG] [scheduler] Route matched: GET /health -> handler_4
+2026-02-12 08:02:00 [DEBUG] [http.router] Connection pool checkout: conn_id=4
+2026-02-12 08:02:03 [INFO] [worker.queue] Route matched: PUT /api/v1/users -> handler_14
+2026-02-12 08:02:06 [DEBUG] [scheduler] Route matched: GET /api/v1/orders -> handler_7
+2026-02-12 08:02:09 [DEBUG] [cache.redis] JWT token validated for user_id=878
+2026-02-12 08:02:12 [TRACE] [db.pool] Query executed in 71ms: SELECT ...
+2026-02-12 08:02:15 [INFO] [auth.jwt] Response sent: 304 in 157ms
+2026-02-12 08:02:18 [DEBUG] [worker.queue] Response sent: 201 in 22ms
+2026-02-12 08:02:21 [DEBUG] [auth.jwt] JWT token validated for user_id=4859
+2026-02-12 08:02:24 [INFO] [http.router] Cache lookup: key=session:5592 hit=true
+2026-02-12 08:02:27 [DEBUG] [db.pool] Query executed in 19ms: SELECT ...
+2026-02-12 08:02:30 [DEBUG] [db.pool] Query executed in 149ms: SELECT ...
+2026-02-12 08:02:33 [DEBUG] [scheduler] Worker processing job #202 (queue: default)
+2026-02-12 08:02:36 [DEBUG] [worker.queue] Scheduler tick: next run in 79s
+2026-02-12 08:02:39 [DEBUG] [worker.queue] Connection pool checkout: conn_id=16
+2026-02-12 08:02:42 [DEBUG] [auth.jwt] JWT token validated for user_id=9979
+2026-02-12 08:02:45 [DEBUG] [auth.jwt] Response sent: 304 in 55ms
+2026-02-12 08:02:48 [DEBUG] [db.pool] Query executed in 22ms: SELECT ...
+2026-02-12 08:02:51 [DEBUG] [http.router] Cache lookup: key=session:2105 hit=false
+2026-02-12 08:02:54 [INFO] [cache.redis] GC pause: 111ms (heap: 214MB)
+2026-02-12 08:02:57 [DEBUG] [scheduler] GC pause: 108ms (heap: 198MB)
+2026-02-12 08:03:00 [DEBUG] [middleware.cors] JWT token validated for user_id=8899
+2026-02-12 08:03:03 [DEBUG] [auth.jwt] GC pause: 138ms (heap: 289MB)
+2026-02-12 08:03:06 [DEBUG] [scheduler] Worker processing job #163 (queue: default)
+2026-02-12 08:03:09 [DEBUG] [middleware.cors] GC pause: 8ms (heap: 386MB)
+2026-02-12 08:03:12 [DEBUG] [middleware.cors] Query executed in 81ms: SELECT ...
+2026-02-12 08:03:15 [DEBUG] [db.pool] Cache lookup: key=session:5960 hit=false
+2026-02-12 08:03:18 [TRACE] [cache.redis] Connection pool checkout: conn_id=1
+2026-02-12 08:03:21 [DEBUG] [cache.redis] Scheduler tick: next run in 25s
+2026-02-12 08:03:24 [DEBUG] [scheduler] Cache lookup: key=session:3882 hit=false
+2026-02-12 08:03:27 [INFO] [db.pool] JWT token validated for user_id=5606
+2026-02-12 08:03:30 [DEBUG] [db.pool] Route matched: POST /health -> handler_26
+2026-02-12 08:03:33 [INFO] [middleware.cors] Response sent: 304 in 99ms
+2026-02-12 08:03:36 [DEBUG] [worker.queue] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:03:39 [INFO] [auth.jwt] Worker processing job #38 (queue: default)
+2026-02-12 08:03:42 [DEBUG] [worker.queue] Route matched: GET /api/v1/users -> handler_40
+2026-02-12 08:03:45 [TRACE] [cache.redis] Scheduler tick: next run in 187s
+2026-02-12 08:03:48 [DEBUG] [auth.jwt] Worker processing job #443 (queue: default)
+2026-02-12 08:03:51 [DEBUG] [cache.redis] Route matched: POST /api/v1/payments -> handler_32
+2026-02-12 08:03:54 [DEBUG] [scheduler] CORS preflight handled for origin=app.example.com
+2026-02-12 08:03:57 [DEBUG] [auth.jwt] Query executed in 49ms: SELECT ...
+2026-02-12 08:04:00 [DEBUG] [cache.redis] JWT token validated for user_id=7675
+2026-02-12 08:04:03 [DEBUG] [worker.queue] Route matched: GET /api/v1/orders -> handler_44
+2026-02-12 08:04:06 [INFO] [cache.redis] GC pause: 144ms (heap: 162MB)
+2026-02-12 08:04:09 [INFO] [http.router] CORS preflight handled for origin=app.example.com
+2026-02-12 08:04:12 [DEBUG] [db.pool] Cache lookup: key=session:9807 hit=true
+2026-02-12 08:04:15 [INFO] [scheduler] JWT token validated for user_id=8683
+2026-02-12 08:04:18 [DEBUG] [cache.redis] Scheduler tick: next run in 254s
+2026-02-12 08:04:21 [DEBUG] [middleware.cors] GC pause: 178ms (heap: 424MB)
+2026-02-12 08:04:24 [INFO] [auth.jwt] JWT token validated for user_id=9133
+2026-02-12 08:04:27 [DEBUG] [cache.redis] JWT token validated for user_id=3189
+2026-02-12 08:04:30 [DEBUG] [http.router] GC pause: 96ms (heap: 288MB)
+2026-02-12 08:04:33 [DEBUG] [middleware.cors] Cache lookup: key=session:3048 hit=false
+2026-02-12 08:04:36 [DEBUG] [cache.redis] Scheduler tick: next run in 79s
+2026-02-12 08:04:39 [DEBUG] [scheduler] GC pause: 22ms (heap: 128MB)
+2026-02-12 08:04:42 [DEBUG] [auth.jwt] Route matched: POST /api/v1/users -> handler_42
+2026-02-12 08:04:45 [DEBUG] [middleware.cors] Route matched: GET /api/v1/payments -> handler_7
+2026-02-12 08:04:48 [INFO] [middleware.cors] GC pause: 106ms (heap: 293MB)
+2026-02-12 08:04:51 [DEBUG] [middleware.cors] Query executed in 65ms: SELECT ...
+2026-02-12 08:04:54 [INFO] [cache.redis] Route matched: GET /api/v1/payments -> handler_28
+2026-02-12 08:04:57 [TRACE] [db.pool] Response sent: 200 in 88ms
+2026-02-12 08:05:00 [DEBUG] [cache.redis] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:05:03 [DEBUG] [middleware.cors] Worker processing job #432 (queue: default)
+2026-02-12 08:05:06 [TRACE] [db.pool] Cache lookup: key=session:4476 hit=false
+2026-02-12 08:05:09 [DEBUG] [worker.queue] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:05:12 [INFO] [db.pool] Worker processing job #341 (queue: default)
+2026-02-12 08:05:15 [DEBUG] [middleware.cors] CORS preflight handled for origin=app.example.com
+2026-02-12 08:05:18 [DEBUG] [cache.redis] Query executed in 62ms: SELECT ...
+2026-02-12 08:05:21 [DEBUG] [cache.redis] Query executed in 125ms: SELECT ...
+2026-02-12 08:05:24 [DEBUG] [http.router] Route matched: PUT /api/v1/users -> handler_29
+2026-02-12 08:05:27 [DEBUG] [auth.jwt] Connection pool checkout: conn_id=1
+2026-02-12 08:05:30 [DEBUG] [cache.redis] Cache lookup: key=session:1132 hit=true
+2026-02-12 08:05:33 [DEBUG] [http.router] Response sent: 304 in 14ms
+2026-02-12 08:05:36 [DEBUG] [cache.redis] Scheduler tick: next run in 220s
+2026-02-12 08:05:39 [DEBUG] [auth.jwt] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:05:42 [DEBUG] [http.router] Scheduler tick: next run in 65s
+2026-02-12 08:05:45 [TRACE] [cache.redis] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:05:48 [DEBUG] [auth.jwt] Worker processing job #144 (queue: default)
+2026-02-12 08:05:51 [TRACE] [auth.jwt] Cache lookup: key=session:4437 hit=false
+2026-02-12 08:05:54 [TRACE] [middleware.cors] Worker processing job #98 (queue: default)
+2026-02-12 08:05:57 [DEBUG] [scheduler] Route matched: GET /api/v1/payments -> handler_25
+2026-02-12 08:06:00 [DEBUG] [scheduler] JWT token validated for user_id=3764
+2026-02-12 08:06:03 [DEBUG] [scheduler] Scheduler tick: next run in 196s
+2026-02-12 08:06:06 [DEBUG] [http.router] Connection pool checkout: conn_id=1
+2026-02-12 08:06:09 [INFO] [middleware.cors] Cache lookup: key=session:8348 hit=true
+2026-02-12 08:06:12 [DEBUG] [middleware.cors] GC pause: 186ms (heap: 138MB)
+2026-02-12 08:06:15 [DEBUG] [http.router] JWT token validated for user_id=2722
+2026-02-12 08:06:18 [DEBUG] [cache.redis] Connection pool checkout: conn_id=8
+2026-02-12 08:06:21 [DEBUG] [middleware.cors] Route matched: PUT /health -> handler_11
+2026-02-12 08:06:24 [DEBUG] [scheduler] Cache lookup: key=session:8041 hit=true
+2026-02-12 08:06:27 [DEBUG] [http.router] Worker processing job #79 (queue: default)
+2026-02-12 08:06:30 [DEBUG] [cache.redis] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:06:33 [DEBUG] [cache.redis] Scheduler tick: next run in 80s
+2026-02-12 08:06:36 [TRACE] [worker.queue] Connection pool checkout: conn_id=6
+2026-02-12 08:06:39 [DEBUG] [cache.redis] Connection pool checkout: conn_id=17
+2026-02-12 08:06:42 [DEBUG] [http.router] Connection pool checkout: conn_id=2
+2026-02-12 08:06:45 [INFO] [worker.queue] Connection pool checkout: conn_id=6
+2026-02-12 08:06:48 [DEBUG] [scheduler] Worker processing job #92 (queue: default)
+2026-02-12 08:06:51 [INFO] [scheduler] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:06:54 [TRACE] [worker.queue] Worker processing job #46 (queue: default)
+2026-02-12 08:06:57 [DEBUG] [http.router] GC pause: 30ms (heap: 337MB)
+2026-02-12 08:07:00 [INFO] [worker.queue] Cache lookup: key=session:2297 hit=false
+2026-02-12 08:07:03 [DEBUG] [http.router] Query executed in 151ms: SELECT ...
+2026-02-12 08:07:06 [DEBUG] [auth.jwt] Worker processing job #425 (queue: default)
+2026-02-12 08:07:09 [TRACE] [db.pool] CORS preflight handled for origin=app.example.com
+2026-02-12 08:07:12 [DEBUG] [middleware.cors] Scheduler tick: next run in 230s
+2026-02-12 08:07:15 [TRACE] [scheduler] Worker processing job #317 (queue: default)
+2026-02-12 08:07:18 [DEBUG] [auth.jwt] Scheduler tick: next run in 127s
+2026-02-12 08:07:21 [DEBUG] [cache.redis] Response sent: 200 in 64ms
+2026-02-12 08:07:24 [DEBUG] [http.router] Worker processing job #228 (queue: default)
+2026-02-12 08:07:27 [DEBUG] [auth.jwt] Connection pool checkout: conn_id=6
+2026-02-12 08:07:30 [DEBUG] [auth.jwt] Scheduler tick: next run in 170s
+2026-02-12 08:07:33 [DEBUG] [auth.jwt] Route matched: PUT /api/v1/payments -> handler_33
+2026-02-12 08:07:36 [DEBUG] [db.pool] Route matched: PUT /api/v1/orders -> handler_38
+2026-02-12 08:07:39 [DEBUG] [http.router] Connection pool checkout: conn_id=8
+2026-02-12 08:07:42 [DEBUG] [cache.redis] Route matched: GET /api/v1/orders -> handler_7
+2026-02-12 08:07:45 [DEBUG] [http.router] CORS preflight handled for origin=app.example.com
+2026-02-12 08:07:48 [DEBUG] [cache.redis] Cache lookup: key=session:3078 hit=true
+2026-02-12 08:07:51 [DEBUG] [db.pool] Response sent: 200 in 59ms
+2026-02-12 08:07:54 [TRACE] [cache.redis] Cache lookup: key=session:1874 hit=true
+2026-02-12 08:07:57 [DEBUG] [auth.jwt] Cache lookup: key=session:2130 hit=true
+2026-02-12 08:08:00 [DEBUG] [scheduler] Worker processing job #334 (queue: default)
+2026-02-12 08:08:03 [DEBUG] [middleware.cors] Route matched: PUT /api/v1/users -> handler_14
+2026-02-12 08:08:06 [TRACE] [db.pool] GC pause: 197ms (heap: 234MB)
+2026-02-12 08:08:09 [DEBUG] [scheduler] Response sent: 201 in 55ms
+2026-02-12 08:08:12 [DEBUG] [http.router] GC pause: 28ms (heap: 295MB)
+2026-02-12 08:08:15 [DEBUG] [db.pool] Scheduler tick: next run in 217s
+2026-02-12 08:08:18 [INFO] [middleware.cors] Connection pool checkout: conn_id=17
+2026-02-12 08:08:21 [DEBUG] [db.pool] Connection pool checkout: conn_id=17
+2026-02-12 08:08:24 [DEBUG] [db.pool] JWT token validated for user_id=7894
+2026-02-12 08:08:27 [DEBUG] [db.pool] Scheduler tick: next run in 196s
+2026-02-12 08:08:30 [DEBUG] [db.pool] GC pause: 165ms (heap: 211MB)
+2026-02-12 08:08:33 [DEBUG] [db.pool] Connection pool checkout: conn_id=12
+2026-02-12 08:08:36 [DEBUG] [cache.redis] Route matched: GET /api/v1/orders -> handler_12
+2026-02-12 08:08:39 [DEBUG] [scheduler] Response sent: 304 in 132ms
+2026-02-12 08:08:42 [DEBUG] [cache.redis] GC pause: 152ms (heap: 277MB)
+2026-02-12 08:08:45 [DEBUG] [worker.queue] JWT token validated for user_id=2474
+2026-02-12 08:08:48 [DEBUG] [db.pool] Route matched: GET /api/v1/payments -> handler_48
+2026-02-12 08:08:51 [DEBUG] [auth.jwt] Cache lookup: key=session:7170 hit=true
+2026-02-12 08:08:54 [DEBUG] [worker.queue] Connection pool checkout: conn_id=20
+2026-02-12 08:08:57 [INFO] [auth.jwt] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:09:00 [DEBUG] [cache.redis] Cache lookup: key=session:1845 hit=false
+2026-02-12 08:09:03 [DEBUG] [cache.redis] Response sent: 200 in 193ms
+2026-02-12 08:09:06 [DEBUG] [db.pool] Worker processing job #297 (queue: default)
+2026-02-12 08:09:09 [DEBUG] [db.pool] Route matched: GET /api/v1/orders -> handler_41
+2026-02-12 08:09:12 [TRACE] [middleware.cors] Query executed in 61ms: SELECT ...
+2026-02-12 08:09:15 [TRACE] [db.pool] Worker processing job #265 (queue: default)
+2026-02-12 08:09:18 [INFO] [middleware.cors] Query executed in 120ms: SELECT ...
+2026-02-12 08:09:21 [INFO] [worker.queue] Scheduler tick: next run in 36s
+2026-02-12 08:09:24 [DEBUG] [worker.queue] Cache lookup: key=session:2147 hit=false
+2026-02-12 08:09:27 [DEBUG] [db.pool] GC pause: 121ms (heap: 462MB)
+2026-02-12 08:09:30 [TRACE] [worker.queue] Scheduler tick: next run in 109s
+2026-02-12 08:09:33 [DEBUG] [http.router] Route matched: PUT /api/v1/orders -> handler_38
+2026-02-12 08:09:36 [DEBUG] [worker.queue] Response sent: 304 in 145ms
+2026-02-12 08:09:39 [INFO] [cache.redis] Response sent: 200 in 43ms
+2026-02-12 08:09:42 [DEBUG] [scheduler] Route matched: PUT /api/v1/payments -> handler_22
+2026-02-12 08:09:45 [DEBUG] [db.pool] Query executed in 162ms: SELECT ...
+2026-02-12 08:09:48 [DEBUG] [scheduler] Route matched: POST /api/v1/users -> handler_22
+2026-02-12 08:09:51 [DEBUG] [cache.redis] Response sent: 200 in 153ms
+2026-02-12 08:09:54 [DEBUG] [scheduler] JWT token validated for user_id=8798
+2026-02-12 08:09:57 [DEBUG] [cache.redis] CORS preflight handled for origin=app.example.com
+2026-02-12 08:10:00 [DEBUG] [auth.jwt] Cache lookup: key=session:7317 hit=false
+2026-02-12 08:10:03 [INFO] [worker.queue] CORS preflight handled for origin=app.example.com
+2026-02-12 08:10:06 [DEBUG] [scheduler] Response sent: 304 in 103ms
+2026-02-12 08:10:09 [DEBUG] [scheduler] Query executed in 155ms: SELECT ...
+2026-02-12 08:10:12 [INFO] [http.router] JWT token validated for user_id=5909
+2026-02-12 08:10:15 [TRACE] [worker.queue] Route matched: PUT /api/v1/payments -> handler_39
+2026-02-12 08:10:18 [DEBUG] [cache.redis] Query executed in 116ms: SELECT ...
+2026-02-12 08:10:21 [DEBUG] [http.router] Worker processing job #330 (queue: default)
+2026-02-12 08:10:24 [DEBUG] [middleware.cors] Query executed in 59ms: SELECT ...
+2026-02-12 08:10:27 [DEBUG] [db.pool] CORS preflight handled for origin=app.example.com
+2026-02-12 08:10:30 [DEBUG] [http.router] GC pause: 176ms (heap: 346MB)
+2026-02-12 08:10:33 [DEBUG] [scheduler] JWT token validated for user_id=9447
+2026-02-12 08:10:36 [TRACE] [middleware.cors] Route matched: GET /api/v1/users -> handler_35
+2026-02-12 08:10:39 [INFO] [worker.queue] JWT token validated for user_id=9715
+2026-02-12 08:10:42 [DEBUG] [auth.jwt] Query executed in 99ms: SELECT ...
+2026-02-12 08:10:45 [DEBUG] [http.router] JWT token validated for user_id=7712
+2026-02-12 08:10:48 [INFO] [cache.redis] GC pause: 30ms (heap: 355MB)
+2026-02-12 08:10:51 [TRACE] [http.router] GC pause: 149ms (heap: 489MB)
+2026-02-12 08:10:54 [DEBUG] [scheduler] Route matched: POST /api/v1/orders -> handler_50
+2026-02-12 08:10:57 [DEBUG] [cache.redis] Worker processing job #41 (queue: default)
+2026-02-12 08:11:00 [DEBUG] [cache.redis] Connection pool checkout: conn_id=10
+2026-02-12 08:11:03 [DEBUG] [middleware.cors] Route matched: GET /api/v1/orders -> handler_28
+2026-02-12 08:11:06 [DEBUG] [cache.redis] Route matched: POST /health -> handler_7
+2026-02-12 08:11:09 [DEBUG] [cache.redis] Cache lookup: key=session:6432 hit=true
+2026-02-12 08:11:12 [DEBUG] [worker.queue] JWT token validated for user_id=1694
+2026-02-12 08:11:15 [DEBUG] [scheduler] JWT token validated for user_id=4308
+2026-02-12 08:11:18 [DEBUG] [scheduler] Connection pool checkout: conn_id=17
+2026-02-12 08:11:21 [INFO] [cache.redis] Cache lookup: key=session:6931 hit=false
+2026-02-12 08:11:24 [INFO] [worker.queue] Cache lookup: key=session:9157 hit=false
+2026-02-12 08:11:27 [DEBUG] [cache.redis] Connection pool checkout: conn_id=4
+2026-02-12 08:11:30 [DEBUG] [auth.jwt] CORS preflight handled for origin=app.example.com
+2026-02-12 08:11:33 [DEBUG] [auth.jwt] GC pause: 48ms (heap: 172MB)
+2026-02-12 08:11:36 [DEBUG] [worker.queue] Route matched: POST /api/v1/payments -> handler_24
+2026-02-12 08:11:39 [INFO] [http.router] GC pause: 189ms (heap: 483MB)
+2026-02-12 08:11:42 [INFO] [auth.jwt] Query executed in 132ms: SELECT ...
+2026-02-12 08:11:45 [TRACE] [middleware.cors] Query executed in 61ms: SELECT ...
+2026-02-12 08:11:48 [DEBUG] [auth.jwt] JWT token validated for user_id=8318
+2026-02-12 08:11:51 [DEBUG] [http.router] Connection pool checkout: conn_id=8
+2026-02-12 08:11:54 [DEBUG] [db.pool] Worker processing job #402 (queue: default)
+2026-02-12 08:11:57 [TRACE] [cache.redis] GC pause: 132ms (heap: 229MB)
+2026-02-12 08:12:00 [TRACE] [http.router] CORS preflight handled for origin=app.example.com
+2026-02-12 08:12:03 [DEBUG] [worker.queue] JWT token validated for user_id=3920
+2026-02-12 08:12:06 [TRACE] [cache.redis] Query executed in 124ms: SELECT ...
+2026-02-12 08:12:09 [DEBUG] [scheduler] Cache lookup: key=session:6295 hit=true
+2026-02-12 08:12:12 [DEBUG] [auth.jwt] Route matched: POST /health -> handler_18
+2026-02-12 08:12:15 [TRACE] [scheduler] GC pause: 91ms (heap: 343MB)
+2026-02-12 08:12:18 [DEBUG] [worker.queue] Cache lookup: key=session:5219 hit=true
+2026-02-12 08:12:21 [DEBUG] [worker.queue] Scheduler tick: next run in 28s
+2026-02-12 08:12:24 [DEBUG] [worker.queue] Cache lookup: key=session:7203 hit=false
+2026-02-12 08:12:27 [DEBUG] [db.pool] JWT token validated for user_id=5244
+2026-02-12 08:12:30 [DEBUG] [scheduler] Route matched: PUT /api/v1/orders -> handler_27
+2026-02-12 08:12:33 [DEBUG] [cache.redis] Cache lookup: key=session:4332 hit=true
+2026-02-12 08:12:36 [DEBUG] [middleware.cors] Scheduler tick: next run in 54s
+2026-02-12 08:12:39 [DEBUG] [db.pool] Worker processing job #463 (queue: default)
+2026-02-12 08:12:42 [INFO] [cache.redis] Cache lookup: key=session:6299 hit=false
+2026-02-12 08:12:45 [DEBUG] [middleware.cors] Route matched: PUT /health -> handler_40
+2026-02-12 08:12:48 [TRACE] [http.router] Cache lookup: key=session:1919 hit=true
+2026-02-12 08:12:51 [TRACE] [auth.jwt] Cache lookup: key=session:3786 hit=true
+2026-02-12 08:12:54 [DEBUG] [middleware.cors] JWT token validated for user_id=4414
+2026-02-12 08:12:57 [DEBUG] [auth.jwt] CORS preflight handled for origin=app.example.com
+2026-02-12 08:13:00 [DEBUG] [db.pool] Scheduler tick: next run in 66s
+2026-02-12 08:13:03 [DEBUG] [cache.redis] Scheduler tick: next run in 80s
+2026-02-12 08:13:06 [DEBUG] [cache.redis] Connection pool checkout: conn_id=14
+2026-02-12 08:13:09 [DEBUG] [middleware.cors] Connection pool checkout: conn_id=15
+2026-02-12 08:13:12 [INFO] [db.pool] Route matched: GET /api/v1/payments -> handler_49
+2026-02-12 08:13:15 [DEBUG] [worker.queue] JWT token validated for user_id=4982
+2026-02-12 08:13:18 [DEBUG] [http.router] Scheduler tick: next run in 95s
+2026-02-12 08:13:21 [INFO] [db.pool] Cache lookup: key=session:5953 hit=false
+2026-02-12 08:13:24 [DEBUG] [http.router] GC pause: 24ms (heap: 508MB)
+2026-02-12 08:13:27 [DEBUG] [middleware.cors] Scheduler tick: next run in 204s
+2026-02-12 08:13:30 [DEBUG] [middleware.cors] Query executed in 120ms: SELECT ...
+2026-02-12 08:13:33 [TRACE] [cache.redis] Connection pool checkout: conn_id=9
+2026-02-12 08:13:36 [INFO] [scheduler] JWT token validated for user_id=9327
+2026-02-12 08:13:39 [DEBUG] [auth.jwt] Worker processing job #32 (queue: default)
+2026-02-12 08:13:42 [DEBUG] [cache.redis] Cache lookup: key=session:3830 hit=false
+2026-02-12 08:13:45 [DEBUG] [scheduler] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:13:48 [DEBUG] [auth.jwt] Cache lookup: key=session:9088 hit=false
+2026-02-12 08:13:51 [INFO] [scheduler] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:13:54 [DEBUG] [cache.redis] Connection pool checkout: conn_id=19
+2026-02-12 08:13:57 [DEBUG] [db.pool] Worker processing job #433 (queue: default)
+2026-02-12 08:14:00 [DEBUG] [middleware.cors] Scheduler tick: next run in 107s
+2026-02-12 08:14:03 [DEBUG] [db.pool] CORS preflight handled for origin=app.example.com
+2026-02-12 08:14:06 [DEBUG] [db.pool] Cache lookup: key=session:3335 hit=true
+2026-02-12 08:14:09 [DEBUG] [auth.jwt] JWT token validated for user_id=4334
+2026-02-12 08:14:12 [TRACE] [db.pool] JWT token validated for user_id=4095
+2026-02-12 08:14:15 [DEBUG] [scheduler] Response sent: 201 in 69ms
+2026-02-12 08:14:18 [DEBUG] [scheduler] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:14:21 [DEBUG] [cache.redis] GC pause: 64ms (heap: 477MB)
+2026-02-12 08:14:24 [DEBUG] [db.pool] Scheduler tick: next run in 57s
+2026-02-12 08:14:27 [DEBUG] [middleware.cors] Worker processing job #317 (queue: default)
+2026-02-12 08:14:30 [DEBUG] [db.pool] Worker processing job #355 (queue: default)
+2026-02-12 08:14:33 [DEBUG] [cache.redis] GC pause: 160ms (heap: 499MB)
+2026-02-12 08:14:36 [DEBUG] [worker.queue] JWT token validated for user_id=8306
+2026-02-12 08:14:39 [DEBUG] [http.router] Response sent: 200 in 83ms
+2026-02-12 08:14:42 [DEBUG] [worker.queue] JWT token validated for user_id=6680
+2026-02-12 08:14:45 [TRACE] [db.pool] Connection pool checkout: conn_id=16
+2026-02-12 08:14:48 [DEBUG] [db.pool] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:14:51 [INFO] [worker.queue] Connection pool checkout: conn_id=10
+2026-02-12 08:14:54 [DEBUG] [db.pool] Worker processing job #246 (queue: default)
+2026-02-12 08:14:57 [DEBUG] [scheduler] Cache lookup: key=session:4109 hit=true
+2026-02-12 08:15:00 [TRACE] [http.router] Response sent: 200 in 133ms
+2026-02-12 08:15:03 [DEBUG] [auth.jwt] Query executed in 148ms: SELECT ...
+2026-02-12 08:15:06 [DEBUG] [http.router] Scheduler tick: next run in 178s
+2026-02-12 08:15:09 [DEBUG] [auth.jwt] Route matched: PUT /health -> handler_35
+2026-02-12 08:15:12 [DEBUG] [db.pool] GC pause: 54ms (heap: 505MB)
+2026-02-12 08:15:15 [TRACE] [scheduler] Query executed in 102ms: SELECT ...
+2026-02-12 08:15:18 [INFO] [worker.queue] GC pause: 179ms (heap: 489MB)
+2026-02-12 08:15:21 [DEBUG] [worker.queue] CORS preflight handled for origin=app.example.com
+2026-02-12 08:15:24 [DEBUG] [auth.jwt] Worker processing job #167 (queue: default)
+2026-02-12 08:15:27 [DEBUG] [middleware.cors] Route matched: POST /health -> handler_35
+2026-02-12 08:15:30 [INFO] [worker.queue] Connection pool checkout: conn_id=17
+2026-02-12 08:15:33 [INFO] [cache.redis] Worker processing job #161 (queue: default)
+2026-02-12 08:15:36 [DEBUG] [http.router] Cache lookup: key=session:9223 hit=false
+2026-02-12 08:15:39 [INFO] [auth.jwt] Worker processing job #238 (queue: default)
+2026-02-12 08:15:42 [DEBUG] [http.router] Response sent: 200 in 53ms
+2026-02-12 08:15:45 [DEBUG] [middleware.cors] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:15:48 [DEBUG] [auth.jwt] GC pause: 100ms (heap: 365MB)
+2026-02-12 08:15:51 [TRACE] [cache.redis] Connection pool checkout: conn_id=9
+2026-02-12 08:15:54 [TRACE] [http.router] Worker processing job #418 (queue: default)
+2026-02-12 08:15:57 [INFO] [scheduler] Cache lookup: key=session:9449 hit=true
+2026-02-12 08:16:00 [DEBUG] [cache.redis] JWT token validated for user_id=3775
+2026-02-12 08:16:03 [DEBUG] [db.pool] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:16:06 [INFO] [http.router] Connection pool checkout: conn_id=10
+2026-02-12 08:16:09 [INFO] [worker.queue] GC pause: 135ms (heap: 251MB)
+2026-02-12 08:16:12 [DEBUG] [db.pool] Cache lookup: key=session:3203 hit=false
+2026-02-12 08:16:15 [DEBUG] [http.router] Scheduler tick: next run in 281s
+2026-02-12 08:16:18 [TRACE] [scheduler] JWT token validated for user_id=3890
+2026-02-12 08:16:21 [DEBUG] [middleware.cors] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:16:24 [DEBUG] [cache.redis] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:16:27 [DEBUG] [worker.queue] JWT token validated for user_id=4300
+2026-02-12 08:16:30 [DEBUG] [auth.jwt] Query executed in 27ms: SELECT ...
+2026-02-12 08:16:33 [DEBUG] [worker.queue] CORS preflight handled for origin=app.example.com
+2026-02-12 08:16:36 [TRACE] [middleware.cors] CORS preflight handled for origin=app.example.com
+2026-02-12 08:16:39 [DEBUG] [middleware.cors] GC pause: 100ms (heap: 477MB)
+2026-02-12 08:16:42 [DEBUG] [middleware.cors] Worker processing job #355 (queue: default)
+2026-02-12 08:16:45 [TRACE] [auth.jwt] Worker processing job #335 (queue: default)
+2026-02-12 08:16:48 [DEBUG] [db.pool] Connection pool checkout: conn_id=11
+2026-02-12 08:16:51 [DEBUG] [cache.redis] JWT token validated for user_id=1169
+2026-02-12 08:16:54 [DEBUG] [auth.jwt] Route matched: GET /api/v1/orders -> handler_30
+2026-02-12 08:16:57 [DEBUG] [scheduler] Worker processing job #60 (queue: default)
+2026-02-12 08:17:00 [DEBUG] [http.router] Scheduler tick: next run in 82s
+2026-02-12 08:17:03 [DEBUG] [scheduler] Worker processing job #216 (queue: default)
+2026-02-12 08:17:06 [DEBUG] [middleware.cors] JWT token validated for user_id=9248
+2026-02-12 08:17:09 [DEBUG] [worker.queue] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:17:12 [INFO] [cache.redis] GC pause: 119ms (heap: 417MB)
+2026-02-12 08:17:15 [TRACE] [cache.redis] Cache lookup: key=session:4412 hit=true
+2026-02-12 08:17:18 [INFO] [middleware.cors] Cache lookup: key=session:8750 hit=true
+2026-02-12 08:17:21 [DEBUG] [worker.queue] Worker processing job #43 (queue: default)
+2026-02-12 08:17:24 [TRACE] [cache.redis] Worker processing job #427 (queue: default)
+2026-02-12 08:17:27 [DEBUG] [db.pool] Route matched: GET /api/v1/users -> handler_5
+2026-02-12 08:17:30 [DEBUG] [worker.queue] GC pause: 91ms (heap: 512MB)
+2026-02-12 08:17:33 [DEBUG] [cache.redis] JWT token validated for user_id=111
+2026-02-12 08:17:36 [DEBUG] [worker.queue] JWT token validated for user_id=3242
+2026-02-12 08:17:39 [DEBUG] [worker.queue] JWT token validated for user_id=2479
+2026-02-12 08:17:42 [DEBUG] [auth.jwt] Query executed in 159ms: SELECT ...
+2026-02-12 08:17:45 [DEBUG] [scheduler] Query executed in 60ms: SELECT ...
+2026-02-12 08:17:48 [DEBUG] [http.router] Cache lookup: key=session:8915 hit=false
+2026-02-12 08:17:51 [DEBUG] [auth.jwt] Query executed in 57ms: SELECT ...
+2026-02-12 08:17:54 [DEBUG] [http.router] JWT token validated for user_id=5909
+2026-02-12 08:17:57 [DEBUG] [middleware.cors] Cache lookup: key=session:1848 hit=false
+2026-02-12 08:18:00 [TRACE] [db.pool] GC pause: 102ms (heap: 326MB)
+2026-02-12 08:18:03 [INFO] [cache.redis] JWT token validated for user_id=3353
+2026-02-12 08:18:06 [DEBUG] [db.pool] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:18:09 [DEBUG] [middleware.cors] Cache lookup: key=session:4709 hit=true
+2026-02-12 08:18:12 [DEBUG] [db.pool] Scheduler tick: next run in 135s
+2026-02-12 08:18:15 [DEBUG] [worker.queue] GC pause: 70ms (heap: 214MB)
+2026-02-12 08:18:18 [INFO] [cache.redis] Query executed in 93ms: SELECT ...
+2026-02-12 08:18:21 [DEBUG] [cache.redis] Connection pool checkout: conn_id=17
+2026-02-12 08:18:24 [DEBUG] [middleware.cors] GC pause: 198ms (heap: 211MB)
+2026-02-12 08:18:27 [DEBUG] [db.pool] JWT token validated for user_id=4364
+2026-02-12 08:18:30 [DEBUG] [cache.redis] Query executed in 11ms: SELECT ...
+2026-02-12 08:18:33 [DEBUG] [worker.queue] Response sent: 201 in 174ms
+2026-02-12 08:18:36 [DEBUG] [scheduler] Worker processing job #327 (queue: default)
+2026-02-12 08:18:39 [TRACE] [db.pool] Connection pool checkout: conn_id=16
+2026-02-12 08:18:42 [DEBUG] [db.pool] Worker processing job #304 (queue: default)
+2026-02-12 08:18:45 [DEBUG] [auth.jwt] Connection pool checkout: conn_id=5
+2026-02-12 08:18:48 [DEBUG] [worker.queue] Scheduler tick: next run in 234s
+2026-02-12 08:18:51 [DEBUG] [db.pool] Worker processing job #493 (queue: default)
+2026-02-12 08:18:54 [DEBUG] [cache.redis] Worker processing job #328 (queue: default)
+2026-02-12 08:18:57 [DEBUG] [http.router] Response sent: 304 in 165ms
+2026-02-12 08:19:00 [TRACE] [auth.jwt] Scheduler tick: next run in 104s
+2026-02-12 08:19:03 [TRACE] [http.router] Worker processing job #497 (queue: default)
+2026-02-12 08:19:06 [DEBUG] [cache.redis] Cache lookup: key=session:8666 hit=true
+2026-02-12 08:19:09 [DEBUG] [db.pool] Response sent: 200 in 102ms
+2026-02-12 08:19:12 [DEBUG] [http.router] Cache lookup: key=session:5918 hit=false
+2026-02-12 08:19:15 [DEBUG] [worker.queue] Cache lookup: key=session:6150 hit=false
+2026-02-12 08:19:18 [DEBUG] [auth.jwt] Scheduler tick: next run in 59s
+2026-02-12 08:19:21 [TRACE] [http.router] Connection pool checkout: conn_id=13
+2026-02-12 08:19:24 [INFO] [worker.queue] JWT token validated for user_id=6200
+2026-02-12 08:19:27 [DEBUG] [scheduler] GC pause: 161ms (heap: 149MB)
+2026-02-12 08:19:30 [INFO] [scheduler] Connection pool checkout: conn_id=1
+2026-02-12 08:19:33 [INFO] [middleware.cors] Query executed in 27ms: SELECT ...
+2026-02-12 08:19:36 [DEBUG] [scheduler] GC pause: 87ms (heap: 355MB)
+2026-02-12 08:19:39 [INFO] [scheduler] Connection pool checkout: conn_id=8
+2026-02-12 08:19:42 [TRACE] [worker.queue] Cache lookup: key=session:2223 hit=true
+2026-02-12 08:19:45 [DEBUG] [auth.jwt] Cache lookup: key=session:2320 hit=false
+2026-02-12 08:19:48 [DEBUG] [http.router] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:19:51 [DEBUG] [scheduler] JWT token validated for user_id=5821
+2026-02-12 08:19:54 [DEBUG] [auth.jwt] Route matched: PUT /health -> handler_6
+2026-02-12 08:19:57 [DEBUG] [middleware.cors] Cache lookup: key=session:2498 hit=false
+2026-02-12 08:20:00 [DEBUG] [worker.queue] Route matched: GET /api/v1/orders -> handler_46
+2026-02-12 08:20:03 [DEBUG] [auth.jwt] Response sent: 200 in 197ms
+2026-02-12 08:20:06 [TRACE] [db.pool] Cache lookup: key=session:2858 hit=true
+2026-02-12 08:20:09 [DEBUG] [worker.queue] Connection pool checkout: conn_id=8
+2026-02-12 08:20:12 [TRACE] [auth.jwt] Query executed in 160ms: SELECT ...
+2026-02-12 08:20:15 [DEBUG] [http.router] Connection pool checkout: conn_id=15
+2026-02-12 08:20:18 [INFO] [worker.queue] Connection pool checkout: conn_id=17
+2026-02-12 08:20:21 [INFO] [scheduler] Response sent: 201 in 67ms
+2026-02-12 08:20:24 [DEBUG] [cache.redis] JWT token validated for user_id=2216
+2026-02-12 08:20:27 [DEBUG] [auth.jwt] Connection pool checkout: conn_id=10
+2026-02-12 08:20:30 [DEBUG] [worker.queue] JWT token validated for user_id=2904
+2026-02-12 08:20:33 [INFO] [scheduler] JWT token validated for user_id=1656
+2026-02-12 08:20:36 [DEBUG] [http.router] JWT token validated for user_id=8558
+2026-02-12 08:20:39 [TRACE] [cache.redis] Worker processing job #427 (queue: default)
+2026-02-12 08:20:42 [DEBUG] [auth.jwt] Cache lookup: key=session:4915 hit=true
+2026-02-12 08:20:45 [INFO] [http.router] Route matched: POST /health -> handler_17
+2026-02-12 08:20:48 [TRACE] [middleware.cors] CORS preflight handled for origin=app.example.com
+2026-02-12 08:20:51 [INFO] [worker.queue] GC pause: 174ms (heap: 263MB)
+2026-02-12 08:20:54 [DEBUG] [auth.jwt] Cache lookup: key=session:5621 hit=true
+2026-02-12 08:20:57 [TRACE] [scheduler] Response sent: 200 in 115ms
+2026-02-12 08:21:00 [DEBUG] [auth.jwt] GC pause: 84ms (heap: 392MB)
+2026-02-12 08:21:03 [DEBUG] [auth.jwt] Query executed in 148ms: SELECT ...
+2026-02-12 08:21:06 [DEBUG] [middleware.cors] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:21:09 [DEBUG] [worker.queue] Response sent: 200 in 91ms
+2026-02-12 08:21:12 [DEBUG] [auth.jwt] GC pause: 35ms (heap: 466MB)
+2026-02-12 08:21:15 [DEBUG] [middleware.cors] Scheduler tick: next run in 196s
+2026-02-12 08:21:18 [DEBUG] [middleware.cors] Cache lookup: key=session:7434 hit=false
+2026-02-12 08:21:21 [DEBUG] [http.router] Response sent: 201 in 83ms
+2026-02-12 08:21:24 [DEBUG] [scheduler] JWT token validated for user_id=5030
+2026-02-12 08:21:27 [INFO] [cache.redis] Route matched: GET /api/v1/orders -> handler_36
+2026-02-12 08:21:30 [DEBUG] [scheduler] CORS preflight handled for origin=app.example.com
+2026-02-12 08:21:33 [DEBUG] [db.pool] Scheduler tick: next run in 152s
+2026-02-12 08:21:36 [DEBUG] [http.router] Cache lookup: key=session:7711 hit=false
+2026-02-12 08:21:39 [DEBUG] [http.router] GC pause: 123ms (heap: 285MB)
+2026-02-12 08:21:42 [DEBUG] [http.router] Connection pool checkout: conn_id=5
+2026-02-12 08:21:45 [DEBUG] [db.pool] Cache lookup: key=session:5065 hit=false
+2026-02-12 08:21:48 [TRACE] [scheduler] Response sent: 200 in 177ms
+2026-02-12 08:21:51 [DEBUG] [scheduler] GC pause: 49ms (heap: 458MB)
+2026-02-12 08:21:54 [DEBUG] [worker.queue] Response sent: 304 in 101ms
+2026-02-12 08:21:57 [DEBUG] [scheduler] Query executed in 50ms: SELECT ...
+2026-02-12 08:22:00 [DEBUG] [middleware.cors] Route matched: POST /health -> handler_38
+2026-02-12 08:22:03 [DEBUG] [worker.queue] Worker processing job #38 (queue: default)
+2026-02-12 08:22:06 [DEBUG] [cache.redis] GC pause: 42ms (heap: 257MB)
+2026-02-12 08:22:09 [TRACE] [db.pool] Connection pool checkout: conn_id=16
+2026-02-12 08:22:12 [DEBUG] [middleware.cors] Scheduler tick: next run in 258s
+2026-02-12 08:22:15 [DEBUG] [http.router] Connection pool checkout: conn_id=14
+2026-02-12 08:22:18 [DEBUG] [auth.jwt] Cache lookup: key=session:8587 hit=false
+2026-02-12 08:22:21 [DEBUG] [worker.queue] Scheduler tick: next run in 214s
+2026-02-12 08:22:24 [DEBUG] [http.router] Cache lookup: key=session:4132 hit=false
+2026-02-12 08:22:27 [INFO] [auth.jwt] Worker processing job #172 (queue: default)
+2026-02-12 08:22:30 [DEBUG] [scheduler] Scheduler tick: next run in 299s
+2026-02-12 08:22:33 [TRACE] [scheduler] Response sent: 304 in 77ms
+2026-02-12 08:22:36 [DEBUG] [http.router] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:22:39 [DEBUG] [worker.queue] CORS preflight handled for origin=app.example.com
+2026-02-12 08:22:42 [TRACE] [middleware.cors] CORS preflight handled for origin=app.example.com
+2026-02-12 08:22:45 [DEBUG] [scheduler] Response sent: 304 in 28ms
+2026-02-12 08:22:48 [DEBUG] [middleware.cors] Route matched: POST /health -> handler_26
+2026-02-12 08:22:51 [DEBUG] [http.router] Connection pool checkout: conn_id=13
+2026-02-12 08:22:54 [DEBUG] [auth.jwt] Cache lookup: key=session:5386 hit=true
+2026-02-12 08:22:57 [DEBUG] [scheduler] JWT token validated for user_id=811
+2026-02-12 08:23:00 [DEBUG] [middleware.cors] GC pause: 51ms (heap: 136MB)
+2026-02-12 08:23:03 [DEBUG] [scheduler] Route matched: GET /health -> handler_11
+2026-02-12 08:23:06 [DEBUG] [worker.queue] Scheduler tick: next run in 119s
+2026-02-12 08:23:09 [TRACE] [worker.queue] Scheduler tick: next run in 75s
+2026-02-12 08:23:12 [INFO] [auth.jwt] Route matched: GET /api/v1/orders -> handler_42
+2026-02-12 08:23:15 [INFO] [auth.jwt] Response sent: 304 in 186ms
+2026-02-12 08:23:18 [TRACE] [worker.queue] Worker processing job #16 (queue: default)
+2026-02-12 08:23:21 [INFO] [worker.queue] Query executed in 155ms: SELECT ...
+2026-02-12 08:23:24 [DEBUG] [http.router] Connection pool checkout: conn_id=8
+2026-02-12 08:23:27 [DEBUG] [auth.jwt] Connection pool checkout: conn_id=12
+2026-02-12 08:23:30 [TRACE] [cache.redis] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:23:33 [DEBUG] [auth.jwt] CORS preflight handled for origin=app.example.com
+2026-02-12 08:23:36 [DEBUG] [db.pool] Scheduler tick: next run in 261s
+2026-02-12 08:23:39 [DEBUG] [http.router] Response sent: 304 in 48ms
+2026-02-12 08:23:42 [DEBUG] [auth.jwt] Route matched: PUT /api/v1/orders -> handler_22
+2026-02-12 08:23:45 [DEBUG] [auth.jwt] Route matched: POST /api/v1/payments -> handler_42
+2026-02-12 08:23:48 [TRACE] [db.pool] GC pause: 148ms (heap: 146MB)
+2026-02-12 08:23:51 [DEBUG] [worker.queue] Response sent: 304 in 83ms
+2026-02-12 08:23:54 [DEBUG] [worker.queue] Connection pool checkout: conn_id=12
+2026-02-12 08:23:57 [DEBUG] [db.pool] Connection pool checkout: conn_id=3
+2026-02-12 08:24:00 [DEBUG] [scheduler] Scheduler tick: next run in 110s
+2026-02-12 08:24:03 [DEBUG] [scheduler] Scheduler tick: next run in 39s
+2026-02-12 08:24:06 [DEBUG] [http.router] Query executed in 11ms: SELECT ...
+2026-02-12 08:24:09 [DEBUG] [scheduler] Worker processing job #274 (queue: default)
+2026-02-12 08:24:12 [TRACE] [worker.queue] Connection pool checkout: conn_id=1
+2026-02-12 08:24:15 [DEBUG] [middleware.cors] Cache lookup: key=session:2527 hit=false
+2026-02-12 08:24:18 [DEBUG] [cache.redis] Worker processing job #314 (queue: default)
+2026-02-12 08:24:21 [INFO] [http.router] Query executed in 169ms: SELECT ...
+2026-02-12 08:24:24 [DEBUG] [cache.redis] Worker processing job #479 (queue: default)
+2026-02-12 08:24:27 [DEBUG] [worker.queue] Route matched: PUT /api/v1/orders -> handler_47
+2026-02-12 08:24:30 [DEBUG] [db.pool] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:24:33 [DEBUG] [scheduler] Query executed in 19ms: SELECT ...
+2026-02-12 08:24:36 [DEBUG] [auth.jwt] Worker processing job #111 (queue: default)
+2026-02-12 08:24:39 [DEBUG] [scheduler] Scheduler tick: next run in 131s
+2026-02-12 08:24:42 [INFO] [worker.queue] Query executed in 58ms: SELECT ...
+2026-02-12 08:24:45 [DEBUG] [http.router] Route matched: PUT /api/v1/orders -> handler_34
+2026-02-12 08:24:48 [INFO] [auth.jwt] Query executed in 63ms: SELECT ...
+2026-02-12 08:24:51 [DEBUG] [db.pool] JWT token validated for user_id=3546
+2026-02-12 08:24:54 [TRACE] [worker.queue] Route matched: PUT /api/v1/payments -> handler_19
+2026-02-12 08:24:57 [INFO] [worker.queue] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:25:00 [DEBUG] [auth.jwt] GC pause: 22ms (heap: 476MB)
+2026-02-12 08:25:03 [DEBUG] [db.pool] Worker processing job #175 (queue: default)
+2026-02-12 08:25:06 [DEBUG] [cache.redis] Route matched: GET /api/v1/payments -> handler_50
+2026-02-12 08:25:09 [DEBUG] [worker.queue] JWT token validated for user_id=5623
+2026-02-12 08:25:12 [DEBUG] [scheduler] Cache lookup: key=session:4678 hit=false
+2026-02-12 08:25:15 [DEBUG] [db.pool] Response sent: 201 in 81ms
+2026-02-12 08:25:18 [DEBUG] [auth.jwt] GC pause: 102ms (heap: 139MB)
+2026-02-12 08:25:21 [DEBUG] [scheduler] Response sent: 201 in 118ms
+2026-02-12 08:25:24 [TRACE] [scheduler] Query executed in 51ms: SELECT ...
+2026-02-12 08:25:27 [DEBUG] [db.pool] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:25:30 [DEBUG] [cache.redis] Cache lookup: key=session:3020 hit=true
+2026-02-12 08:25:33 [DEBUG] [middleware.cors] Route matched: POST /api/v1/payments -> handler_5
+2026-02-12 08:25:36 [DEBUG] [db.pool] Cache lookup: key=session:1154 hit=false
+2026-02-12 08:25:39 [DEBUG] [auth.jwt] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:25:42 [DEBUG] [worker.queue] GC pause: 104ms (heap: 363MB)
+2026-02-12 08:25:45 [DEBUG] [auth.jwt] Worker processing job #91 (queue: default)
+2026-02-12 08:25:48 [DEBUG] [auth.jwt] Route matched: POST /api/v1/orders -> handler_8
+2026-02-12 08:25:51 [TRACE] [cache.redis] Cache lookup: key=session:4830 hit=false
+2026-02-12 08:25:54 [TRACE] [cache.redis] Response sent: 201 in 21ms
+2026-02-12 08:25:57 [DEBUG] [cache.redis] Cache lookup: key=session:7547 hit=false
+2026-02-12 08:26:00 [INFO] [scheduler] Cache lookup: key=session:9910 hit=true
+2026-02-12 08:26:03 [DEBUG] [worker.queue] GC pause: 43ms (heap: 240MB)
+2026-02-12 08:26:06 [DEBUG] [scheduler] Worker processing job #29 (queue: default)
+2026-02-12 08:26:09 [TRACE] [http.router] Cache lookup: key=session:3548 hit=false
+2026-02-12 08:26:12 [TRACE] [middleware.cors] Response sent: 304 in 17ms
+2026-02-12 08:26:15 [DEBUG] [scheduler] Query executed in 163ms: SELECT ...
+2026-02-12 08:26:18 [DEBUG] [cache.redis] JWT token validated for user_id=1001
+2026-02-12 08:26:21 [DEBUG] [middleware.cors] Response sent: 200 in 181ms
+2026-02-12 08:26:24 [INFO] [middleware.cors] GC pause: 129ms (heap: 300MB)
+2026-02-12 08:26:27 [DEBUG] [cache.redis] Response sent: 200 in 98ms
+2026-02-12 08:26:30 [DEBUG] [auth.jwt] Response sent: 201 in 33ms
+2026-02-12 08:26:33 [DEBUG] [scheduler] Scheduler tick: next run in 183s
+2026-02-12 08:26:36 [DEBUG] [middleware.cors] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:26:39 [DEBUG] [auth.jwt] Worker processing job #462 (queue: default)
+2026-02-12 08:26:42 [DEBUG] [worker.queue] Cache lookup: key=session:6393 hit=false
+2026-02-12 08:26:45 [DEBUG] [worker.queue] Connection pool checkout: conn_id=3
+2026-02-12 08:26:48 [TRACE] [middleware.cors] Query executed in 122ms: SELECT ...
+2026-02-12 08:26:51 [DEBUG] [db.pool] Connection pool checkout: conn_id=13
+2026-02-12 08:26:54 [DEBUG] [middleware.cors] Cache lookup: key=session:9542 hit=false
+2026-02-12 08:26:57 [DEBUG] [db.pool] Worker processing job #351 (queue: default)
+2026-02-12 08:27:00 [DEBUG] [scheduler] JWT token validated for user_id=4334
+2026-02-12 08:27:03 [DEBUG] [cache.redis] Scheduler tick: next run in 90s
+2026-02-12 08:27:06 [DEBUG] [middleware.cors] Cache lookup: key=session:8214 hit=true
+2026-02-12 08:27:09 [TRACE] [middleware.cors] GC pause: 15ms (heap: 499MB)
+2026-02-12 08:27:12 [DEBUG] [worker.queue] Route matched: GET /api/v1/payments -> handler_28
+2026-02-12 08:27:15 [DEBUG] [http.router] GC pause: 135ms (heap: 494MB)
+2026-02-12 08:27:18 [INFO] [scheduler] JWT token validated for user_id=7830
+2026-02-12 08:27:21 [DEBUG] [auth.jwt] Worker processing job #378 (queue: default)
+2026-02-12 08:27:24 [TRACE] [middleware.cors] JWT token validated for user_id=5522
+2026-02-12 08:27:27 [DEBUG] [cache.redis] GC pause: 130ms (heap: 210MB)
+2026-02-12 08:27:30 [DEBUG] [db.pool] Response sent: 201 in 42ms
+2026-02-12 08:27:33 [DEBUG] [http.router] JWT token validated for user_id=9538
+2026-02-12 08:27:36 [TRACE] [scheduler] GC pause: 11ms (heap: 202MB)
+2026-02-12 08:27:39 [DEBUG] [auth.jwt] Scheduler tick: next run in 144s
+2026-02-12 08:27:42 [TRACE] [db.pool] CORS preflight handled for origin=app.example.com
+2026-02-12 08:27:45 [DEBUG] [scheduler] Query executed in 5ms: SELECT ...
+2026-02-12 08:27:48 [DEBUG] [cache.redis] Query executed in 152ms: SELECT ...
+2026-02-12 08:27:51 [DEBUG] [worker.queue] Worker processing job #117 (queue: default)
+2026-02-12 08:27:54 [TRACE] [http.router] CORS preflight handled for origin=app.example.com
+2026-02-12 08:27:57 [DEBUG] [scheduler] Cache lookup: key=session:2643 hit=true
+2026-02-12 08:28:00 [DEBUG] [http.router] GC pause: 195ms (heap: 144MB)
+2026-02-12 08:28:03 [TRACE] [http.router] Response sent: 200 in 120ms
+2026-02-12 08:28:06 [DEBUG] [middleware.cors] Worker processing job #488 (queue: default)
+2026-02-12 08:28:09 [DEBUG] [cache.redis] GC pause: 43ms (heap: 492MB)
+2026-02-12 08:28:12 [DEBUG] [worker.queue] Route matched: GET /health -> handler_4
+2026-02-12 08:28:15 [INFO] [scheduler] Cache lookup: key=session:6362 hit=false
+2026-02-12 08:28:18 [DEBUG] [middleware.cors] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:28:21 [TRACE] [db.pool] Route matched: PUT /api/v1/users -> handler_34
+2026-02-12 08:28:24 [DEBUG] [auth.jwt] Response sent: 200 in 162ms
+2026-02-12 08:28:27 [DEBUG] [worker.queue] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:28:30 [DEBUG] [db.pool] Connection pool checkout: conn_id=10
+2026-02-12 08:28:33 [DEBUG] [auth.jwt] Worker processing job #325 (queue: default)
+2026-02-12 08:28:36 [DEBUG] [worker.queue] Cache lookup: key=session:2299 hit=true
+2026-02-12 08:28:39 [DEBUG] [worker.queue] CORS preflight handled for origin=app.example.com
+2026-02-12 08:28:42 [DEBUG] [http.router] Route matched: POST /api/v1/users -> handler_2
+2026-02-12 08:28:45 [DEBUG] [cache.redis] Connection pool checkout: conn_id=15
+2026-02-12 08:28:48 [TRACE] [auth.jwt] GC pause: 53ms (heap: 313MB)
+2026-02-12 08:28:51 [DEBUG] [middleware.cors] JWT token validated for user_id=3149
+2026-02-12 08:28:54 [DEBUG] [middleware.cors] Connection pool checkout: conn_id=17
+2026-02-12 08:28:57 [INFO] [auth.jwt] Worker processing job #465 (queue: default)
+2026-02-12 08:29:00 [DEBUG] [middleware.cors] Connection pool checkout: conn_id=15
+2026-02-12 08:29:03 [DEBUG] [cache.redis] Connection pool checkout: conn_id=20
+2026-02-12 08:29:06 [DEBUG] [auth.jwt] Query executed in 96ms: SELECT ...
+2026-02-12 08:29:09 [DEBUG] [http.router] Cache lookup: key=session:8995 hit=true
+2026-02-12 08:29:12 [TRACE] [cache.redis] GC pause: 190ms (heap: 236MB)
+2026-02-12 08:29:15 [DEBUG] [cache.redis] Query executed in 131ms: SELECT ...
+2026-02-12 08:29:18 [DEBUG] [auth.jwt] Scheduler tick: next run in 213s
+2026-02-12 08:29:21 [TRACE] [http.router] JWT token validated for user_id=5940
+2026-02-12 08:29:24 [INFO] [auth.jwt] CORS preflight handled for origin=app.example.com
+2026-02-12 08:29:27 [DEBUG] [worker.queue] Response sent: 304 in 42ms
+2026-02-12 08:29:30 [TRACE] [cache.redis] Route matched: GET /health -> handler_50
+2026-02-12 08:29:33 [INFO] [scheduler] GC pause: 194ms (heap: 430MB)
+2026-02-12 08:29:36 [DEBUG] [worker.queue] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:29:39 [DEBUG] [auth.jwt] Worker processing job #426 (queue: default)
+2026-02-12 08:29:42 [DEBUG] [middleware.cors] Response sent: 201 in 41ms
+2026-02-12 08:29:45 [DEBUG] [auth.jwt] Response sent: 200 in 158ms
+2026-02-12 08:29:48 [INFO] [middleware.cors] Connection pool checkout: conn_id=13
+2026-02-12 08:29:51 [TRACE] [worker.queue] Scheduler tick: next run in 27s
+2026-02-12 08:29:54 [DEBUG] [auth.jwt] Route matched: POST /api/v1/orders -> handler_46
+2026-02-12 08:29:57 [DEBUG] [db.pool] Route matched: GET /api/v1/users -> handler_8
+2026-02-12 08:30:00 [DEBUG] [cache.redis] Cache lookup: key=session:3122 hit=true
+2026-02-12 08:30:03 [DEBUG] [http.router] GC pause: 43ms (heap: 377MB)
+2026-02-12 08:30:06 [INFO] [db.pool] Worker processing job #477 (queue: default)
+2026-02-12 08:30:09 [DEBUG] [http.router] GC pause: 72ms (heap: 471MB)
+2026-02-12 08:30:12 [DEBUG] [db.pool] Cache lookup: key=session:8742 hit=false
+2026-02-12 08:30:15 [DEBUG] [http.router] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:30:18 [DEBUG] [http.router] Route matched: POST /api/v1/orders -> handler_38
+2026-02-12 08:30:21 [DEBUG] [http.router] Scheduler tick: next run in 79s
+2026-02-12 08:30:24 [DEBUG] [cache.redis] Connection pool checkout: conn_id=11
+2026-02-12 08:30:27 [INFO] [worker.queue] Worker processing job #178 (queue: default)
+2026-02-12 08:30:30 [DEBUG] [cache.redis] Connection pool checkout: conn_id=20
+2026-02-12 08:30:33 [DEBUG] [http.router] JWT token validated for user_id=2056
+2026-02-12 08:30:36 [DEBUG] [scheduler] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:30:39 [DEBUG] [db.pool] Connection pool checkout: conn_id=6
+2026-02-12 08:30:42 [DEBUG] [cache.redis] Cache lookup: key=session:4182 hit=true
+2026-02-12 08:30:45 [TRACE] [worker.queue] CORS preflight handled for origin=app.example.com
+2026-02-12 08:30:48 [TRACE] [scheduler] Connection pool checkout: conn_id=13
+2026-02-12 08:30:51 [TRACE] [auth.jwt] Worker processing job #65 (queue: default)
+2026-02-12 08:30:54 [INFO] [scheduler] JWT token validated for user_id=8671
+2026-02-12 08:30:57 [DEBUG] [scheduler] Cache lookup: key=session:5555 hit=true
+2026-02-12 08:31:00 [DEBUG] [worker.queue] Query executed in 61ms: SELECT ...
+2026-02-12 08:31:03 [DEBUG] [scheduler] Worker processing job #45 (queue: default)
+2026-02-12 08:31:06 [DEBUG] [auth.jwt] Cache lookup: key=session:3202 hit=false
+2026-02-12 08:31:09 [DEBUG] [middleware.cors] Scheduler tick: next run in 160s
+2026-02-12 08:31:12 [DEBUG] [worker.queue] Query executed in 89ms: SELECT ...
+2026-02-12 08:31:15 [DEBUG] [cache.redis] Response sent: 201 in 16ms
+2026-02-12 08:31:18 [DEBUG] [http.router] CORS preflight handled for origin=app.example.com
+2026-02-12 08:31:21 [DEBUG] [worker.queue] Cache lookup: key=session:7750 hit=true
+2026-02-12 08:31:24 [TRACE] [middleware.cors] GC pause: 13ms (heap: 246MB)
+2026-02-12 08:31:27 [DEBUG] [auth.jwt] Query executed in 183ms: SELECT ...
+2026-02-12 08:31:30 [INFO] [scheduler] CORS preflight handled for origin=app.example.com
+2026-02-12 08:31:33 [DEBUG] [db.pool] Connection pool checkout: conn_id=19
+2026-02-12 08:31:36 [INFO] [worker.queue] Connection pool checkout: conn_id=1
+2026-02-12 08:31:39 [INFO] [http.router] Response sent: 200 in 180ms
+2026-02-12 08:31:42 [DEBUG] [scheduler] GC pause: 155ms (heap: 396MB)
+2026-02-12 08:31:45 [DEBUG] [db.pool] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:31:48 [DEBUG] [http.router] Route matched: POST /health -> handler_50
+2026-02-12 08:31:51 [TRACE] [cache.redis] Cache lookup: key=session:6476 hit=false
+2026-02-12 08:31:54 [INFO] [db.pool] JWT token validated for user_id=1249
+2026-02-12 08:31:57 [DEBUG] [scheduler] Connection pool checkout: conn_id=6
+2026-02-12 08:32:00 [DEBUG] [db.pool] JWT token validated for user_id=209
+2026-02-12 08:32:03 [DEBUG] [middleware.cors] CORS preflight handled for origin=app.example.com
+2026-02-12 08:32:06 [DEBUG] [scheduler] GC pause: 4ms (heap: 177MB)
+2026-02-12 08:32:09 [DEBUG] [auth.jwt] Route matched: GET /api/v1/payments -> handler_29
+2026-02-12 08:32:12 [INFO] [db.pool] Scheduler tick: next run in 29s
+2026-02-12 08:32:15 [INFO] [cache.redis] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:32:18 [TRACE] [scheduler] Route matched: GET /api/v1/orders -> handler_19
+2026-02-12 08:32:21 [TRACE] [db.pool] Worker processing job #500 (queue: default)
+2026-02-12 08:32:24 [TRACE] [db.pool] Worker processing job #462 (queue: default)
+2026-02-12 08:32:27 [DEBUG] [auth.jwt] GC pause: 78ms (heap: 372MB)
+2026-02-12 08:32:30 [INFO] [worker.queue] Connection pool checkout: conn_id=11
+2026-02-12 08:32:33 [DEBUG] [auth.jwt] Route matched: POST /health -> handler_8
+2026-02-12 08:32:36 [TRACE] [db.pool] Query executed in 185ms: SELECT ...
+2026-02-12 08:32:39 [TRACE] [middleware.cors] Query executed in 100ms: SELECT ...
+2026-02-12 08:32:42 [INFO] [db.pool] CORS preflight handled for origin=app.example.com
+2026-02-12 08:32:45 [INFO] [middleware.cors] GC pause: 13ms (heap: 262MB)
+2026-02-12 08:32:48 [DEBUG] [cache.redis] JWT token validated for user_id=3494
+2026-02-12 08:32:51 [DEBUG] [scheduler] Response sent: 201 in 191ms
+2026-02-12 08:32:54 [INFO] [middleware.cors] Worker processing job #394 (queue: default)
+2026-02-12 08:32:57 [DEBUG] [scheduler] Connection pool checkout: conn_id=9
+2026-02-12 08:33:00 [DEBUG] [auth.jwt] JWT token validated for user_id=7748
+2026-02-12 08:33:03 [INFO] [worker.queue] JWT token validated for user_id=8199
+2026-02-12 08:33:06 [INFO] [worker.queue] CORS preflight handled for origin=app.example.com
+2026-02-12 08:33:09 [INFO] [worker.queue] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:33:12 [DEBUG] [middleware.cors] Worker processing job #333 (queue: default)
+2026-02-12 08:33:15 [TRACE] [scheduler] Route matched: GET /api/v1/users -> handler_30
+2026-02-12 08:33:18 [INFO] [middleware.cors] Response sent: 201 in 139ms
+2026-02-12 08:33:21 [DEBUG] [middleware.cors] Response sent: 201 in 72ms
+2026-02-12 08:33:24 [TRACE] [scheduler] Connection pool checkout: conn_id=20
+2026-02-12 08:33:27 [DEBUG] [db.pool] Cache lookup: key=session:8567 hit=false
+2026-02-12 08:33:30 [DEBUG] [db.pool] CORS preflight handled for origin=app.example.com
+2026-02-12 08:33:33 [DEBUG] [middleware.cors] Route matched: PUT /health -> handler_21
+2026-02-12 08:33:36 [DEBUG] [middleware.cors] Response sent: 304 in 174ms
+2026-02-12 08:33:39 [DEBUG] [cache.redis] Worker processing job #146 (queue: default)
+2026-02-12 08:33:42 [INFO] [worker.queue] GC pause: 31ms (heap: 261MB)
+2026-02-12 08:33:45 [DEBUG] [auth.jwt] GC pause: 102ms (heap: 137MB)
+2026-02-12 08:33:48 [DEBUG] [auth.jwt] Cache lookup: key=session:4975 hit=false
+2026-02-12 08:33:51 [TRACE] [middleware.cors] Connection pool checkout: conn_id=3
+2026-02-12 08:33:54 [DEBUG] [scheduler] CORS preflight handled for origin=app.example.com
+2026-02-12 08:33:57 [DEBUG] [db.pool] Cache lookup: key=session:2412 hit=true
+2026-02-12 08:34:00 [DEBUG] [worker.queue] Route matched: PUT /health -> handler_34
+2026-02-12 08:34:03 [DEBUG] [scheduler] Worker processing job #495 (queue: default)
+2026-02-12 08:34:06 [DEBUG] [auth.jwt] Connection pool checkout: conn_id=14
+2026-02-12 08:34:09 [DEBUG] [scheduler] Cache lookup: key=session:2357 hit=false
+2026-02-12 08:34:12 [TRACE] [scheduler] Cache lookup: key=session:2052 hit=true
+2026-02-12 08:34:15 [DEBUG] [auth.jwt] JWT token validated for user_id=9899
+2026-02-12 08:34:18 [DEBUG] [middleware.cors] GC pause: 157ms (heap: 279MB)
+2026-02-12 08:34:21 [DEBUG] [http.router] GC pause: 132ms (heap: 415MB)
+2026-02-12 08:34:24 [DEBUG] [http.router] Cache lookup: key=session:2814 hit=false
+2026-02-12 08:34:27 [DEBUG] [db.pool] JWT token validated for user_id=9512
+2026-02-12 08:34:30 [DEBUG] [http.router] Response sent: 201 in 167ms
+2026-02-12 08:34:33 [DEBUG] [scheduler] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:34:36 [DEBUG] [middleware.cors] Query executed in 102ms: SELECT ...
+2026-02-12 08:34:39 [DEBUG] [cache.redis] JWT token validated for user_id=2477
+2026-02-12 08:34:42 [TRACE] [scheduler] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:34:45 [DEBUG] [http.router] Response sent: 304 in 8ms
+2026-02-12 08:34:48 [DEBUG] [db.pool] Cache lookup: key=session:4389 hit=true
+2026-02-12 08:34:51 [DEBUG] [db.pool] Worker processing job #277 (queue: default)
+2026-02-12 08:34:54 [DEBUG] [scheduler] GC pause: 69ms (heap: 160MB)
+2026-02-12 08:34:57 [DEBUG] [worker.queue] Connection pool checkout: conn_id=9
+2026-02-12 08:35:00 [DEBUG] [scheduler] JWT token validated for user_id=9272
+2026-02-12 08:35:03 [INFO] [scheduler] Query executed in 183ms: SELECT ...
+2026-02-12 08:35:06 [DEBUG] [db.pool] Scheduler tick: next run in 165s
+2026-02-12 08:35:09 [DEBUG] [middleware.cors] Worker processing job #327 (queue: default)
+2026-02-12 08:35:12 [DEBUG] [cache.redis] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:35:15 [DEBUG] [db.pool] Query executed in 145ms: SELECT ...
+2026-02-12 08:35:18 [DEBUG] [auth.jwt] Cache lookup: key=session:4883 hit=false
+2026-02-12 08:35:21 [TRACE] [cache.redis] Response sent: 201 in 158ms
+2026-02-12 08:35:24 [DEBUG] [worker.queue] Query executed in 193ms: SELECT ...
+2026-02-12 08:35:27 [DEBUG] [auth.jwt] Query executed in 13ms: SELECT ...
+2026-02-12 08:35:30 [DEBUG] [middleware.cors] Query executed in 136ms: SELECT ...
+2026-02-12 08:35:33 [DEBUG] [cache.redis] JWT token validated for user_id=9157
+2026-02-12 08:35:36 [DEBUG] [auth.jwt] JWT token validated for user_id=9366
+2026-02-12 08:35:39 [DEBUG] [auth.jwt] GC pause: 35ms (heap: 227MB)
+2026-02-12 08:35:42 [DEBUG] [auth.jwt] Worker processing job #307 (queue: default)
+2026-02-12 08:35:45 [DEBUG] [http.router] Route matched: GET /api/v1/orders -> handler_9
+2026-02-12 08:35:48 [DEBUG] [scheduler] GC pause: 75ms (heap: 135MB)
+2026-02-12 08:35:51 [DEBUG] [middleware.cors] CORS preflight handled for origin=app.example.com
+2026-02-12 08:35:54 [DEBUG] [scheduler] JWT token validated for user_id=9398
+2026-02-12 08:35:57 [DEBUG] [auth.jwt] Worker processing job #159 (queue: default)
+2026-02-12 08:36:00 [INFO] [db.pool] Connection pool checkout: conn_id=12
+2026-02-12 08:36:03 [DEBUG] [scheduler] Scheduler tick: next run in 233s
+2026-02-12 08:36:06 [DEBUG] [worker.queue] Connection pool checkout: conn_id=18
+2026-02-12 08:36:09 [DEBUG] [auth.jwt] Response sent: 304 in 71ms
+2026-02-12 08:36:12 [DEBUG] [http.router] Cache lookup: key=session:4963 hit=false
+2026-02-12 08:36:15 [DEBUG] [worker.queue] JWT token validated for user_id=6172
+2026-02-12 08:36:18 [DEBUG] [middleware.cors] JWT token validated for user_id=8319
+2026-02-12 08:36:21 [DEBUG] [cache.redis] GC pause: 192ms (heap: 128MB)
+2026-02-12 08:36:24 [INFO] [cache.redis] Query executed in 147ms: SELECT ...
+2026-02-12 08:36:27 [DEBUG] [auth.jwt] Response sent: 201 in 161ms
+2026-02-12 08:36:30 [DEBUG] [cache.redis] Query executed in 145ms: SELECT ...
+2026-02-12 08:36:33 [DEBUG] [http.router] Connection pool checkout: conn_id=11
+2026-02-12 08:36:36 [DEBUG] [worker.queue] Connection pool checkout: conn_id=17
+2026-02-12 08:36:39 [DEBUG] [worker.queue] Route matched: GET /api/v1/payments -> handler_21
+2026-02-12 08:36:42 [DEBUG] [db.pool] JWT token validated for user_id=3436
+2026-02-12 08:36:45 [DEBUG] [http.router] Response sent: 304 in 146ms
+2026-02-12 08:36:48 [DEBUG] [middleware.cors] Response sent: 200 in 66ms
+2026-02-12 08:36:51 [DEBUG] [worker.queue] Route matched: GET /api/v1/users -> handler_22
+2026-02-12 08:36:54 [DEBUG] [scheduler] JWT token validated for user_id=8439
+2026-02-12 08:36:57 [INFO] [auth.jwt] Worker processing job #407 (queue: default)
+2026-02-12 08:37:00 [INFO] [http.router] Scheduler tick: next run in 103s
+2026-02-12 08:37:03 [DEBUG] [middleware.cors] Cache lookup: key=session:3234 hit=false
+2026-02-12 08:37:06 [DEBUG] [http.router] Worker processing job #357 (queue: default)
+2026-02-12 08:37:09 [DEBUG] [middleware.cors] Connection pool checkout: conn_id=11
+2026-02-12 08:37:12 [DEBUG] [db.pool] Connection pool checkout: conn_id=14
+2026-02-12 08:37:15 [DEBUG] [cache.redis] Scheduler tick: next run in 285s
+2026-02-12 08:37:18 [TRACE] [worker.queue] Connection pool checkout: conn_id=18
+2026-02-12 08:37:21 [DEBUG] [http.router] Route matched: POST /api/v1/users -> handler_40
+2026-02-12 08:37:24 [DEBUG] [http.router] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:37:27 [DEBUG] [http.router] Query executed in 182ms: SELECT ...
+2026-02-12 08:37:30 [DEBUG] [worker.queue] Query executed in 93ms: SELECT ...
+2026-02-12 08:37:33 [INFO] [cache.redis] JWT token validated for user_id=5014
+2026-02-12 08:37:36 [DEBUG] [cache.redis] Query executed in 72ms: SELECT ...
+2026-02-12 08:37:39 [TRACE] [scheduler] Worker processing job #207 (queue: default)
+2026-02-12 08:37:42 [DEBUG] [auth.jwt] Route matched: PUT /health -> handler_30
+2026-02-12 08:37:45 [DEBUG] [middleware.cors] Cache lookup: key=session:4790 hit=false
+2026-02-12 08:37:48 [DEBUG] [middleware.cors] Route matched: POST /health -> handler_4
+2026-02-12 08:37:51 [INFO] [db.pool] Scheduler tick: next run in 157s
+2026-02-12 08:37:54 [DEBUG] [db.pool] Worker processing job #255 (queue: default)
+2026-02-12 08:37:57 [INFO] [http.router] Route matched: PUT /api/v1/payments -> handler_45
+2026-02-12 08:38:00 [TRACE] [db.pool] Query executed in 69ms: SELECT ...
+2026-02-12 08:38:03 [DEBUG] [auth.jwt] Scheduler tick: next run in 196s
+2026-02-12 08:38:06 [DEBUG] [db.pool] GC pause: 94ms (heap: 132MB)
+2026-02-12 08:38:09 [DEBUG] [cache.redis] Worker processing job #119 (queue: default)
+2026-02-12 08:38:12 [INFO] [auth.jwt] Scheduler tick: next run in 234s
+2026-02-12 08:38:15 [DEBUG] [scheduler] Route matched: GET /api/v1/orders -> handler_20
+2026-02-12 08:38:18 [TRACE] [cache.redis] JWT token validated for user_id=3799
+2026-02-12 08:38:21 [DEBUG] [middleware.cors] Route matched: GET /health -> handler_35
+2026-02-12 08:38:24 [INFO] [cache.redis] CORS preflight handled for origin=app.example.com
+2026-02-12 08:38:27 [DEBUG] [auth.jwt] Connection pool checkout: conn_id=3
+2026-02-12 08:38:30 [DEBUG] [http.router] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:38:33 [DEBUG] [cache.redis] Response sent: 200 in 82ms
+2026-02-12 08:38:36 [DEBUG] [http.router] Route matched: POST /api/v1/users -> handler_42
+2026-02-12 08:38:39 [DEBUG] [auth.jwt] Worker processing job #334 (queue: default)
+2026-02-12 08:38:42 [INFO] [scheduler] JWT token validated for user_id=2888
+2026-02-12 08:38:45 [DEBUG] [http.router] Worker processing job #399 (queue: default)
+2026-02-12 08:38:48 [DEBUG] [middleware.cors] Connection pool checkout: conn_id=7
+2026-02-12 08:38:51 [TRACE] [auth.jwt] Worker processing job #35 (queue: default)
+2026-02-12 08:38:54 [DEBUG] [db.pool] Worker processing job #66 (queue: default)
+2026-02-12 08:38:57 [DEBUG] [worker.queue] Connection pool checkout: conn_id=11
+2026-02-12 08:39:00 [TRACE] [middleware.cors] Connection pool checkout: conn_id=2
+2026-02-12 08:39:03 [TRACE] [auth.jwt] Scheduler tick: next run in 123s
+2026-02-12 08:39:06 [DEBUG] [worker.queue] JWT token validated for user_id=4390
+2026-02-12 08:39:09 [TRACE] [http.router] Response sent: 200 in 96ms
+2026-02-12 08:39:12 [TRACE] [http.router] Scheduler tick: next run in 213s
+2026-02-12 08:39:15 [DEBUG] [worker.queue] Response sent: 200 in 169ms
+2026-02-12 08:39:18 [DEBUG] [scheduler] Connection pool checkout: conn_id=8
+2026-02-12 08:39:21 [DEBUG] [auth.jwt] Cache lookup: key=session:1450 hit=false
+2026-02-12 08:39:24 [DEBUG] [db.pool] Response sent: 200 in 52ms
+2026-02-12 08:39:27 [TRACE] [middleware.cors] Query executed in 4ms: SELECT ...
+2026-02-12 08:39:30 [DEBUG] [http.router] GC pause: 96ms (heap: 345MB)
+2026-02-12 08:39:33 [INFO] [cache.redis] Scheduler tick: next run in 46s
+2026-02-12 08:39:36 [DEBUG] [cache.redis] GC pause: 75ms (heap: 345MB)
+2026-02-12 08:39:39 [DEBUG] [cache.redis] Scheduler tick: next run in 53s
+2026-02-12 08:39:42 [INFO] [auth.jwt] Response sent: 201 in 195ms
+2026-02-12 08:39:45 [DEBUG] [db.pool] Scheduler tick: next run in 47s
+2026-02-12 08:39:48 [DEBUG] [scheduler] GC pause: 143ms (heap: 274MB)
+2026-02-12 08:39:51 [INFO] [http.router] GC pause: 137ms (heap: 128MB)
+2026-02-12 08:39:54 [DEBUG] [middleware.cors] Connection pool checkout: conn_id=9
+2026-02-12 08:39:57 [INFO] [worker.queue] Connection pool checkout: conn_id=18
+2026-02-12 08:40:00 [INFO] [middleware.cors] Cache lookup: key=session:9645 hit=true
+2026-02-12 08:40:03 [DEBUG] [db.pool] CORS preflight handled for origin=app.example.com
+2026-02-12 08:40:06 [DEBUG] [http.router] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:40:09 [DEBUG] [middleware.cors] JWT token validated for user_id=6231
+2026-02-12 08:40:12 [DEBUG] [cache.redis] JWT token validated for user_id=4876
+2026-02-12 08:40:15 [TRACE] [worker.queue] Query executed in 131ms: SELECT ...
+2026-02-12 08:40:18 [DEBUG] [db.pool] Worker processing job #334 (queue: default)
+2026-02-12 08:40:21 [TRACE] [cache.redis] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:40:24 [DEBUG] [http.router] GC pause: 92ms (heap: 286MB)
+2026-02-12 08:40:27 [DEBUG] [cache.redis] Cache lookup: key=session:5156 hit=false
+2026-02-12 08:40:30 [DEBUG] [worker.queue] Connection pool checkout: conn_id=6
+2026-02-12 08:40:33 [DEBUG] [scheduler] GC pause: 79ms (heap: 287MB)
+2026-02-12 08:40:36 [INFO] [scheduler] Response sent: 304 in 29ms
+2026-02-12 08:40:39 [DEBUG] [auth.jwt] CORS preflight handled for origin=app.example.com
+2026-02-12 08:40:42 [DEBUG] [middleware.cors] JWT token validated for user_id=5263
+2026-02-12 08:40:45 [TRACE] [worker.queue] JWT token validated for user_id=2655
+2026-02-12 08:40:48 [DEBUG] [scheduler] Response sent: 201 in 54ms
+2026-02-12 08:40:51 [DEBUG] [http.router] GC pause: 40ms (heap: 192MB)
+2026-02-12 08:40:54 [DEBUG] [db.pool] GC pause: 112ms (heap: 288MB)
+2026-02-12 08:40:57 [DEBUG] [worker.queue] Route matched: PUT /api/v1/users -> handler_5
+2026-02-12 08:41:00 [DEBUG] [worker.queue] Worker processing job #130 (queue: default)
+2026-02-12 08:41:03 [DEBUG] [auth.jwt] JWT token validated for user_id=4046
+2026-02-12 08:41:06 [DEBUG] [auth.jwt] JWT token validated for user_id=6175
+2026-02-12 08:41:09 [DEBUG] [cache.redis] GC pause: 153ms (heap: 312MB)
+2026-02-12 08:41:12 [INFO] [http.router] JWT token validated for user_id=3891
+2026-02-12 08:41:15 [DEBUG] [scheduler] Query executed in 172ms: SELECT ...
+2026-02-12 08:41:18 [DEBUG] [auth.jwt] Response sent: 201 in 103ms
+2026-02-12 08:41:21 [DEBUG] [scheduler] Connection pool checkout: conn_id=14
+2026-02-12 08:41:24 [DEBUG] [scheduler] Route matched: POST /api/v1/orders -> handler_22
+2026-02-12 08:41:27 [DEBUG] [auth.jwt] GC pause: 188ms (heap: 213MB)
+2026-02-12 08:41:30 [DEBUG] [http.router] GC pause: 54ms (heap: 141MB)
+2026-02-12 08:41:33 [DEBUG] [worker.queue] CORS preflight handled for origin=app.example.com
+2026-02-12 08:41:36 [DEBUG] [auth.jwt] Connection pool checkout: conn_id=19
+2026-02-12 08:41:39 [TRACE] [worker.queue] GC pause: 189ms (heap: 183MB)
+2026-02-12 08:41:42 [DEBUG] [http.router] Connection pool checkout: conn_id=10
+2026-02-12 08:41:45 [DEBUG] [db.pool] JWT token validated for user_id=9678
+2026-02-12 08:41:48 [DEBUG] [scheduler] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:41:51 [INFO] [http.router] Worker processing job #39 (queue: default)
+2026-02-12 08:41:54 [DEBUG] [worker.queue] Worker processing job #194 (queue: default)
+2026-02-12 08:41:57 [DEBUG] [scheduler] Query executed in 145ms: SELECT ...
+2026-02-12 08:42:00 [DEBUG] [worker.queue] GC pause: 30ms (heap: 163MB)
+2026-02-12 08:42:03 [DEBUG] [worker.queue] CORS preflight handled for origin=app.example.com
+2026-02-12 08:42:06 [DEBUG] [cache.redis] Response sent: 201 in 173ms
+2026-02-12 08:42:09 [DEBUG] [db.pool] Scheduler tick: next run in 38s
+2026-02-12 08:42:12 [DEBUG] [auth.jwt] Response sent: 304 in 1ms
+2026-02-12 08:42:15 [DEBUG] [worker.queue] Scheduler tick: next run in 165s
+2026-02-12 08:42:18 [TRACE] [worker.queue] CORS preflight handled for origin=app.example.com
+2026-02-12 08:42:21 [DEBUG] [cache.redis] Query executed in 161ms: SELECT ...
+2026-02-12 08:42:24 [DEBUG] [auth.jwt] Worker processing job #458 (queue: default)
+2026-02-12 08:42:27 [TRACE] [auth.jwt] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:42:30 [DEBUG] [scheduler] Worker processing job #422 (queue: default)
+2026-02-12 08:42:33 [TRACE] [http.router] Worker processing job #339 (queue: default)
+2026-02-12 08:42:36 [DEBUG] [middleware.cors] GC pause: 160ms (heap: 204MB)
+2026-02-12 08:42:39 [DEBUG] [cache.redis] Scheduler tick: next run in 85s
+2026-02-12 08:42:42 [DEBUG] [middleware.cors] Worker processing job #246 (queue: default)
+2026-02-12 08:42:45 [DEBUG] [cache.redis] GC pause: 188ms (heap: 375MB)
+2026-02-12 08:42:48 [TRACE] [db.pool] Response sent: 304 in 162ms
+2026-02-12 08:42:51 [TRACE] [worker.queue] Query executed in 66ms: SELECT ...
+2026-02-12 08:42:54 [DEBUG] [cache.redis] Connection pool checkout: conn_id=5
+2026-02-12 08:42:57 [DEBUG] [db.pool] Worker processing job #71 (queue: default)
+2026-02-12 08:43:00 [DEBUG] [middleware.cors] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:43:03 [INFO] [scheduler] Cache lookup: key=session:3445 hit=false
+2026-02-12 08:43:06 [TRACE] [scheduler] Connection pool checkout: conn_id=11
+2026-02-12 08:43:09 [DEBUG] [middleware.cors] Connection pool checkout: conn_id=18
+2026-02-12 08:43:12 [DEBUG] [cache.redis] Connection pool checkout: conn_id=16
+2026-02-12 08:43:15 [DEBUG] [db.pool] Worker processing job #182 (queue: default)
+2026-02-12 08:43:18 [DEBUG] [auth.jwt] Scheduler tick: next run in 166s
+2026-02-12 08:43:21 [TRACE] [scheduler] Route matched: POST /health -> handler_39
+2026-02-12 08:43:24 [DEBUG] [db.pool] CORS preflight handled for origin=app.example.com
+2026-02-12 08:43:27 [DEBUG] [auth.jwt] Scheduler tick: next run in 192s
+2026-02-12 08:43:30 [DEBUG] [scheduler] Cache lookup: key=session:2716 hit=true
+2026-02-12 08:43:33 [TRACE] [cache.redis] CORS preflight handled for origin=app.example.com
+2026-02-12 08:43:36 [DEBUG] [auth.jwt] JWT token validated for user_id=8846
+2026-02-12 08:43:39 [TRACE] [worker.queue] Worker processing job #275 (queue: default)
+2026-02-12 08:43:42 [DEBUG] [db.pool] Scheduler tick: next run in 82s
+2026-02-12 08:43:45 [DEBUG] [cache.redis] Query executed in 131ms: SELECT ...
+2026-02-12 08:43:48 [DEBUG] [auth.jwt] Query executed in 50ms: SELECT ...
+2026-02-12 08:43:51 [TRACE] [db.pool] CORS preflight handled for origin=app.example.com
+2026-02-12 08:43:54 [DEBUG] [worker.queue] Scheduler tick: next run in 221s
+2026-02-12 08:43:57 [DEBUG] [cache.redis] Route matched: PUT /api/v1/users -> handler_40
+2026-02-12 08:44:00 [DEBUG] [middleware.cors] Route matched: POST /api/v1/users -> handler_50
+2026-02-12 08:44:03 [TRACE] [cache.redis] Query executed in 167ms: SELECT ...
+2026-02-12 08:44:06 [INFO] [http.router] GC pause: 127ms (heap: 134MB)
+2026-02-12 08:44:09 [INFO] [http.router] GC pause: 141ms (heap: 179MB)
+2026-02-12 08:44:12 [DEBUG] [worker.queue] Query executed in 113ms: SELECT ...
+2026-02-12 08:44:15 [DEBUG] [worker.queue] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:44:18 [DEBUG] [worker.queue] Cache lookup: key=session:4634 hit=false
+2026-02-12 08:44:21 [DEBUG] [http.router] Query executed in 125ms: SELECT ...
+2026-02-12 08:44:24 [DEBUG] [worker.queue] Query executed in 101ms: SELECT ...
+2026-02-12 08:44:27 [DEBUG] [http.router] GC pause: 126ms (heap: 502MB)
+2026-02-12 08:44:30 [TRACE] [db.pool] JWT token validated for user_id=4978
+2026-02-12 08:44:33 [DEBUG] [scheduler] GC pause: 155ms (heap: 244MB)
+2026-02-12 08:44:36 [DEBUG] [worker.queue] GC pause: 168ms (heap: 350MB)
+2026-02-12 08:44:39 [DEBUG] [db.pool] Scheduler tick: next run in 249s
+2026-02-12 08:44:42 [DEBUG] [http.router] CORS preflight handled for origin=app.example.com
+2026-02-12 08:44:45 [DEBUG] [cache.redis] Response sent: 304 in 157ms
+2026-02-12 08:44:48 [DEBUG] [db.pool] Scheduler tick: next run in 262s
+2026-02-12 08:44:51 [DEBUG] [cache.redis] Query executed in 127ms: SELECT ...
+2026-02-12 08:44:54 [DEBUG] [db.pool] Worker processing job #229 (queue: default)
+2026-02-12 08:44:57 [DEBUG] [cache.redis] Response sent: 201 in 30ms
+2026-02-12 08:45:00 [DEBUG] [scheduler] GC pause: 150ms (heap: 180MB)
+2026-02-12 08:45:03 [DEBUG] [middleware.cors] Scheduler tick: next run in 239s
+2026-02-12 08:45:06 [INFO] [worker.queue] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:45:09 [TRACE] [db.pool] Route matched: PUT /api/v1/users -> handler_15
+2026-02-12 08:45:12 [DEBUG] [middleware.cors] GC pause: 33ms (heap: 326MB)
+2026-02-12 08:45:15 [DEBUG] [middleware.cors] CORS preflight handled for origin=app.example.com
+2026-02-12 08:45:18 [DEBUG] [cache.redis] Worker processing job #500 (queue: default)
+2026-02-12 08:45:21 [DEBUG] [auth.jwt] Scheduler tick: next run in 18s
+2026-02-12 08:45:24 [DEBUG] [db.pool] Route matched: GET /health -> handler_11
+2026-02-12 08:45:27 [DEBUG] [cache.redis] Response sent: 304 in 95ms
+2026-02-12 08:45:30 [INFO] [db.pool] Response sent: 200 in 125ms
+2026-02-12 08:45:33 [DEBUG] [worker.queue] GC pause: 87ms (heap: 318MB)
+2026-02-12 08:45:36 [DEBUG] [http.router] Route matched: POST /api/v1/users -> handler_29
+2026-02-12 08:45:39 [INFO] [db.pool] Route matched: GET /api/v1/users -> handler_11
+2026-02-12 08:45:42 [DEBUG] [http.router] Cache lookup: key=session:8739 hit=true
+2026-02-12 08:45:45 [DEBUG] [middleware.cors] GC pause: 127ms (heap: 254MB)
+2026-02-12 08:45:48 [DEBUG] [http.router] Route matched: GET /api/v1/orders -> handler_44
+2026-02-12 08:45:51 [DEBUG] [db.pool] Worker processing job #94 (queue: default)
+2026-02-12 08:45:54 [DEBUG] [cache.redis] JWT token validated for user_id=3190
+2026-02-12 08:45:57 [DEBUG] [scheduler] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:46:00 [DEBUG] [http.router] Cache lookup: key=session:9183 hit=true
+2026-02-12 08:46:03 [TRACE] [http.router] Query executed in 148ms: SELECT ...
+2026-02-12 08:46:06 [INFO] [scheduler] CORS preflight handled for origin=app.example.com
+2026-02-12 08:46:09 [DEBUG] [auth.jwt] Cache lookup: key=session:4104 hit=true
+2026-02-12 08:46:12 [INFO] [http.router] Query executed in 134ms: SELECT ...
+2026-02-12 08:46:15 [DEBUG] [worker.queue] Response sent: 304 in 80ms
+2026-02-12 08:46:18 [DEBUG] [auth.jwt] Cache lookup: key=session:5601 hit=true
+2026-02-12 08:46:21 [DEBUG] [http.router] Query executed in 141ms: SELECT ...
+2026-02-12 08:46:24 [DEBUG] [cache.redis] Cache lookup: key=session:7319 hit=true
+2026-02-12 08:46:27 [DEBUG] [http.router] Query executed in 25ms: SELECT ...
+2026-02-12 08:46:30 [DEBUG] [http.router] Route matched: PUT /api/v1/payments -> handler_8
+2026-02-12 08:46:33 [DEBUG] [scheduler] Query executed in 101ms: SELECT ...
+2026-02-12 08:46:36 [TRACE] [worker.queue] Cache lookup: key=session:5541 hit=true
+2026-02-12 08:46:39 [DEBUG] [worker.queue] GC pause: 68ms (heap: 139MB)
+2026-02-12 08:46:42 [DEBUG] [http.router] GC pause: 107ms (heap: 312MB)
+2026-02-12 08:46:45 [INFO] [http.router] Query executed in 125ms: SELECT ...
+2026-02-12 08:46:48 [DEBUG] [worker.queue] Query executed in 12ms: SELECT ...
+2026-02-12 08:46:51 [DEBUG] [auth.jwt] JWT token validated for user_id=3446
+2026-02-12 08:46:54 [TRACE] [auth.jwt] Cache lookup: key=session:2763 hit=true
+2026-02-12 08:46:57 [DEBUG] [cache.redis] Cache lookup: key=session:6893 hit=false
+2026-02-12 08:47:00 [DEBUG] [http.router] Connection pool checkout: conn_id=19
+2026-02-12 08:47:03 [INFO] [auth.jwt] CORS preflight handled for origin=app.example.com
+2026-02-12 08:47:06 [TRACE] [middleware.cors] Worker processing job #467 (queue: default)
+2026-02-12 08:47:09 [DEBUG] [worker.queue] Cache lookup: key=session:9119 hit=true
+2026-02-12 08:47:12 [DEBUG] [scheduler] Response sent: 200 in 91ms
+2026-02-12 08:47:15 [DEBUG] [worker.queue] Worker processing job #116 (queue: default)
+2026-02-12 08:47:18 [TRACE] [worker.queue] Connection pool checkout: conn_id=15
+2026-02-12 08:47:21 [INFO] [scheduler] Connection pool checkout: conn_id=13
+2026-02-12 08:47:24 [TRACE] [db.pool] Worker processing job #464 (queue: default)
+2026-02-12 08:47:27 [DEBUG] [auth.jwt] Connection pool checkout: conn_id=10
+2026-02-12 08:47:30 [DEBUG] [cache.redis] Worker processing job #206 (queue: default)
+2026-02-12 08:47:33 [DEBUG] [worker.queue] Response sent: 304 in 65ms
+2026-02-12 08:47:36 [INFO] [auth.jwt] Scheduler tick: next run in 206s
+2026-02-12 08:47:39 [TRACE] [http.router] Cache lookup: key=session:4483 hit=false
+2026-02-12 08:47:42 [DEBUG] [scheduler] Worker processing job #167 (queue: default)
+2026-02-12 08:47:45 [TRACE] [cache.redis] JWT token validated for user_id=202
+2026-02-12 08:47:48 [INFO] [auth.jwt] Response sent: 200 in 121ms
+2026-02-12 08:47:51 [DEBUG] [http.router] Query executed in 132ms: SELECT ...
+2026-02-12 08:47:54 [TRACE] [cache.redis] Scheduler tick: next run in 259s
+2026-02-12 08:47:57 [DEBUG] [auth.jwt] GC pause: 27ms (heap: 284MB)
+2026-02-12 08:48:00 [DEBUG] [db.pool] Cache lookup: key=session:1717 hit=false
+2026-02-12 08:48:03 [TRACE] [http.router] Cache lookup: key=session:3492 hit=true
+2026-02-12 08:48:06 [DEBUG] [worker.queue] Query executed in 38ms: SELECT ...
+2026-02-12 08:48:09 [DEBUG] [auth.jwt] Worker processing job #171 (queue: default)
+2026-02-12 08:48:12 [DEBUG] [db.pool] JWT token validated for user_id=8738
+2026-02-12 08:48:15 [DEBUG] [scheduler] Worker processing job #124 (queue: default)
+2026-02-12 08:48:18 [DEBUG] [scheduler] Cache lookup: key=session:8233 hit=false
+2026-02-12 08:48:21 [DEBUG] [auth.jwt] Route matched: PUT /api/v1/orders -> handler_24
+2026-02-12 08:48:24 [DEBUG] [http.router] Response sent: 200 in 37ms
+2026-02-12 08:48:27 [DEBUG] [worker.queue] Route matched: GET /api/v1/orders -> handler_30
+2026-02-12 08:48:30 [DEBUG] [db.pool] Response sent: 201 in 157ms
+2026-02-12 08:48:33 [DEBUG] [cache.redis] Scheduler tick: next run in 206s
+2026-02-12 08:48:36 [DEBUG] [middleware.cors] Cache lookup: key=session:4044 hit=false
+2026-02-12 08:48:39 [INFO] [cache.redis] Query executed in 38ms: SELECT ...
+2026-02-12 08:48:42 [DEBUG] [middleware.cors] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:48:45 [DEBUG] [worker.queue] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:48:48 [DEBUG] [scheduler] Connection pool checkout: conn_id=3
+2026-02-12 08:48:51 [DEBUG] [scheduler] CORS preflight handled for origin=app.example.com
+2026-02-12 08:48:54 [DEBUG] [worker.queue] Route matched: PUT /api/v1/payments -> handler_9
+2026-02-12 08:48:57 [DEBUG] [scheduler] Route matched: GET /api/v1/payments -> handler_15
+2026-02-12 08:49:00 [DEBUG] [worker.queue] Scheduler tick: next run in 72s
+2026-02-12 08:49:03 [DEBUG] [auth.jwt] Cache lookup: key=session:9576 hit=false
+2026-02-12 08:49:06 [TRACE] [auth.jwt] JWT token validated for user_id=6131
+2026-02-12 08:49:09 [DEBUG] [db.pool] Response sent: 201 in 13ms
+2026-02-12 08:49:12 [DEBUG] [cache.redis] JWT token validated for user_id=7597
+2026-02-12 08:49:15 [INFO] [http.router] GC pause: 156ms (heap: 157MB)
+2026-02-12 08:49:18 [DEBUG] [middleware.cors] JWT token validated for user_id=9008
+2026-02-12 08:49:21 [DEBUG] [http.router] Response sent: 304 in 32ms
+2026-02-12 08:49:24 [TRACE] [db.pool] Response sent: 304 in 38ms
+2026-02-12 08:49:27 [DEBUG] [cache.redis] CORS preflight handled for origin=app.example.com
+2026-02-12 08:49:30 [INFO] [middleware.cors] Cache lookup: key=session:2825 hit=true
+2026-02-12 08:49:33 [DEBUG] [middleware.cors] Worker processing job #202 (queue: default)
+2026-02-12 08:49:36 [DEBUG] [worker.queue] CORS preflight handled for origin=app.example.com
+2026-02-12 08:49:39 [TRACE] [db.pool] Cache lookup: key=session:5049 hit=true
+2026-02-12 08:49:42 [DEBUG] [cache.redis] Response sent: 200 in 98ms
+2026-02-12 08:49:45 [DEBUG] [middleware.cors] Scheduler tick: next run in 124s
+2026-02-12 08:49:48 [INFO] [http.router] Worker processing job #116 (queue: default)
+2026-02-12 08:49:51 [INFO] [http.router] Worker processing job #437 (queue: default)
+2026-02-12 08:49:54 [INFO] [auth.jwt] Connection pool checkout: conn_id=11
+2026-02-12 08:49:57 [DEBUG] [scheduler] GC pause: 160ms (heap: 207MB)
+2026-02-12 08:50:00 [TRACE] [auth.jwt] Route matched: POST /api/v1/orders -> handler_27
+2026-02-12 08:50:03 [DEBUG] [http.router] JWT token validated for user_id=1656
+2026-02-12 08:50:06 [DEBUG] [scheduler] Route matched: POST /api/v1/orders -> handler_12
+2026-02-12 08:50:09 [DEBUG] [worker.queue] Worker processing job #377 (queue: default)
+2026-02-12 08:50:12 [DEBUG] [http.router] Scheduler tick: next run in 13s
+2026-02-12 08:50:15 [DEBUG] [middleware.cors] Route matched: POST /health -> handler_1
+2026-02-12 08:50:18 [DEBUG] [db.pool] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:50:21 [DEBUG] [worker.queue] Cache lookup: key=session:8098 hit=true
+2026-02-12 08:50:24 [TRACE] [http.router] Scheduler tick: next run in 127s
+2026-02-12 08:50:27 [DEBUG] [worker.queue] Response sent: 304 in 156ms
+2026-02-12 08:50:30 [DEBUG] [cache.redis] Worker processing job #53 (queue: default)
+2026-02-12 08:50:33 [DEBUG] [scheduler] Worker processing job #271 (queue: default)
+2026-02-12 08:50:36 [DEBUG] [middleware.cors] JWT token validated for user_id=8034
+2026-02-12 08:50:39 [DEBUG] [db.pool] Worker processing job #459 (queue: default)
+2026-02-12 08:50:42 [DEBUG] [worker.queue] JWT token validated for user_id=1788
+2026-02-12 08:50:45 [DEBUG] [middleware.cors] JWT token validated for user_id=8561
+2026-02-12 08:50:48 [DEBUG] [middleware.cors] Route matched: POST /api/v1/users -> handler_18
+2026-02-12 08:50:51 [DEBUG] [worker.queue] Connection pool checkout: conn_id=5
+2026-02-12 08:50:54 [INFO] [worker.queue] Cache lookup: key=session:2557 hit=true
+2026-02-12 08:50:57 [DEBUG] [http.router] JWT token validated for user_id=3129
+2026-02-12 08:51:00 [DEBUG] [db.pool] Connection pool checkout: conn_id=16
+2026-02-12 08:51:03 [DEBUG] [auth.jwt] CORS preflight handled for origin=app.example.com
+2026-02-12 08:51:06 [INFO] [auth.jwt] Cache lookup: key=session:2394 hit=true
+2026-02-12 08:51:09 [TRACE] [http.router] CORS preflight handled for origin=app.example.com
+2026-02-12 08:51:12 [DEBUG] [middleware.cors] GC pause: 148ms (heap: 148MB)
+2026-02-12 08:51:15 [TRACE] [http.router] GC pause: 161ms (heap: 448MB)
+2026-02-12 08:51:18 [INFO] [http.router] Scheduler tick: next run in 20s
+2026-02-12 08:51:21 [INFO] [scheduler] Query executed in 174ms: SELECT ...
+2026-02-12 08:51:24 [TRACE] [middleware.cors] Scheduler tick: next run in 191s
+2026-02-12 08:51:27 [DEBUG] [worker.queue] Scheduler tick: next run in 172s
+2026-02-12 08:51:30 [DEBUG] [scheduler] Worker processing job #110 (queue: default)
+2026-02-12 08:51:33 [DEBUG] [auth.jwt] Scheduler tick: next run in 249s
+2026-02-12 08:51:36 [TRACE] [db.pool] Worker processing job #499 (queue: default)
+2026-02-12 08:51:39 [DEBUG] [cache.redis] JWT token validated for user_id=9120
+2026-02-12 08:51:42 [DEBUG] [middleware.cors] Worker processing job #487 (queue: default)
+2026-02-12 08:51:45 [DEBUG] [http.router] GC pause: 34ms (heap: 500MB)
+2026-02-12 08:51:48 [DEBUG] [auth.jwt] Connection pool checkout: conn_id=16
+2026-02-12 08:51:51 [DEBUG] [worker.queue] Query executed in 138ms: SELECT ...
+2026-02-12 08:51:54 [INFO] [worker.queue] Query executed in 24ms: SELECT ...
+2026-02-12 08:51:57 [DEBUG] [worker.queue] JWT token validated for user_id=7245
+2026-02-12 08:52:00 [DEBUG] [worker.queue] Cache lookup: key=session:4215 hit=false
+2026-02-12 08:52:03 [DEBUG] [cache.redis] Response sent: 200 in 1ms
+2026-02-12 08:52:06 [DEBUG] [scheduler] Worker processing job #186 (queue: default)
+2026-02-12 08:52:09 [TRACE] [http.router] Response sent: 304 in 156ms
+2026-02-12 08:52:12 [DEBUG] [worker.queue] Scheduler tick: next run in 290s
+2026-02-12 08:52:15 [DEBUG] [middleware.cors] Query executed in 137ms: SELECT ...
+2026-02-12 08:52:18 [DEBUG] [cache.redis] CORS preflight handled for origin=app.example.com
+2026-02-12 08:52:21 [TRACE] [worker.queue] Route matched: POST /api/v1/users -> handler_25
+2026-02-12 08:52:24 [DEBUG] [cache.redis] Cache lookup: key=session:4365 hit=false
+2026-02-12 08:52:27 [DEBUG] [http.router] JWT token validated for user_id=3732
+2026-02-12 08:52:30 [DEBUG] [cache.redis] Cache lookup: key=session:7594 hit=true
+2026-02-12 08:52:33 [INFO] [worker.queue] GC pause: 72ms (heap: 187MB)
+2026-02-12 08:52:36 [DEBUG] [scheduler] Connection pool checkout: conn_id=3
+2026-02-12 08:52:39 [DEBUG] [db.pool] JWT token validated for user_id=2569
+2026-02-12 08:52:42 [DEBUG] [scheduler] Response sent: 304 in 159ms
+2026-02-12 08:52:45 [TRACE] [auth.jwt] Query executed in 56ms: SELECT ...
+2026-02-12 08:52:48 [DEBUG] [worker.queue] Scheduler tick: next run in 12s
+2026-02-12 08:52:51 [DEBUG] [scheduler] JWT token validated for user_id=8458
+2026-02-12 08:52:54 [DEBUG] [middleware.cors] JWT token validated for user_id=9021
+2026-02-12 08:52:57 [DEBUG] [cache.redis] Route matched: POST /api/v1/payments -> handler_20
+2026-02-12 08:53:00 [DEBUG] [cache.redis] GC pause: 23ms (heap: 329MB)
+2026-02-12 08:53:03 [DEBUG] [http.router] JWT token validated for user_id=4571
+2026-02-12 08:53:06 [DEBUG] [auth.jwt] Query executed in 170ms: SELECT ...
+2026-02-12 08:53:09 [DEBUG] [http.router] Worker processing job #302 (queue: default)
+2026-02-12 08:53:12 [DEBUG] [worker.queue] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:53:15 [DEBUG] [middleware.cors] Connection pool checkout: conn_id=7
+2026-02-12 08:53:18 [TRACE] [middleware.cors] Response sent: 304 in 88ms
+2026-02-12 08:53:21 [TRACE] [cache.redis] Connection pool checkout: conn_id=1
+2026-02-12 08:53:24 [DEBUG] [db.pool] Worker processing job #241 (queue: default)
+2026-02-12 08:53:27 [DEBUG] [http.router] Route matched: PUT /api/v1/users -> handler_11
+2026-02-12 08:53:30 [TRACE] [db.pool] JWT token validated for user_id=1640
+2026-02-12 08:53:33 [DEBUG] [scheduler] Connection pool checkout: conn_id=3
+2026-02-12 08:53:36 [DEBUG] [http.router] Worker processing job #162 (queue: default)
+2026-02-12 08:53:39 [DEBUG] [db.pool] GC pause: 84ms (heap: 158MB)
+2026-02-12 08:53:42 [TRACE] [auth.jwt] Response sent: 201 in 38ms
+2026-02-12 08:53:45 [DEBUG] [http.router] Response sent: 304 in 111ms
+2026-02-12 08:53:48 [INFO] [auth.jwt] Response sent: 304 in 58ms
+2026-02-12 08:53:51 [TRACE] [worker.queue] Worker processing job #145 (queue: default)
+2026-02-12 08:53:54 [DEBUG] [scheduler] Cache lookup: key=session:7607 hit=true
+2026-02-12 08:53:57 [DEBUG] [scheduler] Route matched: POST /api/v1/orders -> handler_45
+2026-02-12 08:54:00 [DEBUG] [worker.queue] Response sent: 200 in 5ms
+2026-02-12 08:54:03 [DEBUG] [worker.queue] Route matched: PUT /api/v1/users -> handler_7
+2026-02-12 08:54:06 [DEBUG] [db.pool] Cache lookup: key=session:9235 hit=true
+2026-02-12 08:54:09 [DEBUG] [cache.redis] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:54:12 [DEBUG] [auth.jwt] GC pause: 142ms (heap: 454MB)
+2026-02-12 08:54:15 [DEBUG] [http.router] Route matched: GET /health -> handler_37
+2026-02-12 08:54:18 [DEBUG] [middleware.cors] JWT token validated for user_id=4143
+2026-02-12 08:54:21 [INFO] [middleware.cors] Response sent: 201 in 197ms
+2026-02-12 08:54:24 [DEBUG] [http.router] GC pause: 75ms (heap: 146MB)
+2026-02-12 08:54:27 [DEBUG] [http.router] Query executed in 43ms: SELECT ...
+2026-02-12 08:54:30 [DEBUG] [middleware.cors] GC pause: 109ms (heap: 427MB)
+2026-02-12 08:54:33 [DEBUG] [http.router] Worker processing job #317 (queue: default)
+2026-02-12 08:54:36 [DEBUG] [cache.redis] Worker processing job #244 (queue: default)
+2026-02-12 08:54:39 [TRACE] [scheduler] GC pause: 160ms (heap: 507MB)
+2026-02-12 08:54:42 [DEBUG] [scheduler] CORS preflight handled for origin=app.example.com
+2026-02-12 08:54:45 [DEBUG] [worker.queue] Cache lookup: key=session:8830 hit=true
+2026-02-12 08:54:48 [DEBUG] [worker.queue] GC pause: 30ms (heap: 228MB)
+2026-02-12 08:54:51 [INFO] [auth.jwt] Cache lookup: key=session:5337 hit=false
+2026-02-12 08:54:54 [DEBUG] [scheduler] Worker processing job #167 (queue: default)
+2026-02-12 08:54:57 [DEBUG] [auth.jwt] Query executed in 136ms: SELECT ...
+2026-02-12 08:55:00 [DEBUG] [auth.jwt] Query executed in 10ms: SELECT ...
+2026-02-12 08:55:03 [TRACE] [auth.jwt] JWT token validated for user_id=5471
+2026-02-12 08:55:06 [DEBUG] [http.router] JWT token validated for user_id=6624
+2026-02-12 08:55:09 [INFO] [auth.jwt] GC pause: 77ms (heap: 223MB)
+2026-02-12 08:55:12 [TRACE] [worker.queue] GC pause: 178ms (heap: 265MB)
+2026-02-12 08:55:15 [DEBUG] [cache.redis] Cache lookup: key=session:7075 hit=true
+2026-02-12 08:55:18 [DEBUG] [auth.jwt] Worker processing job #98 (queue: default)
+2026-02-12 08:55:21 [TRACE] [middleware.cors] GC pause: 49ms (heap: 497MB)
+2026-02-12 08:55:24 [DEBUG] [cache.redis] Cache lookup: key=session:2962 hit=false
+2026-02-12 08:55:27 [INFO] [scheduler] Query executed in 42ms: SELECT ...
+2026-02-12 08:55:30 [DEBUG] [middleware.cors] Worker processing job #487 (queue: default)
+2026-02-12 08:55:33 [TRACE] [auth.jwt] Response sent: 201 in 158ms
+2026-02-12 08:55:36 [DEBUG] [cache.redis] Worker processing job #454 (queue: default)
+2026-02-12 08:55:39 [DEBUG] [cache.redis] GC pause: 5ms (heap: 465MB)
+2026-02-12 08:55:42 [DEBUG] [auth.jwt] Query executed in 102ms: SELECT ...
+2026-02-12 08:55:45 [DEBUG] [db.pool] JWT token validated for user_id=1638
+2026-02-12 08:55:48 [TRACE] [auth.jwt] CORS preflight handled for origin=app.example.com
+2026-02-12 08:55:51 [INFO] [auth.jwt] GC pause: 198ms (heap: 195MB)
+2026-02-12 08:55:54 [DEBUG] [auth.jwt] Scheduler tick: next run in 91s
+2026-02-12 08:55:57 [DEBUG] [cache.redis] GC pause: 108ms (heap: 364MB)
+2026-02-12 08:56:00 [DEBUG] [middleware.cors] Response sent: 304 in 9ms
+2026-02-12 08:56:03 [DEBUG] [db.pool] Scheduler tick: next run in 290s
+2026-02-12 08:56:06 [DEBUG] [scheduler] Worker processing job #413 (queue: default)
+2026-02-12 08:56:09 [DEBUG] [db.pool] GC pause: 178ms (heap: 360MB)
+2026-02-12 08:56:12 [DEBUG] [http.router] Route matched: POST /api/v1/users -> handler_25
+2026-02-12 08:56:15 [DEBUG] [db.pool] Connection pool checkout: conn_id=12
+2026-02-12 08:56:18 [TRACE] [scheduler] Query executed in 12ms: SELECT ...
+2026-02-12 08:56:21 [DEBUG] [middleware.cors] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:56:24 [DEBUG] [http.router] CORS preflight handled for origin=app.example.com
+2026-02-12 08:56:27 [DEBUG] [worker.queue] Cache lookup: key=session:6081 hit=true
+2026-02-12 08:56:30 [DEBUG] [http.router] Worker processing job #189 (queue: default)
+2026-02-12 08:56:33 [DEBUG] [cache.redis] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:56:36 [TRACE] [worker.queue] Route matched: GET /api/v1/orders -> handler_17
+2026-02-12 08:56:39 [DEBUG] [middleware.cors] Route matched: POST /api/v1/orders -> handler_3
+2026-02-12 08:56:42 [INFO] [middleware.cors] Cache lookup: key=session:8434 hit=true
+2026-02-12 08:56:45 [TRACE] [auth.jwt] CORS preflight handled for origin=app.example.com
+2026-02-12 08:56:48 [DEBUG] [scheduler] Scheduler tick: next run in 46s
+2026-02-12 08:56:51 [TRACE] [http.router] JWT token validated for user_id=204
+2026-02-12 08:56:54 [INFO] [worker.queue] CORS preflight handled for origin=app.example.com
+2026-02-12 08:56:57 [DEBUG] [cache.redis] Response sent: 201 in 183ms
+2026-02-12 08:57:00 [DEBUG] [middleware.cors] Response sent: 200 in 63ms
+2026-02-12 08:57:03 [DEBUG] [http.router] Response sent: 201 in 109ms
+2026-02-12 08:57:06 [INFO] [cache.redis] JWT token validated for user_id=9285
+2026-02-12 08:57:09 [DEBUG] [db.pool] Response sent: 200 in 40ms
+2026-02-12 08:57:12 [INFO] [db.pool] Scheduler tick: next run in 173s
+2026-02-12 08:57:15 [DEBUG] [cache.redis] JWT token validated for user_id=5182
+2026-02-12 08:57:18 [INFO] [db.pool] GC pause: 46ms (heap: 221MB)
+2026-02-12 08:57:21 [DEBUG] [cache.redis] JWT token validated for user_id=6614
+2026-02-12 08:57:24 [DEBUG] [http.router] CORS preflight handled for origin=app.example.com
+2026-02-12 08:57:27 [INFO] [db.pool] Cache lookup: key=session:2216 hit=true
+2026-02-12 08:57:30 [DEBUG] [middleware.cors] Query executed in 61ms: SELECT ...
+2026-02-12 08:57:33 [DEBUG] [scheduler] Route matched: GET /health -> handler_38
+2026-02-12 08:57:36 [DEBUG] [auth.jwt] Route matched: GET /health -> handler_18
+2026-02-12 08:57:39 [DEBUG] [http.router] GC pause: 12ms (heap: 150MB)
+2026-02-12 08:57:42 [DEBUG] [middleware.cors] JWT token validated for user_id=8715
+2026-02-12 08:57:45 [TRACE] [http.router] GC pause: 112ms (heap: 493MB)
+2026-02-12 08:57:48 [DEBUG] [scheduler] Connection pool checkout: conn_id=9
+2026-02-12 08:57:51 [DEBUG] [db.pool] JWT token validated for user_id=9386
+2026-02-12 08:57:54 [TRACE] [http.router] CORS preflight handled for origin=app.example.com
+2026-02-12 08:57:57 [DEBUG] [middleware.cors] Cache lookup: key=session:4904 hit=false
+2026-02-12 08:58:00 [DEBUG] [cache.redis] CORS preflight handled for origin=app.example.com
+2026-02-12 08:58:03 [DEBUG] [auth.jwt] JWT token validated for user_id=3696
+2026-02-12 08:58:06 [TRACE] [worker.queue] Worker processing job #61 (queue: default)
+2026-02-12 08:58:09 [INFO] [middleware.cors] Cache lookup: key=session:8292 hit=false
+2026-02-12 08:58:12 [DEBUG] [auth.jwt] Worker processing job #354 (queue: default)
+2026-02-12 08:58:15 [DEBUG] [scheduler] GC pause: 187ms (heap: 473MB)
+2026-02-12 08:58:18 [DEBUG] [worker.queue] Response sent: 201 in 106ms
+2026-02-12 08:58:21 [DEBUG] [scheduler] JWT token validated for user_id=8530
+2026-02-12 08:58:24 [INFO] [worker.queue] Query executed in 67ms: SELECT ...
+2026-02-12 08:58:27 [TRACE] [middleware.cors] Query executed in 192ms: SELECT ...
+2026-02-12 08:58:30 [DEBUG] [db.pool] Scheduler tick: next run in 261s
+2026-02-12 08:58:33 [INFO] [scheduler] JWT token validated for user_id=1324
+2026-02-12 08:58:36 [DEBUG] [scheduler] Scheduler tick: next run in 229s
+2026-02-12 08:58:39 [DEBUG] [http.router] Connection pool checkout: conn_id=8
+2026-02-12 08:58:42 [DEBUG] [http.router] Response sent: 201 in 44ms
+2026-02-12 08:58:45 [DEBUG] [db.pool] CORS preflight handled for origin=localhost:3000
+2026-02-12 08:58:48 [DEBUG] [cache.redis] Worker processing job #398 (queue: default)
+2026-02-12 08:58:51 [INFO] [scheduler] Cache lookup: key=session:5022 hit=true
+2026-02-12 08:58:54 [INFO] [worker.queue] Worker processing job #126 (queue: default)
+2026-02-12 08:58:57 [DEBUG] [worker.queue] Response sent: 201 in 191ms
+2026-02-12 08:59:00 [DEBUG] [db.pool] Response sent: 304 in 153ms
+2026-02-12 08:59:03 [DEBUG] [worker.queue] Cache lookup: key=session:5058 hit=false
+2026-02-12 08:59:06 [DEBUG] [middleware.cors] JWT token validated for user_id=1581
+2026-02-12 08:59:09 [INFO] [scheduler] Worker processing job #418 (queue: default)
+2026-02-12 08:59:12 [INFO] [middleware.cors] Query executed in 123ms: SELECT ...
+2026-02-12 08:59:15 [DEBUG] [scheduler] Query executed in 182ms: SELECT ...
+2026-02-12 08:59:18 [DEBUG] [db.pool] CORS preflight handled for origin=app.example.com
+2026-02-12 08:59:21 [TRACE] [db.pool] Route matched: PUT /api/v1/orders -> handler_39
+2026-02-12 08:59:24 [DEBUG] [middleware.cors] Query executed in 136ms: SELECT ...
+2026-02-12 08:59:27 [TRACE] [cache.redis] GC pause: 126ms (heap: 388MB)
+2026-02-12 08:59:30 [TRACE] [worker.queue] GC pause: 83ms (heap: 490MB)
+2026-02-12 08:59:33 [DEBUG] [cache.redis] Query executed in 93ms: SELECT ...
+2026-02-12 08:59:36 [INFO] [middleware.cors] Query executed in 188ms: SELECT ...
+2026-02-12 08:59:39 [DEBUG] [db.pool] Worker processing job #34 (queue: default)
+2026-02-12 08:59:42 [DEBUG] [worker.queue] JWT token validated for user_id=2686
+2026-02-12 08:59:45 [TRACE] [worker.queue] Cache lookup: key=session:2937 hit=true
+2026-02-12 08:59:48 [DEBUG] [middleware.cors] Cache lookup: key=session:6491 hit=false
+2026-02-12 08:59:51 [DEBUG] [cache.redis] GC pause: 47ms (heap: 338MB)
+2026-02-12 08:59:54 [DEBUG] [scheduler] Scheduler tick: next run in 267s
+2026-02-12 08:59:57 [TRACE] [scheduler] Query executed in 169ms: SELECT ...

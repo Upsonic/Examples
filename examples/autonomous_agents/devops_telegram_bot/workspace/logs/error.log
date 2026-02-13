@@ -1,0 +1,38 @@
+2026-02-12 08:01:12 [INFO] Application started on port 3000
+2026-02-12 08:01:13 [INFO] Connected to PostgreSQL at localhost:5432
+2026-02-12 08:01:13 [INFO] Redis connection established
+2026-02-12 08:05:44 [WARN] Slow query detected: SELECT * FROM orders WHERE status='pending' (took 2340ms)
+2026-02-12 08:05:44 [WARN] Consider adding index on orders.status column
+2026-02-12 08:12:31 [ERROR] ConnectionRefusedError: Redis connection lost at 08:12:31
+2026-02-12 08:12:32 [ERROR] Failed to cache session token for user_id=4821
+2026-02-12 08:12:33 [INFO] Attempting Redis reconnection (1/5)...
+2026-02-12 08:12:35 [INFO] Redis reconnected successfully
+2026-02-12 08:23:17 [ERROR] MemoryError: Cannot allocate 512MB for image processing job #7291
+2026-02-12 08:23:17 [ERROR] Job #7291 failed — uploaded file too large (user_id=1192, file=report_q4.pdf, size=487MB)
+2026-02-12 08:23:18 [WARN] Available memory: 128MB / 2048MB — consider scaling up
+2026-02-12 08:30:00 [INFO] Cron: daily_cleanup started
+2026-02-12 08:30:02 [INFO] Cleaned 342 expired sessions
+2026-02-12 08:30:03 [INFO] Cleaned 17 temp files (freed 89MB)
+2026-02-12 08:45:09 [ERROR] TimeoutError: Request to payment gateway timed out after 30s
+2026-02-12 08:45:09 [ERROR] Transaction TX-90421 failed for user_id=3301 (amount=$149.99)
+2026-02-12 08:45:10 [WARN] Payment gateway response time degraded: avg 12s (normal: <2s)
+2026-02-12 08:45:11 [INFO] Transaction TX-90421 queued for retry in 60s
+2026-02-12 08:46:11 [INFO] Transaction TX-90421 retry succeeded
+2026-02-12 09:00:15 [ERROR] disk usage alert: /var/log at 91% capacity
+2026-02-12 09:00:15 [WARN] Log rotation may not be running — last rotation: 2026-02-05
+2026-02-12 09:01:00 [ERROR] FileNotFoundError: /app/config/secrets.yaml not found
+2026-02-12 09:01:00 [ERROR] Falling back to environment variables for secrets
+2026-02-12 09:15:22 [ERROR] ConnectionRefusedError: Redis connection lost at 09:15:22
+2026-02-12 09:15:23 [ERROR] Failed to cache session token for user_id=5510
+2026-02-12 09:15:24 [ERROR] Failed to cache session token for user_id=2287
+2026-02-12 09:15:25 [INFO] Attempting Redis reconnection (1/5)...
+2026-02-12 09:15:27 [INFO] Attempting Redis reconnection (2/5)...
+2026-02-12 09:15:30 [INFO] Attempting Redis reconnection (3/5)...
+2026-02-12 09:15:33 [INFO] Redis reconnected successfully
+2026-02-12 09:15:33 [WARN] Redis has disconnected 2 times today — check Redis memory usage
+2026-02-12 09:30:00 [INFO] Health check: all services OK
+2026-02-12 09:45:18 [WARN] Slow query detected: SELECT u.*, o.* FROM users u JOIN orders o ON u.id = o.user_id WHERE o.created_at > '2026-01-01' (took 4120ms)
+2026-02-12 10:00:00 [INFO] Health check: all services OK
+2026-02-12 10:12:44 [ERROR] RateLimitError: API rate limit exceeded for client_id=api_key_prod_7x2k
+2026-02-12 10:12:44 [WARN] Client api_key_prod_7x2k has made 1042 requests in the last minute (limit: 1000)
+2026-02-12 10:30:00 [INFO] Health check: all services OK
