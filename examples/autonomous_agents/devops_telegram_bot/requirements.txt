@@ -1,0 +1,7 @@
+upsonic
+python-dotenv
+fastapi
+uvicorn
+sqlalchemy
+aiosqlite
+anthropic
