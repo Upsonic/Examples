@@ -1,0 +1,4 @@
+upsonic
+firecrawl-py
+python-dotenv
+anthropic
