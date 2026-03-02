@@ -1,5 +1,3 @@
-# task_examples/find_sales_categories/find_sales_categories.py
-
 """
 Sales Category Agent (Generalized + Batch Support)
 --------------------------------------------------
@@ -8,10 +6,10 @@ sales categories, such as major departments or product collections.
 
 Usage:
     Single company:
-        uv run task_examples/find_sales_categories/find_sales_categories.py --company "Nike"
+        uv run examples/web_search_and_scraping/find_sales_categories/find_sales_categories.py --company "Nike"
 
     Multiple companies:
-        uv run task_examples/find_sales_categories/find_sales_categories.py --companies "Nike, Lululemon, Apple"
+        uv run examples/web_search_and_scraping/find_sales_categories/find_sales_categories.py --companies "Nike, Lululemon, Apple"
 """
 
 import argparse
@@ -24,9 +22,9 @@ from bs4 import BeautifulSoup
 from upsonic import Agent, Task
 from upsonic.tools import tool
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from task_examples.find_company_website.find_company_website import (  # noqa: E402
+from find_company_website.find_company_website import (  # noqa: E402
     agent as website_agent,
     get_company_candidates,
     WebsiteResponse,

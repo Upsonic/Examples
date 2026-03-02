@@ -6,11 +6,10 @@ from typing import Optional
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
-# Ensure repo root path for Upsonic imports
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from upsonic import Agent, Task
-from task_examples.find_company_website.find_company_website import find_company_website
+from find_company_website.find_company_website import find_company_website
 
 # --- Config ---
 load_dotenv()
