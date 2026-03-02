@@ -71,6 +71,7 @@ Orchestration patterns: DeepAgent, sequential pipelines, and specialized subagen
 
 | Example | Description | Key Concepts |
 |---------|-------------|--------------|
+| [agent_as_tool](examples/multi_agent/agent_as_tool/) | Use specialized agents as tools for a coordinator, with single-agent vs hierarchical comparison | Agent-as-Tool, hierarchical delegation, model mixing |
 | [git_changelog_writer](examples/multi_agent/git_changelog_writer/) | Turn raw git log output into a developer-focused Twitter post using two sequential agents | Sequential team mode, context handover |
 | [company_research_sales_strategy](examples/multi_agent/company_research_sales_strategy/) | Full company research with industry analysis, financial data, and tailored sales strategy | DeepAgent, 4 subagents, SQLite memory |
 | [landing_page_generation](examples/multi_agent/landing_page_generation/) | Generate a landing page image by coordinating content, design, and SEO specialists | DeepAgent, image generation, subagent delegation |
@@ -85,6 +86,8 @@ Long-running agents with persistent memory, workspace context, and external inte
 | Example | Description | Key Concepts |
 |---------|-------------|--------------|
 | [devops_telegram_bot](examples/autonomous_agents/devops_telegram_bot/) | A DevOps assistant connected to Telegram that remembers context across conversations | AutonomousAgent, TelegramInterface, workspace memory |
+| [operations_analyst](examples/autonomous_agents/operations_analyst/) | Read shipment data, compute delivery KPIs, write a report, and generate charts with matplotlib | AutonomousAgent, workspace, run_python |
+| [expense_tracker_bot](examples/autonomous_agents/expense_tracker_bot/) | Telegram bot that reads receipt photos with OCR and tracks expenses to CSV | AutonomousAgent, TelegramInterface, OCR, custom tools |
 
 ---
 
@@ -139,12 +142,15 @@ examples/
 ├── knowledge_and_research/   # Research agents with web search
 │   └── ai_lexicon/
 ├── multi_agent/              # Multi-agent orchestration patterns
+│   ├── agent_as_tool/
 │   ├── git_changelog_writer/
 │   ├── company_research_sales_strategy/
 │   ├── landing_page_generation/
 │   └── sales_offer_generator_agent/
 ├── autonomous_agents/        # Long-running agents with memory & interfaces
-│   └── devops_telegram_bot/
+│   ├── devops_telegram_bot/
+│   ├── operations_analyst/
+│   └── expense_tracker_bot/
 ├── safety_and_policies/      # Safety Engine and content filtering
 │   ├── crypto_block_policy/
 │   └── gpt_oss_safety_agent/
@@ -167,7 +173,8 @@ examples/
 | `GROQ_API_KEY` | `groq_code_review_agent` |
 | `NVIDIA_API_KEY` | `nvidia_agent` (get from [build.nvidia.com](https://build.nvidia.com)) |
 | `OPENROUTER_API_KEY` | `gpt_oss_safety_agent` |
-| `TELEGRAM_BOT_TOKEN` | `devops_telegram_bot` |
+| `ANTHROPIC_API_KEY` | `operations_analyst`, `expense_tracker_bot` |
+| `TELEGRAM_BOT_TOKEN` | `devops_telegram_bot`, `expense_tracker_bot` |
 | *(none)* | `ollama_agent`, `crypto_block_policy` |
 
 ---

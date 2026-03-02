@@ -1,0 +1,4 @@
+upsonic[ocr]
+anthropic
+numpy
+fastapi
