@@ -1,15 +1,14 @@
 # Expense Tracker Bot
 
-An expense tracking Telegram bot built with the **Upsonic AI Agent Framework**. This example demonstrates how to use `AutonomousAgent` with `TelegramInterface` and custom tools to read receipt photos via OCR, extract structured data, and save expenses to a CSV file.
+An expense tracking Telegram bot built with the **Upsonic AI Agent Framework**. This example demonstrates how to use `AutonomousAgent` with `TelegramInterface`, workspace-driven behavior, and a single custom tool (OCR) to read receipt photos and track expenses autonomously.
 
 ## Features
 
 - **Telegram Integration**: Full bidirectional chat interface via Telegram Bot API with `InterfaceMode.CHAT`
-- **OCR-Powered Extraction**: Uses Upsonic's built-in `EasyOCREngine` to read text from receipt photos
-- **Custom Tools**: Three tools (`ocr_extract_text`, `save_expense`, `get_monthly_summary`) handle the full workflow
-- **Pydantic Validation**: All expense records are validated through a Pydantic model before saving
-- **Duplicate Detection**: Same date + amount + merchant triggers a duplicate warning
-- **Monthly Summaries**: Category breakdown with percentages and totals on demand
+- **Workspace-Driven Behavior**: Agent behavior defined in `AGENTS.md` and `SOUL.md`, not hardcoded in the script
+- **OCR-Powered Extraction**: Uses Upsonic's built-in `EasyOCREngine` as the only custom tool — everything else the agent handles through workspace filesystem
+- **Autonomous CSV Management**: The agent creates, reads, writes, and deduplicates `expenses.csv` on its own based on instructions in `AGENTS.md`
+- **Persistent Memory**: Logs daily activity to `workspace/memory/` for continuity across sessions
 
 ## Prerequisites
 
@@ -27,7 +26,8 @@ An expense tracking Telegram bot built with the **Upsonic AI Agent Framework**. 
 
 2. **Install dependencies**:
    ```bash
-   uv sync
+   uv venv && source .venv/bin/activate
+   uv pip install -r requirements.txt
    ```
 
 3. **Create a Telegram bot**:
@@ -59,8 +59,8 @@ The server starts on `http://0.0.0.0:8000` and registers the Telegram webhook au
 
 | Message | What happens |
 |---------|-------------|
-| Photo of a receipt | OCR extracts text, parses amount/date/merchant, saves to CSV |
-| "summary" or "this month" | Returns monthly expense breakdown by category |
+| Photo of a receipt | OCR extracts text, agent parses and saves to `expenses.csv` |
+| "summary" or "this month" | Agent reads CSV and returns category breakdown |
 | `/reset` | Clears conversation context |
 
 ## Project Structure
@@ -68,26 +68,29 @@ The server starts on `http://0.0.0.0:8000` and registers the Telegram webhook au
 ```
 expense_tracker_bot/
 ├── main.py              # Bot server with AutonomousAgent + TelegramInterface
-├── tools.py             # OCR extraction, expense saving, monthly summary tools
-├── models.py            # Pydantic model for expense validation
+├── tools.py             # OCR extraction tool (the only custom tool)
 ├── README.md            # This file
-├── data/                # Created at runtime
-│   └── expenses.csv     # All saved expenses
-└── workspace/           # Agent workspace (empty, filesystem/shell disabled)
+└── workspace/
+    ├── AGENTS.md        # Agent behavior: receipt workflow, CSV format, rules
+    ├── SOUL.md          # Agent identity
+    ├── expenses.csv     # Created by agent at runtime
+    └── memory/          # Daily session logs
 ```
 
 ## How It Works
 
-1. **Photo received**: The bot detects the incoming image and calls `ocr_extract_text`, which uses EasyOCR to read the text from the receipt.
+1. **Agent loads workspace**: On startup, the agent reads `AGENTS.md` and `SOUL.md` from the workspace to understand its role, workflow, and data format. No behavior is hardcoded in the script.
 
-2. **Parsing**: The agent extracts date, amount, merchant name, and category from the OCR output. It handles format conversion (e.g. `14.02.2026` to `2026-02-14`, `415,20` to `415.20`).
+2. **Photo received**: When a user sends a receipt photo, the agent calls `ocr_extract_text` (its only custom tool), which uses EasyOCR to read the text.
 
-3. **Validation & save**: The `save_expense` tool validates through a Pydantic model, checks for duplicates, appends to `data/expenses.csv`, and returns a monthly running total.
+3. **Parsing & saving**: The agent parses the OCR output following the rules in `AGENTS.md` (date format conversion, amount normalization, category assignment), checks for duplicates by reading `expenses.csv`, and appends the new record — all through workspace filesystem access.
 
-4. **Summaries**: `get_monthly_summary` reads the CSV and returns a category breakdown with percentages.
+4. **Summaries**: When asked for a summary, the agent reads `expenses.csv`, groups by category, and computes totals. No dedicated summary tool needed.
+
+5. **Memory**: The agent logs daily activity to `workspace/memory/` so it retains context across sessions.
 
 ## Notes
 
-- The agent has `enable_filesystem=False` and `enable_shell=False` since it only needs its custom tools
+- Only one custom tool (`ocr_extract_text`) is needed — everything else the agent handles through workspace filesystem
 - OCR language is set to Turkish (`tr`) by default. Change the `languages` parameter in `tools.py` for other languages
-- Expenses are stored in a flat CSV file under `data/`. No database required
+- The CSV format is defined in `AGENTS.md`, not in code. Change the schema there and the agent adapts
