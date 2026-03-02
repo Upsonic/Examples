@@ -1,0 +1,81 @@
+shipment_id,date,origin_city,destination_city,carrier,product_category,quantity,weight_kg,planned_delivery_date,actual_delivery_date,shipping_cost_usd,status
+SHP-001,2025-01-03,Istanbul,Ankara,FastCargo,Electronics,120,480,2025-01-05,2025-01-05,320.00,Delivered
+SHP-002,2025-01-04,Istanbul,Izmir,SpeedLine,Furniture,45,890,2025-01-07,2025-01-08,710.00,Delivered
+SHP-003,2025-01-05,Ankara,Antalya,FastCargo,Food & Beverage,300,1200,2025-01-07,2025-01-07,540.00,Delivered
+SHP-004,2025-01-06,Istanbul,Bursa, EcoShip,Clothing,200,400,2025-01-08,2025-01-08,180.00,Delivered
+SHP-005,2025-01-07,Izmir,Trabzon,SpeedLine,Electronics,80,320,2025-01-11,2025-01-14,890.00,Delivered
+SHP-006,2025-01-08,Istanbul,Diyarbakir,FastCargo,Furniture,30,750,2025-01-12,2025-01-15,1100.00,Delivered
+SHP-007,2025-01-09,Ankara,Istanbul,EcoShip,Food & Beverage,500,2000,2025-01-11,2025-01-11,420.00,Delivered
+SHP-008,2025-01-10,Istanbul,Erzurum,SpeedLine,Clothing,150,300,2025-01-14,2025-01-18,950.00,Delivered
+SHP-009,2025-01-11,Bursa,Ankara,FastCargo,Electronics,90,360,2025-01-13,2025-01-13,290.00,Delivered
+SHP-010,2025-01-12,Istanbul,Samsun,EcoShip,Furniture,25,625,2025-01-16,2025-01-19,780.00,Delivered
+SHP-011,2025-01-13,Istanbul,Antalya,SpeedLine,Food & Beverage,400,1600,2025-01-16,2025-01-16,620.00,Delivered
+SHP-012,2025-01-14,Ankara,Izmir,FastCargo,Clothing,180,360,2025-01-16,2025-01-17,310.00,Delivered
+SHP-013,2025-01-15,Istanbul,Trabzon,EcoShip,Electronics,60,240,2025-01-19,2025-01-23,1020.00,Delivered
+SHP-014,2025-01-16,Izmir,Diyarbakir,SpeedLine,Furniture,35,875,2025-01-20,2025-01-24,1250.00,Delivered
+SHP-015,2025-01-17,Istanbul,Ankara,FastCargo,Food & Beverage,350,1400,2025-01-19,2025-01-19,380.00,Delivered
+SHP-016,2025-01-18,Istanbul,Bursa,EcoShip,Clothing,220,440,2025-01-20,2025-01-20,190.00,Delivered
+SHP-017,2025-01-19,Ankara,Erzurum,SpeedLine,Electronics,70,280,2025-01-23,2025-01-27,1050.00,Delivered
+SHP-018,2025-01-20,Istanbul,Samsun,FastCargo,Furniture,40,1000,2025-01-24,2025-01-26,820.00,Delivered
+SHP-019,2025-01-21,Bursa,Antalya,EcoShip,Food & Beverage,280,1120,2025-01-24,2025-01-25,560.00,Delivered
+SHP-020,2025-01-22,Istanbul,Izmir,SpeedLine,Clothing,160,320,2025-01-25,2025-01-25,270.00,Delivered
+SHP-021,2025-01-23,Istanbul,Diyarbakir,EcoShip,Electronics,55,220,2025-01-27,2025-01-31,1080.00,Delivered
+SHP-022,2025-01-24,Ankara,Trabzon,FastCargo,Furniture,28,700,2025-01-28,2025-01-30,910.00,Delivered
+SHP-023,2025-01-25,Istanbul,Ankara,SpeedLine,Food & Beverage,450,1800,2025-01-27,2025-01-27,410.00,Delivered
+SHP-024,2025-01-26,Izmir,Bursa,EcoShip,Clothing,190,380,2025-01-28,2025-01-28,170.00,Delivered
+SHP-025,2025-01-27,Istanbul,Antalya,FastCargo,Electronics,100,400,2025-01-30,2025-01-30,480.00,Delivered
+SHP-026,2025-01-28,Istanbul,Erzurum,SpeedLine,Furniture,32,800,2025-02-01,2025-02-05,1180.00,Delivered
+SHP-027,2025-01-29,Ankara,Samsun,EcoShip,Food & Beverage,320,1280,2025-02-01,2025-02-03,640.00,Delivered
+SHP-028,2025-01-30,Istanbul,Trabzon,FastCargo,Clothing,140,280,2025-02-03,2025-02-06,870.00,Delivered
+SHP-029,2025-01-31,Bursa,Diyarbakir,SpeedLine,Electronics,65,260,2025-02-04,2025-02-08,1150.00,Delivered
+SHP-030,2025-02-01,Istanbul,Izmir,EcoShip,Furniture,38,950,2025-02-04,2025-02-05,690.00,Delivered
+SHP-031,2025-02-02,Istanbul,Ankara,FastCargo,Food & Beverage,380,1520,2025-02-04,2025-02-04,370.00,Delivered
+SHP-032,2025-02-03,Ankara,Antalya,SpeedLine,Clothing,170,340,2025-02-06,2025-02-07,450.00,Delivered
+SHP-033,2025-02-04,Istanbul,Bursa,EcoShip,Electronics,110,440,2025-02-06,2025-02-06,210.00,Delivered
+SHP-034,2025-02-05,Izmir,Erzurum,FastCargo,Furniture,22,550,2025-02-09,2025-02-13,1050.00,Delivered
+SHP-035,2025-02-06,Istanbul,Samsun,SpeedLine,Food & Beverage,290,1160,2025-02-09,2025-02-11,720.00,Delivered
+SHP-036,2025-02-07,Istanbul,Diyarbakir,EcoShip,Clothing,130,260,2025-02-11,2025-02-15,980.00,Delivered
+SHP-037,2025-02-08,Ankara,Trabzon,FastCargo,Electronics,75,300,2025-02-11,2025-02-13,830.00,Delivered
+SHP-038,2025-02-09,Istanbul,Izmir,SpeedLine,Furniture,42,1050,2025-02-12,2025-02-12,720.00,Delivered
+SHP-039,2025-02-10,Bursa,Ankara,EcoShip,Food & Beverage,410,1640,2025-02-12,2025-02-13,390.00,Delivered
+SHP-040,2025-02-11,Istanbul,Antalya,FastCargo,Clothing,200,400,2025-02-14,2025-02-14,440.00,Delivered
+SHP-041,2025-02-12,Istanbul,Erzurum,SpeedLine,Electronics,50,200,2025-02-16,2025-02-20,1100.00,Delivered
+SHP-042,2025-02-13,Ankara,Bursa,EcoShip,Furniture,36,900,2025-02-16,2025-02-17,580.00,Delivered
+SHP-043,2025-02-14,Istanbul,Samsun,FastCargo,Food & Beverage,340,1360,2025-02-17,2025-02-19,680.00,Delivered
+SHP-044,2025-02-15,Izmir,Trabzon,SpeedLine,Clothing,120,240,2025-02-19,2025-02-23,920.00,Delivered
+SHP-045,2025-02-16,Istanbul,Diyarbakir,EcoShip,Electronics,85,340,2025-02-20,2025-02-25,1130.00,Delivered
+SHP-046,2025-02-17,Istanbul,Ankara,FastCargo,Furniture,48,1200,2025-02-19,2025-02-19,510.00,Delivered
+SHP-047,2025-02-18,Ankara,Izmir,SpeedLine,Food & Beverage,260,1040,2025-02-21,2025-02-22,530.00,Delivered
+SHP-048,2025-02-19,Istanbul,Antalya,EcoShip,Clothing,180,360,2025-02-22,2025-02-23,470.00,Delivered
+SHP-049,2025-02-20,Bursa,Erzurum,FastCargo,Electronics,40,160,2025-02-24,2025-02-28,990.00,Delivered
+SHP-050,2025-02-21,Istanbul,Samsun,SpeedLine,Furniture,29,725,2025-02-25,2025-02-28,810.00,Delivered
+SHP-051,2025-02-22,Istanbul,Trabzon,EcoShip,Food & Beverage,370,1480,2025-02-26,2025-02-28,750.00,Delivered
+SHP-052,2025-02-23,Ankara,Diyarbakir,FastCargo,Clothing,155,310,2025-02-27,2025-03-02,880.00,Delivered
+SHP-053,2025-02-24,Istanbul,Bursa,SpeedLine,Electronics,95,380,2025-02-26,2025-02-26,230.00,Delivered
+SHP-054,2025-02-25,Izmir,Ankara,EcoShip,Furniture,33,825,2025-02-28,2025-03-01,620.00,Delivered
+SHP-055,2025-02-26,Istanbul,Antalya,FastCargo,Food & Beverage,310,1240,2025-03-01,2025-03-01,490.00,Delivered
+SHP-056,2025-02-27,Istanbul,Izmir,SpeedLine,Clothing,210,420,2025-03-02,2025-03-02,280.00,Delivered
+SHP-057,2025-02-28,Ankara,Erzurum,EcoShip,Electronics,60,240,2025-03-04,2025-03-08,1060.00,Delivered
+SHP-058,2025-03-01,Istanbul,Samsun,FastCargo,Furniture,44,1100,2025-03-05,2025-03-07,790.00,Delivered
+SHP-059,2025-03-02,Bursa,Trabzon,SpeedLine,Food & Beverage,280,1120,2025-03-06,2025-03-09,860.00,Delivered
+SHP-060,2025-03-03,Istanbul,Diyarbakir,EcoShip,Clothing,145,290,2025-03-07,2025-03-11,1010.00,Delivered
+SHP-061,2025-03-04,Istanbul,Ankara,FastCargo,Electronics,130,520,2025-03-06,2025-03-06,340.00,Delivered
+SHP-062,2025-03-05,Ankara,Bursa,SpeedLine,Furniture,27,675,2025-03-08,2025-03-09,560.00,Delivered
+SHP-063,2025-03-06,Istanbul,Antalya,EcoShip,Food & Beverage,420,1680,2025-03-09,2025-03-10,600.00,Delivered
+SHP-064,2025-03-07,Izmir,Erzurum,FastCargo,Clothing,100,200,2025-03-11,2025-03-15,940.00,Delivered
+SHP-065,2025-03-08,Istanbul,Samsun,SpeedLine,Electronics,72,288,2025-03-12,2025-03-14,760.00,Delivered
+SHP-066,2025-03-09,Istanbul,Trabzon,EcoShip,Furniture,31,775,2025-03-13,2025-03-17,890.00,Delivered
+SHP-067,2025-03-10,Ankara,Diyarbakir,FastCargo,Food & Beverage,330,1320,2025-03-14,2025-03-17,850.00,Delivered
+SHP-068,2025-03-11,Istanbul,Izmir,SpeedLine,Clothing,175,350,2025-03-14,2025-03-14,260.00,Delivered
+SHP-069,2025-03-12,Bursa,Ankara,EcoShip,Electronics,88,352,2025-03-14,2025-03-15,300.00,Delivered
+SHP-070,2025-03-13,Istanbul,Antalya,FastCargo,Furniture,50,1250,2025-03-16,2025-03-16,530.00,Delivered
+SHP-071,2025-03-14,Istanbul,Bursa,SpeedLine,Food & Beverage,390,1560,2025-03-16,2025-03-17,240.00,Delivered
+SHP-072,2025-03-15,Ankara,Erzurum,EcoShip,Clothing,115,230,2025-03-19,2025-03-23,1000.00,Delivered
+SHP-073,2025-03-15,Istanbul,Trabzon,FastCargo,Electronics,68,272,2025-03-19,2025-03-21,840.00,Delivered
+SHP-074,2025-03-15,Izmir,Samsun,SpeedLine,Furniture,37,925,2025-03-19,2025-03-22,900.00,Delivered
+SHP-075,2025-03-15,Istanbul,Diyarbakir,EcoShip,Food & Beverage,350,1400,2025-03-19,2025-03-23,1040.00,Delivered
+SHP-076,2025-03-15,Istanbul,Ankara,FastCargo,Clothing,195,390,2025-03-17,2025-03-17,200.00,Delivered
+SHP-077,2025-03-15,Ankara,Izmir,SpeedLine,Electronics,105,420,2025-03-18,2025-03-19,450.00,Delivered
+SHP-078,2025-03-15,Istanbul,Antalya,EcoShip,Furniture,26,650,2025-03-18,2025-03-19,510.00,Delivered
+SHP-079,2025-03-15,Bursa,Erzurum,FastCargo,Food & Beverage,270,1080,2025-03-19,2025-03-23,970.00,Delivered
+SHP-080,2025-03-15,Istanbul,Samsun,SpeedLine,Clothing,135,270,2025-03-18,2025-03-20,700.00,Delivered
