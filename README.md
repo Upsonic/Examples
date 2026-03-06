@@ -75,6 +75,7 @@ Orchestration patterns: DeepAgent, sequential pipelines, and specialized subagen
 | [company_research_sales_strategy](examples/multi_agent/company_research_sales_strategy/) | Full company research with industry analysis, financial data, and tailored sales strategy | DeepAgent, 4 subagents, SQLite memory |
 | [landing_page_generation](examples/multi_agent/landing_page_generation/) | Generate a landing page image by coordinating content, design, and SEO specialists | DeepAgent, image generation, subagent delegation |
 | [sales_offer_generator_agent](examples/multi_agent/sales_offer_generator_agent/) | Research products, analyze competitor pricing, and generate a personalized sales offer | DeepAgent, DuckDuckGo, market research |
+| [agent_as_tool](examples/multi_agent/agent_as_tool/) | Coordinator agent delegates to specialist agents (research, strategy, content) passed directly as tools | Agent-as-tool pattern, hierarchical agents, model mixing |
 
 ---
 
@@ -85,6 +86,7 @@ Long-running agents with persistent memory, workspace context, and external inte
 | Example | Description | Key Concepts |
 |---------|-------------|--------------|
 | [devops_telegram_bot](examples/autonomous_agents/devops_telegram_bot/) | A DevOps assistant connected to Telegram that remembers context across conversations | AutonomousAgent, TelegramInterface, workspace memory |
+| [expense_tracker_bot](examples/autonomous_agents/expense_tracker_bot/) | Chat-based Telegram bot that reads receipt photos via OCR, logs expenses to CSV, and generates monthly summaries | AutonomousAgent, TelegramInterface, OCR, ngrok, workspace memory |
 
 ---
 
@@ -142,9 +144,11 @@ examples/
 │   ├── git_changelog_writer/
 │   ├── company_research_sales_strategy/
 │   ├── landing_page_generation/
-│   └── sales_offer_generator_agent/
+│   ├── sales_offer_generator_agent/
+│   └── agent_as_tool/
 ├── autonomous_agents/        # Long-running agents with memory & interfaces
-│   └── devops_telegram_bot/
+│   ├── devops_telegram_bot/
+│   └── expense_tracker_bot/
 ├── safety_and_policies/      # Safety Engine and content filtering
 │   ├── crypto_block_policy/
 │   └── gpt_oss_safety_agent/
@@ -167,7 +171,8 @@ examples/
 | `GROQ_API_KEY` | `groq_code_review_agent` |
 | `NVIDIA_API_KEY` | `nvidia_agent` (get from [build.nvidia.com](https://build.nvidia.com)) |
 | `OPENROUTER_API_KEY` | `gpt_oss_safety_agent` |
-| `TELEGRAM_BOT_TOKEN` | `devops_telegram_bot` |
+| `ANTHROPIC_API_KEY` | `expense_tracker_bot` |
+| `TELEGRAM_BOT_TOKEN` | `devops_telegram_bot`, `expense_tracker_bot` |
 | *(none)* | `ollama_agent`, `crypto_block_policy` |
 
 ---
