@@ -1,0 +1,5 @@
+upsonic[ocr]
+anthropic
+numpy
+fastapi
+torchvision==0.22.0  # pin to match torch 2.7.x; upsonic[ocr] resolves incompatible torchvision==0.25.0
