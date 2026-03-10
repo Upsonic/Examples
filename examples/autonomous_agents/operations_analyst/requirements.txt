@@ -1,0 +1,4 @@
+upsonic
+anthropic
+matplotlib
+pandas
