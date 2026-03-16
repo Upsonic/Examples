@@ -1,0 +1,4 @@
+upsonic[custom-tools]
+python-dotenv
+apify-client
+anthropic
