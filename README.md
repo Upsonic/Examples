@@ -87,6 +87,7 @@ Long-running agents with persistent memory, workspace context, and external inte
 |---------|-------------|--------------|
 | [devops_telegram_bot](examples/autonomous_agents/devops_telegram_bot/) | A DevOps assistant connected to Telegram that remembers context across conversations | AutonomousAgent, TelegramInterface, workspace memory |
 | [expense_tracker_bot](examples/autonomous_agents/expense_tracker_bot/) | Chat-based Telegram bot that reads receipt photos via OCR, logs expenses to CSV, and generates monthly summaries | AutonomousAgent, TelegramInterface, OCR, ngrok, workspace memory |
+| [folder_organizer](examples/autonomous_agents/folder_organizer/) | Semantically reorganizes any messy folder into a clean, navigable hierarchy using a skill file — no hardcoded rules | AutonomousAgent, skill system, semantic classification, workspace |
 
 ---
 
@@ -148,7 +149,8 @@ examples/
 │   └── agent_as_tool/
 ├── autonomous_agents/        # Long-running agents with memory & interfaces
 │   ├── devops_telegram_bot/
-│   └── expense_tracker_bot/
+│   ├── expense_tracker_bot/
+│   └── folder_organizer/
 ├── safety_and_policies/      # Safety Engine and content filtering
 │   ├── crypto_block_policy/
 │   └── gpt_oss_safety_agent/

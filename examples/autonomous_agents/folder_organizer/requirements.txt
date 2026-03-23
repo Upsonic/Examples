@@ -1,0 +1,3 @@
+upsonic
+python-dotenv
+anthropic
