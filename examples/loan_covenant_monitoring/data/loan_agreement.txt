@@ -1,0 +1,164 @@
+SENIOR SECURED TERM LOAN AGREEMENT
+
+Effective Date: January 15, 2024
+
+LENDER: Meridian Capital Bank, N.A. ("Lender")
+BORROWER: GlobalTech Manufacturing Inc., a Delaware corporation ("Borrower")
+
+Facility Amount: $150,000,000 (One Hundred Fifty Million Dollars)
+Maturity Date: January 15, 2029
+Interest Rate: SOFR + 275 basis points, adjusted quarterly
+Amortization: $15,000,000 annual principal repayment, payable quarterly
+
+================================================================================
+ARTICLE VII — FINANCIAL COVENANTS
+================================================================================
+
+The Borrower shall maintain compliance with the following financial covenants,
+tested quarterly on the last day of each fiscal quarter based on trailing
+twelve-month ("TTM") figures unless otherwise specified. Compliance shall be
+demonstrated via a Compliance Certificate delivered with each quarterly
+financial statement package.
+
+--------------------------------------------------------------------------------
+Section 7.1 — Maximum Leverage Ratio
+--------------------------------------------------------------------------------
+
+The Borrower shall not permit the ratio of Total Funded Debt to EBITDA
+(the "Leverage Ratio") to exceed:
+
+  - 4.00 to 1.00 for fiscal quarters ending on or before December 31, 2024
+  - 3.75 to 1.00 for fiscal quarters ending January 1, 2025 through December 31, 2025
+  - 3.50 to 1.00 for fiscal quarters ending on or after January 1, 2026
+
+Testing frequency: Quarterly, on a TTM basis.
+
+Definitions for this covenant:
+  "Total Funded Debt" means all indebtedness for borrowed money, including
+  the outstanding principal balance of term loans, revolving credit facilities,
+  capital lease obligations, and the face amount of all outstanding letters
+  of credit.
+
+  "EBITDA" means net income plus (i) interest expense, (ii) income tax expense,
+  (iii) depreciation expense, and (iv) amortization expense, in each case
+  determined on a consolidated basis in accordance with GAAP, and adjusted to
+  exclude the impact of non-recurring charges approved by the Lender.
+
+--------------------------------------------------------------------------------
+Section 7.2 — Minimum Interest Coverage Ratio
+--------------------------------------------------------------------------------
+
+The Borrower shall maintain a ratio of EBIT to Interest Expense
+(the "Interest Coverage Ratio") of not less than 2.00 to 1.00, tested
+quarterly on a TTM basis.
+
+Testing frequency: Quarterly, on a TTM basis.
+
+Definitions for this covenant:
+  "EBIT" means net income plus (i) interest expense and (ii) income tax
+  expense, determined on a consolidated basis in accordance with GAAP.
+
+  "Interest Expense" means all interest paid or accrued on Total Funded Debt
+  during the applicable measurement period, including commitment fees and
+  letter of credit fees, but excluding amortization of deferred financing costs.
+
+--------------------------------------------------------------------------------
+Section 7.3 — Minimum Current Ratio
+--------------------------------------------------------------------------------
+
+The Borrower shall maintain a ratio of Current Assets to Current Liabilities
+(the "Current Ratio") of not less than 1.20 to 1.00, tested as of the last
+day of each fiscal quarter on a point-in-time basis.
+
+Testing frequency: Quarterly, point-in-time (balance sheet date).
+
+Definitions for this covenant:
+  "Current Assets" means all assets classified as current in accordance with
+  GAAP, including cash and cash equivalents, accounts receivable, inventory,
+  and prepaid expenses.
+
+  "Current Liabilities" means all liabilities classified as current in
+  accordance with GAAP, including accounts payable, accrued expenses, the
+  current portion of long-term debt, and other short-term obligations.
+
+--------------------------------------------------------------------------------
+Section 7.4 — Minimum Debt Service Coverage Ratio
+--------------------------------------------------------------------------------
+
+The Borrower shall maintain a ratio of Net Operating Income to Total Debt
+Service (the "Debt Service Coverage Ratio" or "DSCR") of not less than
+1.25 to 1.00, tested quarterly on a TTM basis.
+
+Testing frequency: Quarterly, on a TTM basis.
+
+Definitions for this covenant:
+  "Net Operating Income" means EBITDA less (i) unfunded capital expenditures
+  (capital expenditures not financed with new debt) and (ii) cash taxes paid
+  during the applicable period.
+
+  "Total Debt Service" means the sum of (i) all scheduled principal payments
+  and (ii) all interest payments on Total Funded Debt during the applicable
+  measurement period.
+
+--------------------------------------------------------------------------------
+Section 7.5 — Minimum Tangible Net Worth
+--------------------------------------------------------------------------------
+
+The Borrower shall maintain Tangible Net Worth of not less than $50,000,000
+(Fifty Million Dollars), tested as of the last day of each fiscal quarter on
+a point-in-time basis.
+
+Testing frequency: Quarterly, point-in-time (balance sheet date).
+
+Definitions for this covenant:
+  "Tangible Net Worth" means total assets minus (i) total liabilities and
+  minus (ii) all intangible assets, including goodwill, patents, trademarks,
+  copyrights, organizational costs, and other intangible assets as classified
+  under GAAP.
+
+================================================================================
+ARTICLE VIII — CURE PROVISIONS
+================================================================================
+
+Section 8.1 — Equity Cure Right
+
+In the event of a breach of any financial covenant set forth in Article VII,
+the Borrower shall have the right to cure such breach by contributing
+additional equity capital within thirty (30) days of the delivery of the
+Compliance Certificate demonstrating such breach. Such equity cure right may
+be exercised no more than two (2) times during the term of this Agreement and
+not in consecutive fiscal quarters. Equity cure proceeds shall be added to
+EBITDA solely for the purpose of recalculating the breached covenant for the
+applicable measurement period.
+
+Section 8.2 — Notice and Grace Period
+
+Upon discovery of any covenant breach, the Borrower shall deliver written
+notice to the Lender within five (5) business days. A grace period of fifteen
+(15) business days shall apply before a breach constitutes an Event of Default
+under Article X, provided the Borrower is actively pursuing commercially
+reasonable remediation steps.
+
+================================================================================
+ARTICLE IX — REPORTING REQUIREMENTS
+================================================================================
+
+Section 9.1 — Quarterly Compliance Certificate
+
+Within forty-five (45) days after the end of each fiscal quarter, the
+Borrower shall deliver to the Lender a Compliance Certificate signed by the
+Chief Financial Officer, certifying compliance with all financial covenants
+set forth in Article VII and including detailed calculations for each covenant.
+
+Section 9.2 — Annual Audited Financial Statements
+
+Within ninety (90) days after the end of each fiscal year, the Borrower shall
+deliver audited consolidated financial statements prepared in accordance with
+GAAP by an independent accounting firm of national recognition.
+
+Section 9.3 — Prompt Notice of Material Events
+
+The Borrower shall promptly notify the Lender of any event that could
+reasonably be expected to result in a breach of any financial covenant,
+any pending or threatened litigation in excess of $5,000,000, or any material
+adverse change in the Borrower's financial condition or business operations.

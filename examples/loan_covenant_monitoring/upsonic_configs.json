@@ -1,0 +1,116 @@
+{
+    "envinroment_variables": {
+        "UPSONIC_WORKERS_AMOUNT": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "API_WORKERS": {
+            "type": "number",
+            "description": "The number of workers for the Upsonic API",
+            "default": 1
+        },
+        "RUNNER_CONCURRENCY": {
+            "type": "number",
+            "description": "The number of runners for the Upsonic API",
+            "default": 1
+        }
+    },
+    "machine_spec": {
+        "cpu": 2,
+        "memory": 4096,
+        "storage": 1024
+    },
+    "agent_name": "Loan Covenant Monitoring Agent",
+    "description": "AI agent team that monitors loan covenant compliance by extracting covenant definitions from agreements, calculating financial ratios with custom tools, and assessing breach risk using coordinated specialist agents",
+    "icon": "shield-check",
+    "language": "python",
+    "streamlit": false,
+    "proxy_agent": false,
+    "dependencies": {
+        "api": [
+            "upsonic",
+            "anthropic"
+        ],
+        "development": [
+            "python-dotenv",
+            "pytest"
+        ]
+    },
+    "entrypoints": {
+        "api_file": "main.py",
+        "streamlit_file": "streamlit_app.py"
+    },
+    "input_schema": {
+        "inputs": {
+            "company_name": {
+                "type": "string",
+                "description": "Name of the borrower company (required)",
+                "required": true,
+                "default": null
+            },
+            "reporting_period": {
+                "type": "string",
+                "description": "Period being monitored, e.g. 'Q4 2025' (required)",
+                "required": true,
+                "default": null
+            },
+            "loan_agreement_path": {
+                "type": "string",
+                "description": "Path to the loan agreement text file (required)",
+                "required": true,
+                "default": null
+            },
+            "financial_data_path": {
+                "type": "string",
+                "description": "Path to the financial data JSON file (required)",
+                "required": true,
+                "default": null
+            },
+            "focus_areas": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Optional list of priority focus areas for the analysis",
+                "required": false,
+                "default": null
+            },
+            "enable_memory": {
+                "type": "boolean",
+                "description": "Whether to enable in-memory session persistence",
+                "required": false,
+                "default": true
+            },
+            "model": {
+                "type": "string",
+                "description": "Model identifier for the coordinator agent (e.g. anthropic/claude-sonnet-4-5, openai/gpt-4o)",
+                "required": false,
+                "default": "anthropic/claude-sonnet-4-5"
+            },
+            "print": {
+                "type": "boolean",
+                "description": "If true, do() prints output; if false, print_do() does not. Overridden by UPSONIC_AGENT_PRINT env.",
+                "required": false
+            }
+        }
+    },
+    "output_schema": {
+        "company_name": {
+            "type": "string",
+            "description": "The borrower company name"
+        },
+        "reporting_period": {
+            "type": "string",
+            "description": "The period that was monitored"
+        },
+        "report": {
+            "type": "object",
+            "description": "Full CovenantMonitoringReport with covenants, ratios, compliance results, risk assessment, executive summary, and next steps"
+        },
+        "monitoring_completed": {
+            "type": "boolean",
+            "description": "Whether the monitoring process completed successfully"
+        }
+    }
+}

@@ -1,0 +1,92 @@
+{
+  "company_name": "GlobalTechMac Manufacturing Inc.",
+  "reporting_period": "Q4 2025",
+  "period_end_date": "2025-12-31",
+  "measurement_basis": "Trailing Twelve Months (TTM) ending December 31, 2025",
+  "currency": "USD",
+
+  "income_statement_ttm": {
+    "revenue": 285000000,
+    "cost_of_goods_sold": 192000000,
+    "gross_profit": 93000000,
+    "selling_general_administrative": 51000000,
+    "depreciation_expense": 13500000,
+    "amortization_expense": 4500000,
+    "total_operating_expenses": 69000000,
+    "operating_income_ebit": 24000000,
+    "interest_expense": 8600000,
+    "pre_tax_income": 15400000,
+    "income_tax_expense": 3850000,
+    "net_income": 11550000,
+    "ebitda": 42000000,
+    "ebitda_adjustments_note": "EBITDA includes $2,100,000 add-back for non-recurring restructuring charges approved by Lender per Section 7.1"
+  },
+
+  "balance_sheet_q4_2025": {
+    "current_assets": {
+      "cash_and_equivalents": 12500000,
+      "accounts_receivable_net": 35800000,
+      "inventory": 24500000,
+      "prepaid_expenses": 5500000,
+      "total_current_assets": 78300000
+    },
+    "non_current_assets": {
+      "property_plant_equipment_net": 175000000,
+      "goodwill": 22000000,
+      "patents_and_trademarks": 8500000,
+      "other_intangible_assets": 4500000,
+      "other_non_current_assets": 6200000,
+      "total_non_current_assets": 216200000
+    },
+    "total_assets": 294500000,
+
+    "current_liabilities": {
+      "accounts_payable": 22000000,
+      "accrued_expenses": 12500000,
+      "current_portion_long_term_debt": 15000000,
+      "other_current_liabilities": 8500000,
+      "total_current_liabilities": 58000000
+    },
+    "non_current_liabilities": {
+      "long_term_debt": 120000000,
+      "capital_lease_obligations": 7500000,
+      "other_non_current_liabilities": 4000000,
+      "total_non_current_liabilities": 131500000
+    },
+    "total_liabilities": 189500000,
+
+    "shareholders_equity": {
+      "common_stock_and_apic": 15000000,
+      "retained_earnings": 90000000,
+      "total_shareholders_equity": 105000000
+    }
+  },
+
+  "debt_schedule": {
+    "senior_term_loan_outstanding": 120000000,
+    "current_portion_term_loan": 15000000,
+    "capital_lease_obligations": 7500000,
+    "outstanding_letters_of_credit": 9500000,
+    "total_funded_debt": 152000000,
+    "weighted_average_interest_rate_percent": 5.65,
+    "next_principal_payment_date": "2026-03-31",
+    "next_principal_payment_amount": 3750000
+  },
+
+  "cash_flow_data_ttm": {
+    "ebitda": 42000000,
+    "unfunded_capital_expenditures": 10000000,
+    "cash_taxes_paid": 4860000,
+    "net_operating_income_for_dscr": 27140000,
+    "scheduled_principal_payments": 15000000,
+    "total_interest_paid": 8600000,
+    "total_debt_service": 23600000
+  },
+
+  "intangible_assets_summary": {
+    "goodwill": 22000000,
+    "patents_and_trademarks": 8500000,
+    "other_intangibles": 4500000,
+    "total_intangible_assets": 35000000
+  }
+}
